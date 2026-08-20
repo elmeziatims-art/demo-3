@@ -446,3 +446,14 @@ correspondance ligne à ligne : c'est un **jeu de règles** avec des **caractèr
   **`Q99`** (ETP), point. Aucune règle, aucune combinaison, aucune conso sur le flux.
 - **Comptes (`D_AC`)** = table de correspondance (étape 2), pas de mécanisme `*` dessus.
 - ⇒ Ne PAS généraliser le wildcard aux flux/comptes (annule la piste évoquée précédemment).
+
+---
+
+## Environnement technique (acté)
+
+- **Plateforme : Windows** → Power Query **complet**, aucune contrainte.
+- **Version Excel : à confirmer** (utilisateur ne sait pas encore). Sur Windows, Power Query est
+  intégré depuis **Excel 2016**. Vérif : onglet **Données → « Récupérer et transformer les données »**
+  présent ; version exacte via **Fichier → Compte → À propos d'Excel**.
+- **Techno moteur : Power Query (langage M), SANS VBA / macro.** Actualisation par
+  **Données → Actualiser tout**.
