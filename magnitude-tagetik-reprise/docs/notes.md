@@ -611,3 +611,20 @@ C'est un **exemple de ce que donne une restitution via Magnitude** = le reportin
 
 ### Question ouverte ajoutée
 - Signification des **RU `P-…`** vs `G-…` (périmètre/plan ?) et des **groupes nommés** `AR0xx`/`AF0xx`.
+
+### 🔑 Recoupement clé : les lignes 90-94 jamais réconciliées = la population « Non mappable »
+Info utilisateur : dans la restitution, l'utilisateur a réconcilié beaucoup de lignes **sauf les 90 à 94**.
+Ces lignes sont **précisément** les coûts **holding / centraux / mailles techniques** :
+| Ligne | Libellé | RU / OA | Rattachement |
+|-------|---------|---------|--------------|
+| R90 | Reprocessing accounting carto **BCESTE** | maille `GT-BCESTE` | **Non mappable** (maille technique) |
+| R91 | Holding Italy | `OA005`, `RU sum AF026` (ITA) | Holding |
+| R92 | Advisory Residential Sales | `OA010O` (**tagué NOT USED**) | OA technique |
+| R93 | G-central HD | `OA005+OA005O+OA006`, `G-CENTRAL` | Central |
+| R94 | Group Costs | `GT-BALE2`+**`GT-TUT`**+`G-ITBNL`+… | **Non mappable** (tutelle/technique) |
+
+**Conclusion** : la non-réconciliation de 90-94 **confirme** l'analyse Mappable/Non mappable —
+ces lignes (`GT-BCESTE`, `GT-TUT`, `G-CENTRAL`, holding, `OA010O`) **n'ont pas de correspondance
+propre RU→EJ** et relèvent de **mailles techniques / décisions CDG** (cf. étape 6, cas Non mappable).
+⇒ À traiter comme **cas à part** dans le mapping (maille de centralisation, pas une EJ société) ;
+ne pas chercher à les réconcilier au niveau EJ classique.
