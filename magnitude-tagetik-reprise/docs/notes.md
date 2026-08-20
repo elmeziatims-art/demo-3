@@ -452,8 +452,8 @@ correspondance ligne à ligne : c'est un **jeu de règles** avec des **caractèr
 ## Environnement technique (acté)
 
 - **Plateforme : Windows** → Power Query **complet**, aucune contrainte.
-- **Version Excel : à confirmer** (utilisateur ne sait pas encore). Sur Windows, Power Query est
-  intégré depuis **Excel 2016**. Vérif : onglet **Données → « Récupérer et transformer les données »**
-  présent ; version exacte via **Fichier → Compte → À propos d'Excel**.
+- **Version Excel : CONFIRMÉE** → **Excel pour Microsoft 365**, Version **2607** (Build 16.0.20228.20188),
+  **64 bits**. Canal à jour, Power Query complet. Le **64 bits** est un vrai atout pour les gros
+  volumes (extraction ~100 Mo, table de fait 31k+ lignes) : pas de limite mémoire du 32 bits.
 - **Techno moteur : Power Query (langage M), SANS VBA / macro.** Actualisation par
   **Données → Actualiser tout**.
