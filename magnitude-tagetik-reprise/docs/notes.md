@@ -394,3 +394,51 @@ moteur doit produire (question « rapport vs à plat » de l'étape 4 → **tran
 - La **Category** sert uniquement à **tracer** l'origine dans Tagetik (audit interne Tagetik).
 - ⇒ **On ne s'en occupe pas** dans le moteur de reprise : dimension **ignorée** (non produite /
   laissée vide ou à une valeur par défaut selon ce qu'exige l'import — à voir au moment de l'import).
+
+---
+
+## Étape 8 — Mapping INTELLIGENT : règles « défaut + exceptions » (le plus spécifique gagne)
+
+✅ **Oui, c'est possible et c'est le bon design.** La table de mapping n'est pas une simple
+correspondance ligne à ligne : c'est un **jeu de règles** avec des **caractères génériques**
+(`*` = « tout / toutes valeurs ») et une résolution par **spécificité**.
+
+### Principe
+- Clé source d'une règle = **(RU, OA, CC_source)** où **chaque composante** peut être :
+  - une **valeur précise** (ex. `G-UK`, `OA010`, `CC_12001`), ou
+  - **`*`** = « n'importe quelle valeur » (règle générale/défaut).
+- Cible d'une règle = **(ENTITE, PMA, CC_cible)** (éditable, cf. étape « tout modifiable »).
+- **Résolution** : pour une ligne de données `(RU, OA, CC)`, on prend la **règle qui matche
+  la plus spécifique** (celle qui a le **moins de `*`**). En cas d'égalité → colonne
+  **Priorité** (nombre, plus grand = gagne) pour trancher.
+
+### Exemple (celui de l'utilisateur)
+| # | RU | OA | CC source | → ENTITE | PMA | CC cible | Commentaire |
+|---|----|----|-----------|----------|-----|----------|-------------|
+| Règle défaut | `G-XX` | `OA010` | `*` (tous CC) | `EJ_aaa` | `PMA_bbb` | `CC_zzz` | cas général |
+| Exception | `G-XX` | `OA010` | `CC_777` | `EJ_ccc` | `PMA_ddd` | `CC_888` | ce CC précis part ailleurs |
+→ Une ligne `(G-XX, OA010, CC_777)` prend l'**exception** (plus spécifique).
+   Toute autre `(G-XX, OA010, autre CC)` prend le **défaut**.
+
+### Spécificité (du plus fort au plus faible)
+1. RU + OA + CC tous précis
+2. RU + OA précis, CC = `*`
+3. RU précis, OA = `*`, CC = `*`
+4. tout `*` (règle attrape-tout globale, optionnelle)
+(La colonne **Priorité** permet de forcer un ordre si besoin, ex. exceptions transverses.)
+
+### Mise en œuvre (Excel / Power Query, sans VBA)
+- La table de règles porte des colonnes : `RU, OA, CC_source, ENTITE, PMA, CC_cible, Priorité, Source`.
+- Le moteur, pour chaque ligne de données, calcule un **score de spécificité** par règle
+  candidate (match exact = fort, `*` = faible) et retient la meilleure (puis Priorité).
+- Réalisable en Power Query (jointures successives du plus spécifique au plus général, ou
+  fonction de résolution) — **100 % faisable**.
+
+### Bénéfices
+- **Peu de lignes** pour couvrir beaucoup de cas (une règle défaut couvre « tous les CC »).
+- **Exceptions ciblées** sans dupliquer tout le référentiel.
+- Compatible avec le principe **« tout éditable »** et avec les cas **1→N** (comptes) déjà actés.
+
+### Généralisation possible (à valider)
+- Le même mécanisme `*` + spécificité peut s'appliquer à **d'autres axes** (ex. par compte `D_AC`,
+  par flux `D_FL`) si un jour une exception dépend aussi du compte. À garder en tête, pas requis maintenant.
