@@ -390,5 +390,7 @@ moteur doit produire (question « rapport vs à plat » de l'étape 4 → **tran
   en résolvant : Entity/PMA/Cost Center via la **table de mapping (RU,OA,FA)**, Indicator via
   la **table comptes (D_AC)**, et en injectant les **constantes**.
 
-### Question ouverte ajoutée
-- **Category (`CTG…`)** : règle de détermination à définir.
+### Category (`CTG…`) — RÉSOLU : hors périmètre
+- La **Category** sert uniquement à **tracer** l'origine dans Tagetik (audit interne Tagetik).
+- ⇒ **On ne s'en occupe pas** dans le moteur de reprise : dimension **ignorée** (non produite /
+  laissée vide ou à une valeur par défaut selon ce qu'exige l'import — à voir au moment de l'import).
