@@ -154,3 +154,28 @@ Parfois **1 pour 1**, souvent des **cas particuliers**. Détail ci-dessous.
   (logique « of which / dont ») — **à confirmer**.
 - Ceci **remplace/complète** les points « GFB110/GFB130 : mapping inconnu » et
   « GR5000/GR5300/GR5400 : TBD » du chapitre précédent — désormais **propositions en rouge**.
+
+---
+
+## Étape 4 — Exemple de sortie : P&L Tagetik (`Tagetik_PnL_exemple.xlsx`)
+
+Fichier : `travail/Tagetik_PnL_exemple.xlsx` (fourni le 2026-08-20). 1 onglet, ~788 lignes.
+C'est un **rendu type « rapport »** Tagetik (indicateurs en lignes, périodes en colonnes).
+
+### Structure observée (lecture structurelle légère)
+- **Lignes 6-7** = contexte période : `F6 = "Actuals 2026"`, `F7 = "March"`
+  → la colonne **F** porte la valeur **Actuals 2026 / Mars** (cohérent avec 2026.03).
+- À partir de la ligne 8, une ligne = un **indicateur Tagetik** :
+  - **Col C** = flag `1`/`0` → probablement **1 = élément fin/saisissable**, **0 = agrégat/calculé** (à confirmer).
+  - **Col D** = **code indicateur** `IND_xxx` (ex. `IND_00_070030`, `IND_00_060029`).
+  - **Col E** = **libellé** de l'indicateur.
+  - **Col F** = **montant** (Actuals 2026 / March).
+  - **Col G…S** = colonnes additionnelles (autres mois/périodes ou scénarios) — à préciser.
+
+### À retenir pour l'output du moteur
+- La sortie finale devra produire, par indicateur `IND_`, un **montant** aligné sur ce format.
+- On retrouve nos IND (ex. `IND_00_070030` = « Share of earnings of equity method »,
+  déjà mappé 🔴 depuis `GR5400`).
+- **À clarifier** : rôle exact de la colonne C (1/0), et si l'output moteur doit
+  respecter **ce format rapport** (indicateurs en lignes + colonnes périodes) ou un
+  **format d'import à plat** (une ligne = entité × compte × période × montant).
