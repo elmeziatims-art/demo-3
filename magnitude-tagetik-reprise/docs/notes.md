@@ -71,3 +71,59 @@ Ne conserver **que les colonnes utiles** et appliquer les filtres suivants :
 - Usage : servira à **contrôler la donnée en euro** dans un **deuxième temps**
   (conversion / réconciliation devise → EUR pour vérification).
 - Pas utilisé tout de suite ; à garder de côté pour l'étape de contrôle.
+
+---
+
+## Étape 2 — Onglet « D_AC_Comptes » : mapping des comptes Magnitude → Tagetik
+
+Rôle : table de correspondance **compte Magnitude → compte Tagetik**.
+Parfois **1 pour 1**, souvent des **cas particuliers**. Détail ci-dessous.
+
+### Cas 1 — GR6000 & GR6100 : un total + son détail complet
+- `GR6000` et `GR6100` sont mappés vers :
+  - `IND_00_070087` **et** `IND_26_060074` (le **détail**),
+  - **et aussi** vers `IND_00_070008`.
+- Dans Tagetik :
+  - `IND_00_070008` = compte de **P&L** qui est la **somme** des deux.
+  - `IND_00_070087` et `IND_26_060074` sont présentés comme des « **dont** » mais
+    constituent en réalité le **détail complet** (leur somme = le total).
+- ⇒ La donnée GR6000/GR6100 alimente à la fois le **total** (`IND_00_070008`) et
+  le **détail** (`IND_00_070087` + `IND_26_060074`). *(à confirmer : la mécanique
+  exacte d'alimentation total vs détail dans l'output).*
+
+### Cas 2 — GR2000 : nœud à NE PAS prendre (prendre le détail)
+- `GR2000` = **Salaires variables (incl. charges sociales)** → **ne pas prendre**
+  (c'est un agrégat), car il est **détaillé** en :
+  - `GR2001`, `GR2002`, `GR2003`, `GR2004`, `GR2010`
+- ⚠️ On **ne prend plus** `GR200211`.
+
+### Cas 3 — GR2100 : salaires fixes, retraitement charges sociales
+- `GR2100` = **Salaires fixes (incl. charges soc.)**. On connaît :
+  - `GR2101` = **Indemnités de départ**
+  - `GR2102` = **Engagements sociaux**
+  - ⇒ `GR2101` et `GR2102` doivent être **déduits** de `GR2100`.
+- Problème : dans **Tagetik**, on saisit les **salaires fixes HORS charges sociales**,
+  et il existe un **compte séparé pour les charges sociales**.
+- ⇒ **Prévoir un tableau de saisie PAR ENTITÉ** pour renseigner un
+  **taux de charges sociales**, et **calculer automatiquement** la ventilation
+  (salaires fixes hors charges soc. / charges sociales).
+
+### Cas 4 — Mapping différent selon l'entité (France vs Pays)
+- Le mapping d'un même compte **dépend de l'entité** :
+  - **France** → comptes Tagetik trouvés « en face ».
+  - **Pays (hors France)** → d'autres comptes, **juste à côté**, avec une
+    **description explicite** indiquant que c'est pour les pays.
+- Concerne notamment `GR3000` et `GR3200` (en plus des cas ci-dessus).
+
+### Cas 5 — GFB110 & GFB130 : mapping inconnu (à laisser saisir)
+- Mapping **pas encore connu** → les **prévoir dans la table de mapping**,
+  les **contrôleurs de gestion saisiront** le mapping plus tard.
+
+### Cas 6 — GR5000, GR5300, GR5400 : à préciser
+- L'utilisateur **doit encore creuser** → mapping **TBD**.
+
+### Implications pour la conception de la table de mapping
+- La table doit gérer : correspondances **1→1**, **1→plusieurs** (total + détail),
+  **exclusions** (nœuds/agrégats non repris), **variantes par entité** (France/Pays),
+  et des **lignes à mapping vide** laissées à la saisie des contrôleurs.
+- Retraitements calculés (charges sociales) pilotés par un **tableau de taux par entité**.
