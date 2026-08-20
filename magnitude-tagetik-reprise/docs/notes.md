@@ -179,3 +179,37 @@ C'est un **rendu type « rapport »** Tagetik (indicateurs en lignes, périodes 
 - **À clarifier** : rôle exact de la colonne C (1/0), et si l'output moteur doit
   respecter **ce format rapport** (indicateurs en lignes + colonnes périodes) ou un
   **format d'import à plat** (une ligne = entité × compte × période × montant).
+
+---
+
+## Étape 4 bis — Hiérarchie complète de l'exemple Tagetik (au-delà du P&L)
+
+Confirmé par l'utilisateur : **flag col C → `1` = élément fin (leaf), `0` = node (subtotal)**.
+Le fichier ne contient **pas que le P&L**. Extraction complète → `docs/tagetik_indicateurs.csv`.
+
+### Décomposition (736 indicateurs : 557 fins, 179 nodes)
+- **Section P&L** : de l'index 0 jusqu'à **`IND_100000000` = « Profit & loss »** (index 342).
+  Cascade finale : … `IND_111000000` Net Income → `IND_110000000` (w/o exceptional)
+  → **`IND_100000000` Profit & loss**.
+- **Section POST-P&L** (index 343→735) : au-delà du P&L :
+  - **ETP / Headcount** (`IND_7xxxxxxxx`, ex. `IND_710000000` Headcount, `IND_26_030003`
+    TOTAL ETP Opérationnel) → **cible des lignes ETP** (flux `Q99` côté Magnitude).
+  - **KPI / Business Indicators** (`IND_720000000`, ESG, ratios de risque…).
+  - **« Of which »** analytique (`IND_2xxxxxxxx`, ex. `IND_200000000` « Of which »).
+
+### Lecture de la hiérarchie
+- Les nodes numériques (`IND_1111322113` « Salaries incl. charges », `IND_111132211`
+  « Staff costs »…) forment un **arbre par préfixe de chiffres** ; les codes alphanumériques
+  `IND_00_0xxxxx` sont des **leaves** rattachées à l'arbre.
+
+### Cibles clés repérées pour nos retraitements
+- **`IND_00_060020` « Fixed remuneration »** → cible des **salaires fixes hors charges** (cas GR2100).
+- **`IND_00_060074` « Social Charges »** → cible du **compte de charges sociales** séparé (cas GR2100).
+  ⇒ Confirme la faisabilité du retraitement « taux de charges sociales par entité ».
+
+### ⚠️ Écarts à reconcilier plus tard (ne pas trancher maintenant)
+- Pour GR6000/GR6100 l'utilisateur avait cité `IND_00_070087` et **`IND_26_060074`**.
+  Or dans cet exemple : `IND_00_070087` = « Of Which internal interest incomes » et
+  `IND_00_060074` = « Social Charges » (préfixe `00` vs `26`). → **à revérifier ensemble**.
+- Certains libellés diffèrent de la doc « 3.1 Indicators » (contextes distincts) → **à valider**
+  au moment de figer la table de mapping.

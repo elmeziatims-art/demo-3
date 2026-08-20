@@ -1,0 +1,737 @@
+ordre,section,flag,type,code_IND,libelle
+0,P&L,1,element_fin,IND_00_070030,Share of earnings of equity method
+1,P&L,0,node,IND_111111000,Share of equity method cons. Companies at social equity
+2,P&L,1,element_fin,IND_00_060029,MEE - Return on Net Equity
+3,P&L,0,node,IND_111112000,Share of equity - Return on average actual equity
+4,P&L,1,element_fin,IND_00_070028,Share of equity method cons. Companies - PPA linear depreciation
+5,P&L,1,element_fin,IND_00_070029,Share of equity method cons. Companies - PPA accelerated depreciation
+6,P&L,0,node,IND_111113000,Share of equity method cons. Companies - PPA depreciation
+7,P&L,0,node,IND_111110001,Share of equity method cons. Companies at zero equity
+8,P&L,1,element_fin,IND_00_070021,Share of equity - Return of notional equity
+9,P&L,0,node,IND_111114000,Share of equity - Return on Notional Equity
+10,P&L,1,element_fin,IND_00_060030,Share of equity - Subordination cost unallocated
+11,P&L,1,element_fin,IND_00_060031,Share of equity - TLAC cost
+12,P&L,1,element_fin,IND_00_060056,Share of equity - Subordination cost - Additional Tier 1
+13,P&L,1,element_fin,IND_00_060057,Share of equity - Subordination cost - Tier 2
+14,P&L,0,node,IND_111115000,Share of equity - Subordination cost + TLAC
+15,P&L,1,element_fin,IND_00_079905,Adjustment FP MEE (Do not use)
+16,P&L,0,node,IND_111116000,FP MEE (Do no use)
+17,P&L,0,node,IND_111110000,Share of equity method cons. Companies based on RWA
+18,P&L,1,element_fin,IND_00_070070,Changes in value of goodwill (IAS)
+19,P&L,0,node,IND_111121000,Change in value of goodwill
+20,P&L,1,element_fin,IND_00_070071,Exceptional & miscellaneous items (Total)
+21,P&L,1,element_fin,IND_00_070072,Exceptional items - ALMT split
+22,P&L,0,node,IND_111122000,Exceptional & miscellaneous items (Total)
+23,P&L,1,element_fin,IND_00_070073,Other NON-operating income/expenses (IAS)
+24,P&L,0,node,IND_111123000,Other NON-operating income/expenses (IAS)
+25,P&L,1,element_fin,IND_00_070074,Other NON-operating income/expenses - ALMT split
+26,P&L,0,node,IND_111124000,Other NON-operating income/expenses - ALMT split
+27,P&L,1,element_fin,IND_00_070075,Gain/loss on disposal of LT portf. Sec. & part. int.
+28,P&L,1,element_fin,IND_00_070076,Change in provisions for LT portf. Sec. & part. int.
+29,P&L,1,element_fin,IND_00_070077,Reversal of provisions on disposal of LT portf. Sec. & part. int.
+30,P&L,1,element_fin,IND_00_070078,Net gains on other assets (IAS)
+31,P&L,1,element_fin,IND_00_070079,Gain/loss on disposal of PP&E and intangibles
+32,P&L,1,element_fin,IND_00_070080,Gain/loss on non-current assets_Unallocated
+33,P&L,0,node,IND_111125000,Gain/loss on NON-current assets
+34,P&L,1,element_fin,IND_00_070011,Other Non-operating income/expenses (incl. Exceptional) - (Unallocated)
+35,P&L,0,node,IND_111126000,Other NON-operating income/expenses - (Unallcoated)
+36,P&L,1,element_fin,IND_00_079909,Ajustement FP ARHE W/o GW et PMV on divestiture (Do not use)
+37,P&L,1,element_fin,IND_00_079915,Adjustment FP Goodwill (Do not use)
+38,P&L,0,node,IND_111127000,FP ARHE (Do not use)
+39,P&L,0,node,IND_111120000,Other NON-operating income/expenses (Total)
+40,P&L,1,element_fin,IND_00_070008,Capital Value Added
+41,P&L,1,element_fin,IND_00_070100,ALMT revenues / VAC proxy
+42,P&L,1,element_fin,IND_00_070107,VAC – Unallocated Hold (Forecast)
+43,P&L,0,node,IND_1111321111,VAC
+44,P&L,1,element_fin,IND_26_070001,Arbitration fees
+45,P&L,1,element_fin,IND_26_070022,Fee sharing Secondary Market
+46,P&L,1,element_fin,IND_26_070027,Other financial commission income - other
+47,P&L,0,node,IND_00_070003,Other financial commission income
+48,P&L,1,element_fin,IND_00_070001,Management commissions
+49,P&L,1,element_fin,IND_00_070002,Transaction fees
+50,P&L,1,element_fin,IND_00_070004,Entry fees
+51,P&L,1,element_fin,IND_00_070005,Administration fees
+52,P&L,1,element_fin,IND_00_070006,Custody fees
+53,P&L,0,node,IND_11113211121,Financial commission
+54,P&L,1,element_fin,IND_26_070002,Business Provider Fees
+55,P&L,1,element_fin,IND_26_070006,Consulting Fees
+56,P&L,1,element_fin,IND_26_070008,Management fees
+57,P&L,1,element_fin,IND_26_070010,Other Fees
+58,P&L,1,element_fin,IND_26_070012,Other rents cancelled for IFRS16 compliant reporting (+)
+59,P&L,1,element_fin,IND_26_070014,Real Estate Fees
+60,P&L,1,element_fin,IND_26_070015,Rental Fees
+61,P&L,1,element_fin,IND_26_070016,Sales Fees
+62,P&L,1,element_fin,IND_26_070018,Technical Fees
+63,P&L,1,element_fin,IND_26_070019,Trustee's fees
+64,P&L,1,element_fin,IND_26_070020,Work Fees
+65,P&L,1,element_fin,IND_26_070026,Non-financial Commissions (other)
+66,P&L,0,node,IND_00_070007,Non-financial Commissions
+67,P&L,0,node,IND_11113211122,Non-financial commission
+68,P&L,1,element_fin,IND_00_070084,Commissions Insurance - Net gains of insurance
+69,P&L,0,node,IND_1111321112,Commissions
+70,P&L,1,element_fin,IND_00_070015,Dividend and gains and losses on non consolidated securities (AFS) / FV OCIE
+71,P&L,0,node,IND_11113211131,Dividend and gains and losses on non consolidated securities (AFS) / FV OCIE
+72,P&L,1,element_fin,IND_00_070061,Dividend on HFT / FV PL
+73,P&L,1,element_fin,IND_00_070062,Other income on HFT / FV PL
+74,P&L,0,node,IND_11113211132,Dividend and gains and losses FV PL
+75,P&L,1,element_fin,IND_00_060018,Other operating expenses
+76,P&L,1,element_fin,IND_00_070017,Other operating income
+77,P&L,0,node,IND_11113211133,Other banking income/expense
+78,P&L,1,element_fin,IND_00_070065,Net gains of insurance activities
+79,P&L,0,node,IND_11113211134,Net gains of insurance activities
+80,P&L,1,element_fin,IND_00_070066,Gains/losses from derecognition of AC financial assets
+81,P&L,1,element_fin,IND_00_070067,Gains/losses from reclassification of FVOCI instruments into FVPL
+82,P&L,1,element_fin,IND_00_070068,Gains/losses from reclassification of AC instruments into FVPL
+83,P&L,0,node,IND_11113211135,Gains/losses from reclassification
+84,P&L,1,element_fin,IND_26_070003,Commercial advertising Fees
+85,P&L,1,element_fin,IND_26_070004,Commercial Litigations
+86,P&L,1,element_fin,IND_26_070005,Consolidated Margin
+87,P&L,1,element_fin,IND_26_070007,Fee Sharing Outflow
+88,P&L,1,element_fin,IND_26_070009,Margin
+89,P&L,1,element_fin,IND_26_070011,Other income + Other costs
+90,P&L,1,element_fin,IND_26_070013,Other Sub-contracting
+91,P&L,1,element_fin,IND_26_070017,Study Fees
+92,P&L,1,element_fin,IND_26_070021,Fee Sharing Outflow Secondary Market
+93,P&L,1,element_fin,IND_26_070023,Fee Sharing Outflow Administration SCPI Residential
+94,P&L,1,element_fin,IND_26_070024,Fee Sharing Outflow Administration SCPI REPM
+95,P&L,0,node,IND_00_070010,Other NBI - Unallocated
+96,P&L,0,node,IND_11113211136,Other NBI - Unallocated
+97,P&L,1,element_fin,IND_00_060311,Coût du risque de crédit sur les placements financiers des activités d'assurance
+98,P&L,1,element_fin,IND_00_070098,HFT
+99,P&L,1,element_fin,IND_00_070099,PVO
+100,P&L,1,element_fin,IND_00_070101,Other NBI - Effort to build
+101,P&L,0,node,IND_1111321113,Other NBI
+102,P&L,1,element_fin,IND_00_070026,NBI - PPA linear depreciation
+103,P&L,1,element_fin,IND_00_070027,NBI - PPA accelerated depreciation
+104,P&L,0,node,IND_1111321114,PNB - Amortissement PPA
+105,P&L,0,node,IND_111132111,Net banking income
+106,P&L,1,element_fin,IND_00_060033,Return on Net Equity
+107,P&L,0,node,IND_111132112,Return on average actual equity
+108,P&L,0,node,IND_111132110,NBI at zero equity
+109,P&L,1,element_fin,IND_00_070018,Return on notional equity
+110,P&L,0,node,IND_111132120,Return on Notional equity
+111,P&L,1,element_fin,IND_00_060012,Subordination costs - Unventilated
+112,P&L,1,element_fin,IND_00_060019,TLAC cost
+113,P&L,1,element_fin,IND_00_060048,Subordination cost - Additional Tier 1
+114,P&L,1,element_fin,IND_00_060049,Subordination cost - Tier 2
+115,P&L,0,node,IND_111132130,Subordination cost + TLAC
+116,P&L,1,element_fin,IND_00_069902,Adjustment FP interest exp (Do not use)
+117,P&L,1,element_fin,IND_00_079902,Ajustement FP dividend income (Do not use)
+118,P&L,1,element_fin,IND_00_079903,Adjustment FP commission expense (Do not use)
+119,P&L,1,element_fin,IND_00_079904,Adjustment FP Other NBI (Do not use)
+120,P&L,1,element_fin,IND_00_079907,Adjustment FP  Interest income (Do not use)
+121,P&L,1,element_fin,IND_00_079910,Adjustment FP Other operating income (Do not use)
+122,P&L,1,element_fin,IND_00_079911,Adjustment FP Other operating expenses (Do not use)
+123,P&L,1,element_fin,IND_00_079918,Adjustment FP produit de commissions (Do not use)
+124,P&L,1,element_fin,IND_00_079919,Ajustement FP Autres revenus de trading  (Do not use)
+125,P&L,0,node,IND_111132140,FP PNB (Do no use)
+126,P&L,0,node,IND_111132100,NBI based on RWA
+127,P&L,1,element_fin,IND_00_079908,Adjustment FP Depreciation (Do not use)
+128,P&L,1,element_fin,IND_00_079912,Adjustment FP Staff costs (Do not use)
+129,P&L,1,element_fin,IND_00_079913,Adjustment FP Other admin expenses (Do not use)
+130,P&L,0,node,IND_111132250,FP FG (Do no use)
+131,P&L,1,element_fin,IND_26_060014,Entertainment
+132,P&L,1,element_fin,IND_26_060037,Travel
+133,P&L,1,element_fin,IND_26_060055,"Transport, Travel & Entertainment - country"
+134,P&L,0,node,IND_00_060094,"Transport, Travel & Entertainment"
+135,P&L,1,element_fin,IND_26_060018,Profit-Sharing bonus
+136,P&L,1,element_fin,IND_26_060031,Profit Sharing
+137,P&L,1,element_fin,IND_26_060050,Profit sharing inc. Charges - country
+138,P&L,0,node,IND_00_060077,Profit sharing inc. Charges
+139,P&L,1,element_fin,IND_26_060004,Attendance fees
+140,P&L,1,element_fin,IND_26_060005,Retirement payments
+141,P&L,1,element_fin,IND_26_060023,Occupational health
+142,P&L,1,element_fin,IND_26_060025,Other Benefits
+143,P&L,1,element_fin,IND_26_060040,Vehicles
+144,P&L,1,element_fin,IND_26_060042,Worker's Committee (CSE)
+145,P&L,1,element_fin,IND_26_060048,Benefits & Retirement payments - country
+146,P&L,1,element_fin,IND_26_060072,Vehicles - IFRS
+147,P&L,0,node,IND_00_060078,Benefits & Retirement payments
+148,P&L,1,element_fin,IND_26_060008,Charges on bonus cash (prov of the year)
+149,P&L,1,element_fin,IND_26_060009,Charges on Fixed salaries
+150,P&L,1,element_fin,IND_26_060010,Charges on variable salaries
+151,P&L,1,element_fin,IND_26_060047,Social Charges - country
+152,P&L,0,node,IND_00_060074,Social Charges
+153,P&L,1,element_fin,IND_26_060015,Exceptional incentives
+154,P&L,1,element_fin,IND_26_060016,Fixed Salaries
+155,P&L,1,element_fin,IND_26_060029,Paid on holidays (incl. Charges)
+156,P&L,1,element_fin,IND_26_060049,Fixed remuneration - country
+157,P&L,0,node,IND_00_060020,Fixed remuneration
+158,P&L,1,element_fin,IND_26_060006,Bonus Cash (Prov of the year)
+159,P&L,1,element_fin,IND_26_060012,Deferred Bonus - DCS Shares (prov of the year)
+160,P&L,1,element_fin,IND_26_060019,LTIS
+161,P&L,1,element_fin,IND_26_060038,Variable salaries linked to Profitability
+162,P&L,1,element_fin,IND_26_060039,Variable salaries linked to Result
+163,P&L,0,node,IND_00_060071,Provision bonus n
+164,P&L,1,element_fin,IND_00_060072,Provision bonus n-prior years adjustments
+165,P&L,0,node,IND_11113221132,Variable remuneration - bonus
+166,P&L,1,element_fin,IND_00_060073,Other remuneration
+167,P&L,0,node,IND_11113221131,Total remuneration
+168,P&L,0,node,IND_1111322113,Salaries incl. charges
+169,P&L,1,element_fin,IND_00_060011,Staff costs - Unallocated
+170,P&L,1,element_fin,IND_00_060225,Training
+171,P&L,1,element_fin,IND_00_060279,Recruitment
+172,P&L,0,node,IND_1111322114,Other Staff Costs
+173,P&L,1,element_fin,IND_00_060075,Detached staff
+174,P&L,1,element_fin,IND_00_060076,Capitalized staff costs
+175,P&L,1,element_fin,IND_00_060079,Severance
+176,P&L,1,element_fin,IND_00_060080,Temporary
+177,P&L,0,node,IND_111132211,Staff costs
+178,P&L,1,element_fin,IND_26_060003,Archive & Storage
+179,P&L,1,element_fin,IND_26_060013,Documentation and subscriptions
+180,P&L,1,element_fin,IND_26_060017,Headquarters Fees invoice
+181,P&L,1,element_fin,IND_26_060022,Moving fees
+182,P&L,1,element_fin,IND_26_060026,Other misc. Expenses
+183,P&L,1,element_fin,IND_26_060030,Printings
+184,P&L,1,element_fin,IND_26_060043,Office Expenses
+185,P&L,1,element_fin,IND_26_060056,Other direct costs - country
+186,P&L,0,node,IND_00_060009,Other direct costs
+187,P&L,1,element_fin,IND_00_060119,Insurance
+188,P&L,1,element_fin,IND_00_060120,Postage
+189,P&L,1,element_fin,IND_00_060121,Other Depreciation
+190,P&L,1,element_fin,IND_00_060246,Efforts non allocated (budget & forecast)
+191,P&L,1,element_fin,IND_00_060249,Other rebilling sent
+192,P&L,1,element_fin,IND_00_060250,Other rebilling received
+193,P&L,0,node,IND_111132213,Other direct operating expenses
+194,P&L,1,element_fin,IND_00_060051,Direct operating expenses - PPA linear depreciation
+195,P&L,1,element_fin,IND_00_060052,Direct operating expenses - PPA accelerated depreciation
+196,P&L,0,node,IND_111132214,Direct operating expenses - PPA depreciation
+197,P&L,1,element_fin,IND_00_060081,IT contractors
+198,P&L,1,element_fin,IND_00_060082,Non-IT contractors
+199,P&L,1,element_fin,IND_00_060083,Capitalized contractors costs
+200,P&L,1,element_fin,IND_00_060084,BNPP Consulting*
+201,P&L,1,element_fin,IND_00_060085,Other contractors
+202,P&L,1,element_fin,IND_00_060329,Time-based fees contractors - Non IT
+203,P&L,1,element_fin,IND_00_060330,Time-based fees contractors - IT
+204,P&L,0,node,IND_1111322151,Contractors
+205,P&L,1,element_fin,IND_26_060075,Other Fees - advisory
+206,P&L,1,element_fin,IND_26_060044,Other Fees - finance
+207,P&L,1,element_fin,IND_26_060076,Other Fees - EMC External Consultants
+208,P&L,1,element_fin,IND_26_060077,Other Fees - unallocated
+209,P&L,0,node,IND_00_060087,Other Fees
+210,P&L,1,element_fin,IND_00_060086,Fees - legal
+211,P&L,1,element_fin,IND_00_060168,Recruitment fees
+212,P&L,0,node,IND_1111322152,Fees
+213,P&L,1,element_fin,IND_00_060089,Outsourcing IT (excl rebilling)
+214,P&L,1,element_fin,IND_00_060253,Outsourcing IT - Internal rebilling sent
+215,P&L,1,element_fin,IND_00_060254,Outsourcing IT - Internal rebilling received
+216,P&L,0,node,IND_1111322153,Outsourcing IT
+217,P&L,1,element_fin,IND_00_060088,Outsourcing (excl. IT & excl rebilling)
+218,P&L,1,element_fin,IND_00_060255,Outsourcing (excl. IT) - Internal rebilling sent
+219,P&L,1,element_fin,IND_00_060256,Outsourcing (excl. IT) - Internal rebilling received
+220,P&L,0,node,IND_1111322154,Outsourcing (excl. IT)
+221,P&L,1,element_fin,IND_00_060090,Other service providers
+222,P&L,1,element_fin,IND_00_060252,Mark up on internal rebilling received
+223,P&L,1,element_fin,IND_00_060282,Mark up on internal rebilling sent
+224,P&L,1,element_fin,IND_00_060283,Capitalized outsourcing
+225,P&L,1,element_fin,IND_00_060332,Interco CIB Net
+226,P&L,1,element_fin,IND_00_060363,Mark up on internal rebilling received - Calculated
+227,P&L,0,node,IND_1111322155,Outsourcing
+228,P&L,0,node,IND_111132215,Service providers and outsourcing
+229,P&L,1,element_fin,IND_00_060091,Marketing
+230,P&L,1,element_fin,IND_00_060092,Communication
+231,P&L,1,element_fin,IND_00_060093,Other marketing and communication
+232,P&L,0,node,IND_111132216,Marketing and Communication Costs
+233,P&L,1,element_fin,IND_26_060045,Telecom
+234,P&L,1,element_fin,IND_26_060073,"Other IT, Telecom & Data - unallocated"
+235,P&L,0,node,IND_00_060103,"Other IT, Telecom & Data"
+236,P&L,1,element_fin,IND_26_060032,Rent & Maintenance for IT material
+237,P&L,1,element_fin,IND_26_060036,Small hardware
+238,P&L,1,element_fin,IND_26_060052,Hardware (non depr.) - country
+239,P&L,0,node,IND_00_060095,Hardware (non depr.)
+240,P&L,1,element_fin,IND_26_060021,Maintenance Software
+241,P&L,1,element_fin,IND_26_060035,Rents Software
+242,P&L,1,element_fin,IND_26_060051,Software (non depr.) - country
+243,P&L,0,node,IND_00_060096,Software (non depr.)
+244,P&L,1,element_fin,IND_26_060001,Amortisation on created software current
+245,P&L,1,element_fin,IND_26_060002,Amortisation on new Software current
+246,P&L,1,element_fin,IND_26_060053,Software depreciation - country
+247,P&L,0,node,IND_00_060098,Software depreciation
+248,P&L,1,element_fin,IND_00_060097,Hardware depreciation
+249,P&L,1,element_fin,IND_00_060099,Other depreciation IT
+250,P&L,0,node,IND_11113221711,Depreciation IT
+251,P&L,1,element_fin,IND_00_060100,Other IT costs
+252,P&L,1,element_fin,IND_00_060353,Capitalized Hardware
+253,P&L,1,element_fin,IND_00_060354,Capitalized Software
+254,P&L,1,element_fin,IND_00_060355,Capitalized Other IT
+255,P&L,0,node,IND_1111322171,IT Costs
+256,P&L,1,element_fin,IND_00_060101,Telecom Costs
+257,P&L,1,element_fin,IND_00_060102,Data
+258,P&L,0,node,IND_111132217,"IT, Telecom & Data"
+259,P&L,1,element_fin,IND_26_060020,Maintenance fees
+260,P&L,1,element_fin,IND_26_060027,Other real estate costs
+261,P&L,1,element_fin,IND_26_060033,Rents
+262,P&L,1,element_fin,IND_26_060034,Rents Charges
+263,P&L,1,element_fin,IND_26_060054,Others Rents (Not IFRS16) - country
+264,P&L,0,node,IND_00_060106,Other Rent  (Not IFRS16)
+265,P&L,1,element_fin,IND_00_060104,Total Real Estate rent IFRS 16
+266,P&L,1,element_fin,IND_00_060105,IFRS 16 Depreciation Real Estate
+267,P&L,1,element_fin,IND_00_060247,Real Estate costs rebilling sent
+268,P&L,1,element_fin,IND_00_060248,Real Estate costs rebilling received
+269,P&L,1,element_fin,IND_00_060362,IMEX Reallocation
+270,P&L,0,node,IND_1111322181,Rent
+271,P&L,1,element_fin,IND_00_060107,Depreciation real estate
+272,P&L,1,element_fin,IND_00_060108,Real estate services and equipment
+273,P&L,1,element_fin,IND_00_060109,Other real estate
+274,P&L,0,node,IND_111132218,Real Estate
+275,P&L,1,element_fin,IND_00_060110,SRF (FRU)_Direct
+276,P&L,1,element_fin,IND_00_060111,Deposits guarantee_Direct
+277,P&L,1,element_fin,IND_00_060112,Collectivity financing tax_Direct
+278,P&L,1,element_fin,IND_00_060113,France banking systemic taxes_Direct
+279,P&L,1,element_fin,IND_00_060114,UK banking systemic taxes_Direct
+280,P&L,1,element_fin,IND_00_060115,Belgium banking systemic taxes_Direct
+281,P&L,1,element_fin,IND_00_060116,Other IFRIC taxes_Direct
+282,P&L,0,node,IND_1111322191,IFRIC taxes_Direct
+283,P&L,1,element_fin,IND_26_060007,CFE
+284,P&L,1,element_fin,IND_26_060011,CVAE
+285,P&L,1,element_fin,IND_26_060024,Office tax
+286,P&L,1,element_fin,IND_26_060028,Other Tax
+287,P&L,1,element_fin,IND_26_060041,Vehicles Taxes
+288,P&L,1,element_fin,IND_26_060057,Other Non IFRIC taxes - country
+289,P&L,0,node,IND_00_060118,Other Non-IFRIC taxes
+290,P&L,1,element_fin,IND_00_060117,Prorata VAT & Recov VAT Métropole
+291,P&L,1,element_fin,IND_00_060251,Tax leakage on internal rebilling
+292,P&L,0,node,IND_1111322192,Non-IFRIC taxes
+293,P&L,0,node,IND_111132219,Taxes & Contributions
+294,P&L,1,element_fin,IND_00_060310,Costs ajustment - IFRS17 vision
+295,P&L,0,node,IND_111132210,Direct operating expenses
+296,P&L,1,element_fin,IND_00_060010,Other indirect Costs – Other
+297,P&L,1,element_fin,IND_00_060060,Other indirect costs - ALMT Head Office
+298,P&L,1,element_fin,IND_00_060241,Other Indirect Costs – Issued
+299,P&L,1,element_fin,IND_00_060242,Other Indirect Costs – Received
+300,P&L,1,element_fin,IND_00_060243,Other Indirect Costs – Intra Division/BLs
+301,P&L,1,element_fin,IND_00_060244,Other Indirect Costs - Integrated functions cancellation
+302,P&L,1,element_fin,IND_00_060285,Other indirect costs – GCC
+303,P&L,1,element_fin,IND_00_060341,Other Indirect Costs - Local IT
+304,P&L,1,element_fin,IND_00_060342,Other indirect Costs - Local Other (HR and Real Estate)
+305,P&L,0,node,IND_111132230,Other indirect expenses
+306,P&L,1,element_fin,IND_00_060004,Attributable - Group functions
+307,P&L,0,node,IND_111132260,Attributable costs
+308,P&L,1,element_fin,IND_00_060122,SRF (FRU)_Indirect
+309,P&L,1,element_fin,IND_00_060123,Deposits guarantee_Indirect
+310,P&L,1,element_fin,IND_00_060124,Collectivity financing tax_Indirect
+311,P&L,1,element_fin,IND_00_060125,Other IFRIC taxes_Indirect
+312,P&L,1,element_fin,IND_00_060323,Regalian - Group Functions
+313,P&L,0,node,IND_111132270,Total Regalian Group Cost
+314,P&L,1,element_fin,IND_00_060005,Group Function operating expenses - Staff Costs (do not use)
+315,P&L,1,element_fin,IND_00_060006,Group Function operating expenses - Depreciation charges (do not use)
+316,P&L,1,element_fin,IND_00_060008,Group Function operating expenses - Other indirect operating exp (do not use)
+317,P&L,0,node,IND_111132280,FP FG - Group Function operating expenses - Total (do not use)
+318,P&L,0,node,IND_111132200,Operating expenses
+319,P&L,0,node,IND_111132000,Gross Operating income
+320,P&L,1,element_fin,IND_00_060001,Cost of risk - Credit
+321,P&L,1,element_fin,IND_00_060058,Cost of risk - securisation
+322,P&L,1,element_fin,IND_00_060059,Cost of risk - securities provisions
+323,P&L,0,node,IND_111131000,Cost of risks
+324,P&L,1,element_fin,IND_00_060325,Other net losses for risk on financial instruments
+325,P&L,0,node,IND_111133100,Other net losses for risk on financial instruments
+326,P&L,1,element_fin,IND_00_079914,Adjustment FP Cost of risks (Do not use)
+327,P&L,0,node,IND_111133000,Cost of risks and others
+328,P&L,0,node,IND_111130000,Operating  income
+329,P&L,0,node,IND_111100000,Pre-tax income
+330,P&L,1,element_fin,IND_00_060013,Corporate income tax
+331,P&L,1,element_fin,IND_00_070025,Gain/loss on discontinued operations (IAS) (do not use)
+332,P&L,0,node,IND_111200000,Corporate Income Tax
+333,P&L,1,element_fin,IND_00_070023,Minority interests
+334,P&L,0,node,IND_111300000,Net Income Attributable to Minority Interests
+335,P&L,1,element_fin,IND_00_070102,Net income from discontinued activities (IFRS5)
+336,P&L,0,node,IND_111400000,Net income from discontinued activities
+337,P&L,0,node,IND_111000000,Net Income Attributable to Equity Holders
+338,P&L,1,element_fin,IND_00_060034,Exceptional Items (RNPG impact)
+339,P&L,1,element_fin,IND_00_079920,Adjustment FP Discontinued operations (Do not use)
+340,P&L,0,node,IND_112000000,Exceptional Items
+341,P&L,0,node,IND_110000000,Net Income Attributable to Equity Holders w/o exceptional items
+342,P&L,0,node,IND_100000000,Profit & loss
+343,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_26_100027,Permanent Contract - FDP
+344,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_26_100028,MAD - FDP
+345,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_26_100029,Seconded - FDP
+346,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_26_100031,Fixed contract - FDP
+347,POST-P&L (ETP/KPI/Of which),0,node,IND_26_030003,TOTAL ETP Opérationnel - FDP
+348,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_26_100030,Absent Paid - FDP
+349,POST-P&L (ETP/KPI/Of which),0,node,IND_26_030002,TOTAL ETP Groupe - FDP
+350,POST-P&L (ETP/KPI/Of which),0,node,IND_00_030202,FTE headcount at period end
+351,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_26_100032,CONSULTANT FIXE EMC - FDP
+352,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_26_100033,AGENCY HC - FDP
+353,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_26_100034,NON IT CONTRACTORS - FDP
+354,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_26_100035,IT CONTRACTORS - FDP
+355,POST-P&L (ETP/KPI/Of which),0,node,IND_00_030203,External assistance headcount at period end
+356,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_26_100036,TRAINEE - FDP
+357,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_26_100037,APPRENTI - FDP
+358,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_26_100038,VIE - FDP
+359,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_26_100039,OTHER STAFF - FDP
+360,POST-P&L (ETP/KPI/Of which),0,node,IND_00_030205,Headcount Other Temporary at period-end
+361,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_030204,Temporary headcount at period-end
+362,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_030239,Contractors time-based fees EOP
+363,POST-P&L (ETP/KPI/Of which),0,node,IND_711000000,Headcount at period end
+364,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_030063,Of which Offshore & Nearshore FTE headcount at period-end
+365,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_030068,Of which external Offshore & Nearshore assistance headcount at period-end
+366,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_030073,Of which temporary Offshore & Nearshore headcount at period-end
+367,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_030118,Of Which Nearshore headcounts at period-end - Lisboa (Histo)
+368,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_030125,Of Which Nearshore External Assistance headcounts at period-end - Lisboa (Histo)
+369,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_030236,Of which external Offshore & Nearshore assistance time-based fees headcount at period-end
+370,POST-P&L (ETP/KPI/Of which),0,node,IND_713100000,Of which Offshore & Nearshore Headcount at period-end
+371,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_030048,Of which Offshore & Nearshore FTE headcount YTD AVG
+372,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_030078,Of which average Offshore FTE Headcount (Histo)
+373,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_030083,Of which external Offshore & Nearshore assistance headcount YTD AVG
+374,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_030088,Of which temporary Offshore & Nearshore headcount YTD AVG
+375,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_030120,Of Which Nearshore average headcounts - Lisboa (Histo)
+376,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_030127,Of Which Nearshore External Assistance average headcounts - Lisboa (Histo)
+377,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_030237,Of which external Offshore & Nearshore assistance time-based fees headcount YTD AVG
+378,POST-P&L (ETP/KPI/Of which),0,node,IND_713200000,Of which Offshore & Nearshore Headcount YTD AVG
+379,POST-P&L (ETP/KPI/Of which),0,node,IND_713000000,Of Which Offshore & Nearshore headcount
+380,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_030123,Of which Residents Ile de France at period-end (internal)
+381,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_030124,Of which Residents Ile de France at period-end (external)
+382,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_030129,"Of which Residents Ile de France at period-end (Interim, Apprentice, Internship)"
+383,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_030130,Of which Residents Ile de France at period-end (Others)
+384,POST-P&L (ETP/KPI/Of which),0,node,IND_714100000,Of which Residents Ile de France
+385,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_030214,Of which Residents Region at period-end (internal)
+386,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_030215,Of which Residents Region at period-end (external)
+387,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_030216,"Of which Residents Region at period-end (Interim, Apprentice, Internship)"
+388,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_030217,Of which Residents Region at period-end (Others)
+389,POST-P&L (ETP/KPI/Of which),0,node,IND_714200000,Of which Residents Region
+390,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_030235,Of which flow of Residents in Region
+391,POST-P&L (ETP/KPI/Of which),0,node,IND_714000000,Of Which Residents
+392,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_26_100040,Permanent Contract - MOY
+393,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_26_100041,MAD - MOY
+394,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_26_100042,Seconded - MOY
+395,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_26_100044,Fixed contract - MOY
+396,POST-P&L (ETP/KPI/Of which),0,node,IND_26_030005,TOTAL ETP Opérationnel - MOY
+397,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_26_100043,Absent Paid - MOY
+398,POST-P&L (ETP/KPI/Of which),0,node,IND_26_030004,TOTAL ETP Groupe - MOY
+399,POST-P&L (ETP/KPI/Of which),0,node,IND_00_030206,FTE Headcount - YTD AVG
+400,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_26_100045,CONSULTANT FIXE EMC - MOY
+401,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_26_100046,AGENCY HC - MOY
+402,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_26_100047,NON IT CONTRACTORS - MOY
+403,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_26_100048,IT CONTRACTORS - MOY
+404,POST-P&L (ETP/KPI/Of which),0,node,IND_00_030207,External assistance headcount - YTD AVG
+405,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_26_100049,TRAINEE - MOY
+406,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_26_100050,APPRENTI - MOY
+407,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_26_100051,VIE - MOY
+408,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_26_100052,OTHER STAFF - MOY
+409,POST-P&L (ETP/KPI/Of which),0,node,IND_00_030209,Headcount Other Temporary - YTD AVG
+410,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_030208,Temporary headcount - YTD AVG
+411,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_030238,Contractors time-based fees AVG
+412,POST-P&L (ETP/KPI/Of which),0,node,IND_715000000,Average headcount - YTD AVG
+413,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_030218,Of which FTE Functions excluding IT
+414,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_030219,Of which FTE Operations
+415,POST-P&L (ETP/KPI/Of which),0,node,IND_716000000,Of which Other
+416,POST-P&L (ETP/KPI/Of which),0,node,IND_710000000,Headcount
+417,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_030091,Gross Written Premiums - Savings France
+418,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_030092,Gross Written Premiums - Savings International
+419,POST-P&L (ETP/KPI/Of which),0,node,IND_721100000,Gross Written Premiums - Total savings
+420,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_030093,Gross Written Premiums - Protection France
+421,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_030094,Gross Written Premiums - Protection International
+422,POST-P&L (ETP/KPI/Of which),0,node,IND_721200000,Gross Written Premiums - Total protection
+423,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_030095,Gross Written Premiums - Others France
+424,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_030096,Gross Written Premiums - Others International
+425,POST-P&L (ETP/KPI/Of which),0,node,IND_721300000,Gross Written Premiums - Total others
+426,POST-P&L (ETP/KPI/Of which),0,node,IND_721000000,Gross Written Premiums - Total
+427,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_010367,Outstanding for cost of risk ratio - AVG
+428,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_010368,Outstanding for cost of risk ratio - AVG YTD
+429,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_010384,Outstanding for cost of risk ratio - AVG Q-1
+430,POST-P&L (ETP/KPI/Of which),0,node,IND_722100000,Cost of risk ratio
+431,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_010369,"Performing loans and advances at amortized costs, Gross of provisions - EOP"
+432,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_010370,"Non performing loans and advances at amortized costs, Gross of provisions - EOP"
+433,POST-P&L (ETP/KPI/Of which),0,node,IND_722211000,"Loans and advances at amortized costs, Gross of provisions - EOP"
+434,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_010371,"Performing Central bank deposits, Gross of provisions - EOP"
+435,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_010372,"Non performing Central bank deposits, Gross of provisions - EOP"
+436,POST-P&L (ETP/KPI/Of which),0,node,IND_722212000,"Central bank deposits, Gross of provisions - EOP"
+437,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_010373,"Performing Reverse repos at amortized costs, Gross of provisions - EOP"
+438,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_010374,"Non performing Reverse repos at amortized costs, Gross of provisions - EOP"
+439,POST-P&L (ETP/KPI/Of which),0,node,IND_722213000,"Reverse repos at amortized costs, Gross of provisions - EOP"
+440,POST-P&L (ETP/KPI/Of which),0,node,IND_722210000,Gross outstandings - EOP
+441,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_010375,"Performing loans and advances at amortized costs, Provisions - EOP"
+442,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_010376,"Non performing loans and advances at amortized costs, Provisions - EOP"
+443,POST-P&L (ETP/KPI/Of which),0,node,IND_722221000,"Loans and advances at amortized costs, Provisions - EOP"
+444,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_010377,"Performing Central bank deposits, Provisions - EOP"
+445,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_010378,"Non performing Central bank deposits, Provisions - EOP"
+446,POST-P&L (ETP/KPI/Of which),0,node,IND_722222000,"Central bank deposits, Provisions - EOP"
+447,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_010379,"Performing Reverse repos at amortized costs, Provisions - EOP"
+448,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_010380,"Non performing Reverse repos at amortized costs, Provisions - EOP"
+449,POST-P&L (ETP/KPI/Of which),0,node,IND_722223000,"Reverse repos at amortized costs, Provisions - EOP"
+450,POST-P&L (ETP/KPI/Of which),0,node,IND_722220000,Provisions - EOP
+451,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_010381,IRBA eligible received guarantees EOP
+452,POST-P&L (ETP/KPI/Of which),0,node,IND_722200000,RAS ratios
+453,POST-P&L (ETP/KPI/Of which),0,node,IND_722000000,Credit risk ratios
+454,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_030176,3.5 Assets Under Management - Sustainable Investment products unallocated - EOP
+455,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_030210,3.1 Assets Under Management - Funds classified Articles 8 under EU SFDR regulation - EOP
+456,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_030211,3.2 Assets Under Management - Funds classified Articles 9 under EU SFDR regulation - EOP
+457,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_030212,3.3 Assets Under Management - Products out of SFDR regulation scope and other external sustainable labels - EOP
+458,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_030213,3.4 Assets Under Management - Products out of SFDR regulation scope and with internal sustainable label - EOP
+459,POST-P&L (ETP/KPI/Of which),0,node,IND_723100000,3. Sustainable – AUM -EOP
+460,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_030222,Of which AUM - Open Funds Art. 8 under EU SFDR regulation - EOP
+461,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_030223,Of which AUM - Open Fund Art. 9 under EU SFDR regulation - EOP
+462,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_030224,Of which AUM - Non open funds - Art. 8 under EU SFDR regulation - EOP
+463,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_030225,Of which AUM - Non open funds - Art. 9 under EU SFDR regulation - EOP
+464,POST-P&L (ETP/KPI/Of which),0,node,IND_723200000,Of which Sustainable - AUM
+465,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_030226,8.1 Sustainable loans - Sustainable loans originated by BNPP (whether distributed or held)
+466,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_030227,8.2 Sustainable bonds - Annual issuance volumes
+467,POST-P&L (ETP/KPI/Of which),0,node,IND_723300000,8. Amount of the support enabling our clients to transition to a low-carbon economy
+468,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_030228,9.1 Terrestrial biodiversity - Sustainable loans or bonds originated by BNPP (whether distributed or held)
+469,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_030229,9.2 Marine biodiversity - Sustainable loans or bonds originated by BNPP (whether distributed or held)
+470,POST-P&L (ETP/KPI/Of which),0,node,IND_723400000,9. Amount of financing to companies contributing to protect terrestrial and marine biodiversity
+471,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_030175,2.1 Sustainable Bonds annual issuance volume (BNPP as bookrunner)
+472,POST-P&L (ETP/KPI/Of which),0,node,IND_723500000,2. Sustainable Bonds annual issuance volume (BNPP as bookrunner)
+473,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_030233,1.1.2.1 Of which SLL which are ESG Purpose – EoP
+474,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_030234,1.1.2.2 Of which SLL which are NOT ESG Purpose – EoP
+475,POST-P&L (ETP/KPI/Of which),0,node,IND_723600000,1.1.2 Of which Sustainability-Linked Loans (SLL) – EoP
+476,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_030271,Bonds linked to Climate Change Adaptation
+477,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_030272,Bonds linked to Climate Change Mitigation
+478,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_030273,Bonds linked to Pollution
+479,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_030274,Bonds linked to Water & marine resources
+480,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_030275,Bonds linked to Biodiversity and Ecosystems
+481,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_030276,Bonds linked to Circular Economy
+482,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_030277,Bonds linked to Social Purposes
+483,POST-P&L (ETP/KPI/Of which),0,node,IND_723700000,2.2 Bonds CSRD
+484,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_030278,Fees linked to Climate Change Adaptation bonds
+485,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_030279,Fees linked to Climate Change Mitigation bonds
+486,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_030280,Fees linked to Pollution bonds
+487,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_030281,Fees linked to Water & marine resources bonds
+488,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_030282,Fees linked to Biodiversity and Ecosystems bonds
+489,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_030283,Fees linked to Circular Economy bonds
+490,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_030284,Fees linked to Social Purposes bonds
+491,POST-P&L (ETP/KPI/Of which),0,node,IND_723800000,2.3 fees CSRD
+492,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_030285,Loans linked to Climate Change Adaptation
+493,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_030286,Loans linked to Climate Change Mitigation
+494,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_030287,Loans linked to Pollution
+495,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_030288,Loans linked to Water & marine resources
+496,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_030289,Loans linked to Biodiversity and Ecosystems
+497,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_030290,Loans linked to Circular Economy
+498,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_030291,Loans linked to Social Purposes
+499,POST-P&L (ETP/KPI/Of which),0,node,IND_723900000,1.1.3 loans
+500,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_030292,Revenues linked to Climate Change Adaptation loans
+501,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_030293,Revenues linked to Climate Change Mitigation loans
+502,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_030294,Revenues linked to Pollution loans
+503,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_030295,Revenues linked to Water & marine resources loans
+504,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_030296,Revenues linked to Biodiversity and Ecosystems loans
+505,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_030297,Revenues linked to Circular Economy loans
+506,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_030298,Revenues linked to Social Purposes loans
+507,POST-P&L (ETP/KPI/Of which),0,node,IND_723910000,1.1.4 Revenues CSRD
+508,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_030174,1.1 Sustainable Financing - loans & assimilated outstandings - EOP
+509,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_030230,1.1.1 O/w Financing to Transition-Ready counterparts - EOP
+510,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_030231,1.2 Sustainable Financing - loans & assimilated production (histo)
+511,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_030299,Financed emissions in absolute value in tCO2e
+512,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_030300,Intensity of financed emissions by Euro invested/lent
+513,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_030301,Volumes invested (calculated amount)
+514,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_030303,1.1.5 Amount of sustainable loans & assimilated - Sustainable Financing  - Off-balance TF instruments (EoP)
+515,POST-P&L (ETP/KPI/Of which),0,node,IND_723000000,ESG business indicators
+516,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_030220,Of which Asset Under Management - Open Funds according to SFDR
+517,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_030221,Of which Asset Under Management - Mandate
+518,POST-P&L (ETP/KPI/Of which),0,node,IND_724000000,Of which Asset Under Management
+519,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_010056,Reverse repos - New collection - Average-Periodic
+520,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_010178,Loans and overdrafts - Average
+521,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_010228,Loans and overdrafts - New Business - Average-Periodic
+522,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_010358,Loans and overdrafts - New Business - EoP - Net
+523,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_010360,Loans and overdrafts - NPL - average
+524,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_010363,HFT
+525,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_010364,AFS
+526,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_010366,Loans and overdrafts - Provisions - average
+527,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_020009,Deposits - AVG - Outstanding
+528,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_020014,Debt - AVG - Outstanding
+529,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_020015,Derivatives  liabilities - AVG - Outstanding
+530,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_020016,Other liabilities - AVG - Outstanding
+531,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_020017,Short-Sales - AVG - Outstanding
+532,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_020018,Repos - AVG - Outstanding
+533,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_020148,Repos - New Prod. - average - periodic
+534,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_020228,Deposits - New Business - Average-Periodic
+535,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_020609,Total equity (CPR)
+536,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_030001,Assets Under Administration
+537,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_030003,Assets Under Administration - New collection
+538,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_030006,Assets Under Custody
+539,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_030008,Assets Under Custody - New collection
+540,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_030013,Assets Under Management - Gross collection
+541,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_030014,Assets Under Management - New collection
+542,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_030015,Assets Under Management
+543,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_030018,Number of transactions
+544,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_030022,Amortization New Production
+545,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_030055,Number of executed orders - EOP
+546,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_030056,Net number of acquired clients - EOP
+547,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_030057,Financed fleet - EOP
+548,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_030058,NB of Agencies
+549,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_030089,"Asset under Supervision (PF, Arval, LS) - EOP"
+550,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_030097,"Asset under Supervision (PF, Arval, LS) - AVG"
+551,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_030099,Financed Fleet - AVG
+552,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_030100,Allowances for loan losses - EOP
+553,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_030101,Provisions on doubtful loans - EOP
+554,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_030102,Outstandings Stage 1
+555,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_030103,Outstandings Stage 2
+556,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_030104,Outstandings Stage 3
+557,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_030105,Customer resources distributed but not managed - EOP
+558,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_030106,Customer resources distributed (total)
+559,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_030110,Loans and overdrafts - Average (calculated)
+560,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_030111,Deposits - AVG - Outstanding (calculated)
+561,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_030112,Financed fleet - Average (calculated)
+562,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_030113,Doubtful loans net of allowances - EOP (calculated)
+563,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_030114,Coverage ratio on doubtful loans (calculated)
+564,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_030115,"Asset under supervision (PF, Arval, LS) - Average (calculated)"
+565,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_030116,Loans and overdrafts - NPL - average (calculated)
+566,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_030117,Loans and overdrafts - Performing and NPL - average (calculated)
+567,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_030169,Assets Under Management - Other variations
+568,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_030200,Brokerage Flow
+569,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_030201,Number of contracts - EOP
+570,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_030232,Electrified Financed Fleet - EOP
+571,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_050005,Commitments given - AVG
+572,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_050006,Guarantees given - AVG
+573,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_050007,Commitments received - AVG
+574,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_050008,Guarantees received - AVG
+575,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_070042,Insurance - Premium revenues (Quartely Amount)
+576,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_070043,PPE
+577,POST-P&L (ETP/KPI/Of which),0,node,IND_720000000,Business Indicator
+578,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_030019,Number of clients
+579,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_030020,Number of Units / Clients
+580,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_030021,Number of units
+581,POST-P&L (ETP/KPI/Of which),0,node,IND_730000000,Business Indicator - Fees
+582,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_030304,Allocations - Mark up loading
+583,POST-P&L (ETP/KPI/Of which),0,node,IND_700000000,KPI
+584,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_060039,Of which costs savings - strategic projects- Directs
+585,POST-P&L (ETP/KPI/Of which),0,node,IND_210000000,Of Which Cost savings
+586,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_060042,Of which Banking systematic taxes France
+587,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_060043,Of which Banking systematic taxes UK
+588,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_060044,Of which Banking systematic taxes Belgium
+589,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_060045,Of which Banking systematic taxes Others
+590,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_060046,Of which Banking systematic taxes non allocated
+591,POST-P&L (ETP/KPI/Of which),0,node,IND_221000000,Of which banking systemic taxes
+592,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_060126,IT invest. Hardware
+593,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_060127,Other IT investments
+594,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_060128,Non IT investment
+595,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_060211,IT invest. Software
+596,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_060228,Contractors - Capex
+597,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_060229,Internal staff - Capex
+598,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_060284,Outsourcing - Capex
+599,POST-P&L (ETP/KPI/Of which),0,node,IND_222000000,Of which Investments (IT and non IT)
+600,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_060129,Accelerated depreciation IT
+601,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_060130,Accelerated depreciation Real Estate
+602,POST-P&L (ETP/KPI/Of which),0,node,IND_223000000,Of Which Accelerated depreciation
+603,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_060257,Costs - Nearshore /Offshore
+604,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_060258,Costs - Network reorganization
+605,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_060259,Costs - Real Estate
+606,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_060260,Costs - Mutualization /Synergies
+607,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_060261,Costs - IT optimization
+608,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_060262,Costs - Industrialization/ Automation /Robotization / Digitalization
+609,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_060263,Costs - Renunciation
+610,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_060264,Costs - Sourcing & Demand Mangement
+611,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_060265,Costs - Workforce Optimisation
+612,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_060266,Costs - Savings to be identified
+613,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_060339,Costs - Artificial Intelligence
+614,POST-P&L (ETP/KPI/Of which),0,node,IND_224110000,Costs of IGS (direct)
+615,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_060267,Costs - Group functions initiatives
+616,POST-P&L (ETP/KPI/Of which),0,node,IND_224120000,Costs of IGS (indirect)
+617,POST-P&L (ETP/KPI/Of which),0,node,IND_224100000,Costs of Initiatives generating Savings
+618,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_060280,Demand Management (volume effect)
+619,POST-P&L (ETP/KPI/Of which),0,node,IND_224211000,NCS - Sourcing & Demand Management
+620,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_060273,NCS - Industrialization/ Automation /Robotization / Digitalization - historical data (do not use)
+621,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_060337,NCS - Robotization
+622,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_060338,NCS - Other industrialization
+623,POST-P&L (ETP/KPI/Of which),0,node,IND_224212000,NCS - Industrialization/ Automation /Robotization / Digitalization
+624,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_060268,NCS - Nearshore /Offshore
+625,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_060269,NCS - Network reorganization
+626,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_060270,NCS - Real Estate
+627,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_060271,NCS - Mutualization /Synergies
+628,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_060272,NCS - IT optimization
+629,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_060274,NCS - Renunciation
+630,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_060276,NCS - Workforce Optimisation
+631,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_060277,NCS - Savings to be identified
+632,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_060340,NCS - Artificial Intelligence
+633,POST-P&L (ETP/KPI/Of which),0,node,IND_224210000,NCS of IGS (direct)
+634,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_060278,NCS - Group functions initiatives
+635,POST-P&L (ETP/KPI/Of which),0,node,IND_224220000,NCS of IGS (indirect)
+636,POST-P&L (ETP/KPI/Of which),0,node,IND_224200000,NCS of Initiatives generating Savings
+637,POST-P&L (ETP/KPI/Of which),0,node,IND_224000000,Initiatives Generating Savings (IGS)
+638,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_060360,Of which CTB
+639,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_060361,Of which RTB
+640,POST-P&L (ETP/KPI/Of which),0,node,IND_225000000,Of which CTB/RTB
+641,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_060003,Of which External Management Costs
+642,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_060026,Of which tax and cotisations not spreadable (IFRIC 21)
+643,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_060027,Of which ECB Single Resolution Fund Contribution
+644,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_060028,Of which Deposit Guaranty Scheme
+645,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_060041,Of which one offs - G&A
+646,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_060053,Of which collectivity tax
+647,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_060054,of which operational risk incident impacts - Operational Expenses
+648,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_060069,Of which External Assistance Costs
+649,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_060070,Of which variable remuneration
+650,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_060240,Of which Local SRF (EURO zone)
+651,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_060308,Of which Levy Tax and local SRF excluding Euro Zone
+652,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_060324,Of which Profit sharing and relative Taxes
+653,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_060357,Major projects – Of which costs synergies
+654,POST-P&L (ETP/KPI/Of which),0,node,IND_220000000,Of which Operating expenses
+655,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_070085,Of Which external interest incomes attributed to business in force
+656,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_070086,Of Which external interest incomes attributed to new business
+657,POST-P&L (ETP/KPI/Of which),0,node,IND_231110000,Of Which external interest incomes
+658,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_060061,Of Which external interest expenses attributed to business in force
+659,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_060062,Of Which external interest expenses to new business
+660,POST-P&L (ETP/KPI/Of which),0,node,IND_231120000,Of Which external interest expenses
+661,POST-P&L (ETP/KPI/Of which),0,node,IND_231100000,Of Which NBI - Value Capital Added - External interest
+662,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_26_060058,Of Which internal interest expenses IFRS (of which de IND_00_060063 vue 4)
+663,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_26_060074,Of Which internal interest expenses - unallocated
+664,POST-P&L (ETP/KPI/Of which),0,node,IND_00_060063,Of Which internal interest expenses
+665,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_070087,Of Which internal interest incomes
+666,POST-P&L (ETP/KPI/Of which),0,node,IND_231200000,Of Which NBI - Value Capital Added - Internal interest
+667,POST-P&L (ETP/KPI/Of which),0,node,IND_231000000,Of which NBI - Value Capital Added
+668,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_060064,Of Which commissions expenses
+669,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_070088,Of Which commissions incomes
+670,POST-P&L (ETP/KPI/Of which),0,node,IND_232000000,Of Which net commissions
+671,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_060065,Of which net gains of insurance - Expenses
+672,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_070089,Of which net gains of insurance - Incomes
+673,POST-P&L (ETP/KPI/Of which),0,node,IND_233000000,Of which commission - Net gains of insurance
+674,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_060007,Of which Variation PEL/CEL
+675,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_060358,Major projects – Of which revenues synergies
+676,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_070058,Of which  One offs - NBI - Capital Added Value
+677,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_070059,Of which  One offs - NBI - Fees
+678,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_070082,of which operational risk incident impacts - NBI
+679,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_070090,Of which  One offs - NBI - Other
+680,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_070091,Of which Gain/Loss ALMT
+681,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_070094,OCA
+682,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_070095,DVA
+683,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_070103,Of which perequation
+684,POST-P&L (ETP/KPI/Of which),0,node,IND_230000000,Of which NBI
+685,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_060343,Of which methodological effect
+686,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_060344,Of which scenario effect
+687,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_060345,Of which sectorial effect
+688,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_060346,Of which FLAIR Rate effect
+689,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_060347,Of which climate effect
+690,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_060348,Of which CRE effect
+691,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_060349,Of which portfolio effect
+692,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_060350,Of which other effect (incl. Overlays movements)
+693,POST-P&L (ETP/KPI/Of which),0,node,IND_241000000,Of Which Cost of risk effects
+694,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_060055,of which operational risk incident impacts - CDR
+695,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_060066,Of which  One offs - Cost of risk
+696,POST-P&L (ETP/KPI/Of which),0,node,IND_240000000,Of which Cost of risk
+697,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_070081,of which operational risk incident impacts - ARHE
+698,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_070093,Of which changes in value of goodwill - Business Line
+699,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_070097,Of which  One offs - Other non operating items 
+700,POST-P&L (ETP/KPI/Of which),0,node,IND_250000000,Of which Other NON-operating income/expenses (Total)
+701,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_070083,of which operational risk incident impacts - MEE
+702,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_070092,Of which  One offs - Share of equity method cons. Companies
+703,POST-P&L (ETP/KPI/Of which),0,node,IND_260000000,Of which Share of equity method cons. Companies based on RWA
+704,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_070104,Of which Operational risk incident impacts – incidents of current year -  All incidents excluding Fraud  –  Pre-Tax Income
+705,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_070105,Of which Operational risk incident impacts – incidents of current year -  Fraud incidents – Pre-Tax Income
+706,POST-P&L (ETP/KPI/Of which),0,node,IND_261100000,Of which Operational risk incident impacts – incidents of current year – Pre-Tax Income
+707,POST-P&L (ETP/KPI/Of which),0,node,IND_261000000,Of Which Pre-tax Income
+708,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_020010,Deposits - EoP - New Prod
+709,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_020735,Loans to the CDC
+710,POST-P&L (ETP/KPI/Of which),0,node,IND_270000000,Of Which Balance sheet
+711,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_060068,Of which ALMT specific transfers - OPEX
+712,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_070096,Of which ALMT specific transfers - NBI
+713,POST-P&L (ETP/KPI/Of which),0,node,IND_280000000,Of which ALMT specific transfers
+714,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_060300,Non Taxed Pre Tax income
+715,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_060301,Flat Tax Rate
+716,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_060302,TAX to be reinstated
+717,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_060303,Pre Tax income restatement for minority calculation
+718,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_060304,Flat minority rate
+719,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_060305,Minority to be reinstated
+720,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_060306,TAX to be restated
+721,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_00_060307,Average rate
+722,POST-P&L (ETP/KPI/Of which),0,node,IND_291000000,Tax and net income attributable to minority interests
+723,POST-P&L (ETP/KPI/Of which),0,node,IND_290000000,Of which P&L (Do not use)
+724,POST-P&L (ETP/KPI/Of which),0,node,IND_200000000,Of which
+725,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_26_020001,Equity
+726,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_26_060046,Non IT Investments
+727,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_26_060068,IT invest. Hardware (variation for Actual RE)
+728,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_26_060069,IT invest. Software (variation for Actual RE)
+729,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_26_100001,IS
+730,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_26_100002,Technical account (stock)
+731,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_26_100003,Interco
+732,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_26_100053,Absent Unpaid - FDP
+733,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_26_100054,Absent Unpaid - MOY
+734,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_26_100082,of which Residents Ile de France (for driver Advisory) - FDP
+735,POST-P&L (ETP/KPI/Of which),1,element_fin,IND_26_100089,Capitalized contractors costs (Capex IT)
