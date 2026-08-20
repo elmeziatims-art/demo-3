@@ -332,3 +332,16 @@ Correspondances **RU × OA → EJ** reconstruites depuis le jeu de données rée
 - Périmètre **IM** repris ou non (cf. G-FRMP OA060) — **à acter**.
 - Cible Tagetik des **mailles techniques** (GT-BCESTE/GT-TUT) et des **plateformes** (Asie/M-Orient).
 - Confirmer le triplet `EJ_41015 × PMA_8033 × Centre de coût` pour G-ASIEPF/G-MEPF/G-SGP.
+
+### Principe : tout est modifiable (même le « mappable »)
+- ⚠️ **Aucune valeur n'est verrouillée.** Même les combinaisons **déterministes/mappables**
+  sont **pré-remplies comme propositions par défaut** que le contrôleur de gestion peut
+  **modifier** dans la table de mapping.
+- Implication conception :
+  - La cible (`ENTITE` / `PMA` / `CENTRE DE COÛT`) de CHAQUE ligne est une **cellule éditable**,
+    y compris pour les lignes déterministes.
+  - On distingue visuellement l'**origine** de la valeur (proposée auto vs saisie/modifiée),
+    ex. colonne « Source » (Auto déterministe / Auto proposé 🔴 / Saisie CDG / Modifié CDG),
+    sans jamais empêcher la modification.
+  - Le moteur (output Tagetik) doit **toujours lire la valeur de la table de mapping**
+    (la version en vigueur, éventuellement modifiée), **jamais** une valeur figée en dur.
