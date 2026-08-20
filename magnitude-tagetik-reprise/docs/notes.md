@@ -528,3 +528,47 @@ X P_AMOUNT (montant) | Y P_COMMENT | Z "PNB + MEE" | AA "OPEX" | AB "pre taxe in
   de l'utilisateur.** La **vraie extraction Magnitude s'arrête juste avant** : colonnes **A → Y**
   (`D_CA` … `P_COMMENT`). ⇒ Le moteur **ne doit PAS dépendre** de Z/AA/AB (elles peuvent être
   absentes en production). Elles servent uniquement à recouper/valider pendant la mise au point.
+
+---
+
+## Étape 11 — Onglets d'AIDE AU CHOIX (référentiels) + architecture du classeur
+
+Objectif utilisateur : **un maximum d'onglets d'aide au choix** (lecture seule), en **plus** de la
+**table de mapping pilote**. Ils servent aux CDG pour saisir/valider sans se tromper, et alimentent
+les **listes déroulantes** (validation de données).
+
+### Référentiels à intégrer (déjà extraits en CSV → prêts à devenir des onglets)
+| Onglet d'aide | Contenu | Source (CSV) |
+|---------------|---------|--------------|
+| **REF - Indicateurs Tagetik** | 736 IND, hiérarchie P&L + ETP/KPI/Of which, flag fin/node | `docs/tagetik_indicateurs.csv` |
+| **REF - Hiérarchie Entités** | EJ/EG/UG, niveaux, feuilles/nodes | `docs/hierarchie_entites.csv` |
+| **REF - Hiérarchie PMA** | PMA S_/A_, niveaux, feuilles/nodes | `docs/hierarchie_pma.csv` |
+| **REF - CC par FA** | FA → CC candidats (18 FA, 62 CC), aide au choix du Cost Center | `docs/mapping_FA_to_CC.csv` |
+| **REF - OA → PMA (actuel)** | liste des OA + mapping actuel Business Lines (dont NOT USED) | `docs/mapping_OA_business_lines.csv` |
+| **REF - RU → EJ (actuel)** | liste des RU + mapping actuel + devise | `docs/mapping_RU_entities.csv` |
+| **REF - RU×OA Mappable** | 90 combos résolus (EJ cible, confiance, Vol) | `docs/mapping_RUxOA_mappable.csv` |
+| **REF - RU×OA Non mappable** | 8 combos bloqués (raison, pour débloquer, Vol) | `docs/mapping_RUxOA_non_mappable.csv` |
+| **REF - Comptes D_AC** | mapping comptes Magnitude→IND + cas particuliers | (onglet `D_AC_Comptes` du fichier source, à reprendre) |
+
+> Ces onglets **REF** sont **en lecture seule** (référence). Ils ne pilotent pas directement le moteur ;
+> ils **aident la saisie** de la table de mapping pilote et **fournissent les listes** de valeurs valides.
+
+### Table de mapping PILOTE (celle qui pilote réellement l'output)
+- **MAP - RU×OA×FA → Entité×PMA×CC** : la table à **règles** (étape 8), **éditable**, avec
+  wildcards `*`, priorité, colonne « Source » (auto/à valider 🔴/saisi/modifié). C'est **elle** que
+  le moteur lit pour produire l'output. Pré-remplie depuis Mappable + Business Lines + Entities.
+- Éventuellement une **MAP - Comptes** pilote (D_AC→IND) séparée, + un **paramétrage taux charges
+  sociales par entité** (cas GR2100).
+
+### Architecture d'onglets envisagée (ordre du classeur)
+1. **Accueil / Mode d'emploi** (+ futur bouton, cf. UX à décider)
+2. **1. ENTRÉE — Coller extraction Magnitude** (colonnes A→Y)
+3. **2. Liasse filtrée** (Power Query : filtres F99/Q99, OA non vide, éléments fins…)
+4. **MAP - …** (tables de mapping pilotes, éditables par CDG)
+5. **Paramètres** (constantes Tagetik : Scenario 2026AC, Period 03, Vision, Origin… + taux charges soc.)
+6. **REF - …** (tous les référentiels d'aide au choix, lecture seule)
+7. **Contrôles** (voyants : totaux, non mappés, équilibre EUR via rate)
+8. **N. SORTIE — Table de fait Tagetik** (24 colonnes, format à plat)
+
+> Règle : **entrée en premier onglet, sortie en dernier onglet** (consigne initiale), mapping et
+> référentiels au milieu.
