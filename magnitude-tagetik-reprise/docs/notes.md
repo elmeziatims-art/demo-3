@@ -127,3 +127,30 @@ Parfois **1 pour 1**, souvent des **cas particuliers**. Détail ci-dessous.
   **exclusions** (nœuds/agrégats non repris), **variantes par entité** (France/Pays),
   et des **lignes à mapping vide** laissées à la saisie des contrôleurs.
 - Retraitements calculés (charges sociales) pilotés par un **tableau de taux par entité**.
+
+---
+
+## Étape 3 — Indicateurs Tagetik proposés pour les comptes en attente (EN ROUGE = provisoire)
+
+> Source : capture de la doc « Data Model » Tagetik, onglet **3.1 Indicators**.
+> ⚠️ **À METTRE EN ROUGE** dans la table de mapping = **propositions provisoires**,
+> à **valider par les contrôleurs de gestion** avant usage.
+
+| Compte Magnitude | Nature       | Indicateur Tagetik (IND) | Libellé                                                    |
+|------------------|--------------|--------------------------|------------------------------------------------------------|
+| 🔴 `GFB130`      | Profit & Loss| `IND_26_060017`          | Refacturation frais de sièges (Headquarters…)              |
+| 🔴 `GFB110`      | Profit & Loss| `IND_00_060004`          | Frais de gestion indirects - **Groupe**                    |
+| 🔴 `GFB110`      | Profit & Loss| `IND_00_060323`          | Frais de gestion indirects - **Régaliens / Hors Métropole**|
+| 🔴 `GR5000`      | Profit & Loss| `IND_00_060001`          | Cost of Risk - Depreciation                                |
+| 🔴 `GR5300`      | Profit & Loss| `IND_00_070073`          | Autres résultats hors exploitation (IAS)                   |
+| 🔴 `GR5400`      | Profit & Loss| `IND_00_070030`          | Résultat des sociétés mises en équivalence à FP Sociaux    |
+| 🔴 `GR9201`      | Profit & Loss| `IND_00_060003`          | Of which External Management Costs                         |
+
+### Notes
+- `GFB110` apparaît sur **2 indicateurs** (`IND_00_060004` Groupe **et** `IND_00_060323`
+  Régaliens/Hors Métropole) → mapping **conditionnel** (probable logique France/Groupe
+  vs Hors Métropole, à rapprocher du cas « France vs Pays »). À préciser.
+- `GR9201` = « Of which External Management Costs » → à relier au cas GR6000/GR6100
+  (logique « of which / dont ») — **à confirmer**.
+- Ceci **remplace/complète** les points « GFB110/GFB130 : mapping inconnu » et
+  « GR5000/GR5300/GR5400 : TBD » du chapitre précédent — désormais **propositions en rouge**.
