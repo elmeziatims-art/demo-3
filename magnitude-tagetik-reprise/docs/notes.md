@@ -572,3 +572,42 @@ les **listes déroulantes** (validation de données).
 
 > Règle : **entrée en premier onglet, sortie en dernier onglet** (consigne initiale), mapping et
 > référentiels au milieu.
+
+---
+
+## Étape 12 — Exemple de restitution Magnitude (onglets « Réalisé Vs Estimé » [Valeurs])
+
+📍 **Emplacement réel** : ces 2 onglets sont dans **`RDHEngineQ1Copie.xlsx`** (pas le gros fichier).
+C'est un **exemple de ce que donne une restitution via Magnitude** = le reporting **actuel**
+(P&L de gestion **Réalisé vs Estimé**), pour cross-check — **pas** une brique du moteur.
+
+### Les deux versions
+- **« Réalisé Vs Estimé »** = avec les **formules GETDATA** (add-in Magnitude, tirage live du cube).
+- **« Réalisé Vs Estimé (Valeurs) »** = les **valeurs/libellés résolus** (mêmes lignes, figées).
+
+### Paramétrage GETDATA (en-tête, lignes 1-11)
+`SC=BNPPI-GEST` (scope/société), `CC=EUR` (devise conso), `FA sum AR002`, **`FL=F99`**,
+`CA=A` (Actual) / `CA=E` (Estimate), `DP=2026.03` / `PE=2026.03`, `AU sum GEST00`,
+**`VA=RECOMPO`** (version), `OA sum (TYPE-OA=OA06)`. Comparaison **Actual Q1 2026 vs Estimate March**.
+
+### Structure du corps (à partir de la ligne ~17)
+| Col | Contenu |
+|-----|---------|
+| A | **définition OA** en syntaxe Magnitude : `{OA=OA040}+{OA=OA041}`, `OA sum AR028`… |
+| B | **définition RU** : `{RU=G-FRMP}+{RU=P-FRMP}+{RU=G-FRAR}`, `RU sum AF026`… |
+| C | **pays** (FR, ITA, ESP, DE, PRT, UK, LUX, BEL…) |
+| D | **libellé de ligne** (Property Development, o/w France, Investment Management, o/w Italy…) |
+| E…BR | **blocs de valeurs** : Actual Q1 2026 / Estimate March / Variances, répétés par agrégat |
+
+### Enseignements / points d'attention
+- Les lignes agrègent des **combinaisons RU × OA** (et des **groupes nommés** Magnitude
+  `OA sum AR028`, `RU sum AF026`, `FA sum AR002`) → logique de reporting existante.
+- Apparition de **RU préfixés `P-`** (`P-FRMP`, `P-CENTRAL`, `P-UK`…) à côté des `G-` :
+  ❓ à clarifier (probable **périmètre/plan** vs réel `G-`) — **noté comme question**.
+- Filtre **`FL=F99`** cohérent avec notre filtre flux. Conso en **EUR** (`CC=EUR`) → cohérent
+  avec le contrôle EUR via l'onglet `rate`.
+- Usage projet : **référence de recoupement** (structure P&L, périmètre RU/pays, définitions de
+  lignes) et **modèle possible** pour un onglet de **contrôle/restitution** comparatif. Pas repris tel quel.
+
+### Question ouverte ajoutée
+- Signification des **RU `P-…`** vs `G-…` (périmètre/plan ?) et des **groupes nommés** `AR0xx`/`AF0xx`.
