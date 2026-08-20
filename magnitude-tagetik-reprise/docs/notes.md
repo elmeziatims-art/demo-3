@@ -37,3 +37,30 @@ _(vide pour l'instant — à compléter au fur et à mesure)_
 
 - Rôle respectif des deux fichiers RDHEngineQ1 vs Copie.
 - Périmètre temporel de la reprise / scénario(s).
+
+---
+
+## Étape 1 — Onglet source & filtrage (onglet 2)
+
+### Onglet source : « Liasse brute Q1 » (dans RDHEngineQ1.xlsx)
+- Extraction Magnitude pour la période **2026.03** (mars 2026 / Q1).
+- Dite « brute » mais ne l'est pas totalement : **les 3 dernières colonnes ont été
+  ajoutées par l'utilisateur** (à préciser plus tard).
+- Contient des données **mélangées** (avant et après allocation, etc.).
+
+### Onglet 2 (à créer) : filtrage
+Ne conserver **que les colonnes utiles** et appliquer les filtres suivants :
+
+| Colonne source | Rôle / équivalent Tagetik | Règle de filtrage / transformation |
+|----------------|---------------------------|------------------------------------|
+| `D_DP`         | Période (année + mois)    | Sert à l'année et au mois          |
+| `OA`           | Operational Activity ≈ **PMA** Tagetik | Garder **uniquement les lignes remplies** ; **exclure OA vide** |
+| `RU`           | ≈ **Entité** Tagetik      | —                                  |
+| `D_AC`         | Compte                    | Garder **uniquement les éléments fins** ; **exclure les nœuds** |
+| `D_FL`         | Flux                      | Garder **uniquement `F99`** (donnée financière) et **`Q99`** (ETP) |
+| `D_CU`         | Currency                  | —                                  |
+| `P_AMOUNT`     | Montant                   | **Remplacer les `.` par `,`**      |
+
+### Points de vigilance signalés (à traiter ensuite)
+- **Entités (RU) et PMA (OA) : PAS du 1 pour 1** → mapping à définir (prochaine discussion).
+- **Comptes (D_AC) : quelques sujets** à traiter aussi.
