@@ -265,3 +265,70 @@ Nodes (agrégats « A_ ») :
   **RU (Magnitude) → Entité** et **OA (Magnitude) → PMA**, qui sont **non 1-pour-1**
   (mapping à définir avec l'utilisateur — prochaine discussion).
 - La hiérarchie servira aussi aux **contrôles** (rattacher une feuille au bon agrégat).
+
+---
+
+## Étape 6 — Mapping dimensionnel RU × OA × FA → Entité × PMA × Centre de coût
+
+⭐ **Étape centrale du projet.** Le système cible Tagetik est nommé **« SOLARE »**
+(colonne « Code SOLARE » = code Tagetik).
+
+### Nomenclature des axes
+| Magnitude | Tagetik (SOLARE)         | Remarque |
+|-----------|--------------------------|----------|
+| **RU**    | **Entité** (`EJ_`/`EG_`…)| 1 RU → **plusieurs** entités possibles (1→N) |
+| **OA**    | **PMA** (`PMA_`)         | Business Line / activité opérationnelle |
+| **FA** (Fonction) | **Centre de coût** | Axe Tagetik « Centre de coût » |
+
+### Fichiers sources du mapping
+- `RDHEngineQ1Copie.xlsx` :
+  - onglet **« 1. Business Lines (2) »** → mapping **OA → PMA** (33 lignes) → `docs/mapping_OA_business_lines.csv`
+  - onglet **« 2. Entities »** → mapping **RU → EJ** (33 lignes, avec devise) → `docs/mapping_RU_entities.csv`
+- `RDHEngineQ1.xlsx` (le gros fichier) contient DÉJÀ un moteur avancé — onglets :
+  `Feuil1, Liasse brute Q1 (~96 Mo données brutes), Liasse transfo, Rate,
+  Filtres & Transfo, D_AC_Comptes, Synthèse, Mappable, Non mappable, Méthode & sources`.
+
+### Le sujet OA : tags « NOT USED » non fiables
+- Dans Business Lines, certains OA sont tagués `NOT USED` (ex. `OA011O`, `OA005O`,
+  `OA061O`, `OA050`) **alors qu'ils apparaissent dans le jeu de données**.
+  Ex. `G-SP × OA011O` figure dans Mappable (Vol 1.1). ⇒ **Ne pas se fier au tag NOT USED** ;
+  se baser sur la présence réelle dans les données.
+
+### Le sujet RU : 1 → N entités (désambiguïsation par OA/FA)
+- Exemples 1→N : `G-UK` → 4 EJ, `G-SP` → 4 EJ, `G-DE` → 4 EJ, `G-ITMP` → 3 EJ,
+  `G-BE` → 2 EJ, `G-PRTPROMO` → 2, `G-UKPROMO` → 3.
+- ⇒ Le RU seul ne suffit pas : il faut la **combinaison RU × OA (× FA)** pour retrouver l'EJ.
+
+### Travail déjà fait (session Claude précédente) : Mappable / Non mappable
+Correspondances **RU × OA → EJ** reconstruites depuis le jeu de données réel :
+- **`Mappable`** (90 combinaisons) → `docs/mapping_RUxOA_mappable.csv`
+  Colonnes : `RU, Pays, OA, PMA, Activité, EJ cible, Niveau de confiance, Pourquoi, Vol`.
+  La plupart = « Déterministe — RU mono-EJ » (le RU n'a qu'une EJ active).
+- **`Non mappable`** (8 combinaisons) → `docs/mapping_RUxOA_non_mappable.csv`
+  Colonnes : `RU, Pays, OA, Activité, EJ candidates, Raison, Explication, Pour débloquer, Vol`.
+  Cas bloquants :
+  - **`G-FRMP` (France)** promo/IM (OA015/OA041/OA045/OA060) : la source agrège sans
+    dimension société ; la cible éclate sur 3 EJ (`EJ_21712`/`EJ_21665`/`EJ_67012`) →
+    **clé de ventilation société absente**.
+  - **`G-ASIEPF` (Plateforme Asie)** & **`G-MEPF` (Plateforme M-Orient)**, OA005 Holding :
+    **aucune EJ Tagetik identifiée** dans le cube de mars.
+  - **`GT-BCESTE`, `GT-TUT` (Transversal)**, OA005 Holding : **mailles techniques**, pas des EJ
+    (centralisation / tutelle) → cible = maille technique (UG_OUT / tutelle), pas une société.
+
+### Le sujet Centre de coût (FA) — et RU portés par l'axe Centre de coût
+- **FA = Fonction** (Magnitude) → axe **Centre de coût** (Tagetik).
+- Certains RU (**`G-ASIEPF`, `G-MEPF`, `G-SGP`**) sont en réalité **portés par l'axe Centre de coût** :
+  au **croisement `EJ_41015` × `PMA_8033`** (Holding), **avec des Centres de coût différents**
+  (à confirmer). ⇒ C'est la piste pour « débloquer » ces plateformes non mappables côté EJ.
+
+### 🎯 Décision de conception : table de mapping à triple clé
+- Construire **UNE table de mapping** à clé **(RU, OA, FA)** → **(ENTITE, PMA, CENTRE DE COÛT)**.
+- **Pré-remplir** ce qui est déterministe (depuis Mappable / Business Lines / Entities),
+  **laisser vide** ce qui ne l'est pas (Non mappable) → **saisie par les contrôleurs de gestion**.
+- Conserver la colonne **Vol** (volume/matérialité) pour prioriser les cas à trancher.
+- Prévoir la logique « un RU peut atterrir sur l'axe Centre de coût » (cas plateformes).
+
+### Questions ouvertes
+- Périmètre **IM** repris ou non (cf. G-FRMP OA060) — **à acter**.
+- Cible Tagetik des **mailles techniques** (GT-BCESTE/GT-TUT) et des **plateformes** (Asie/M-Orient).
+- Confirmer le triplet `EJ_41015 × PMA_8033 × Centre de coût` pour G-ASIEPF/G-MEPF/G-SGP.
