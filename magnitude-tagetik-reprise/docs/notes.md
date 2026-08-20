@@ -439,6 +439,10 @@ correspondance ligne à ligne : c'est un **jeu de règles** avec des **caractèr
 - **Exceptions ciblées** sans dupliquer tout le référentiel.
 - Compatible avec le principe **« tout éditable »** et avec les cas **1→N** (comptes) déjà actés.
 
-### Généralisation possible (à valider)
-- Le même mécanisme `*` + spécificité peut s'appliquer à **d'autres axes** (ex. par compte `D_AC`,
-  par flux `D_FL`) si un jour une exception dépend aussi du compte. À garder en tête, pas requis maintenant.
+### Portée du mapping intelligent — LIMITÉE à RU × OA × CC
+- ⚠️ **PAS de conso sur les flux & comptes.** Le mapping intelligent `*` s'applique **uniquement**
+  aux axes **RU × OA × CC**.
+- **Flux (`D_FL`)** = simple **filtre dur**, rien de plus : garder **`F99`** (financier) et
+  **`Q99`** (ETP), point. Aucune règle, aucune combinaison, aucune conso sur le flux.
+- **Comptes (`D_AC`)** = table de correspondance (étape 2), pas de mécanisme `*` dessus.
+- ⇒ Ne PAS généraliser le wildcard aux flux/comptes (annule la piste évoquée précédemment).
