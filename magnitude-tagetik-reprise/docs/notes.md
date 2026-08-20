@@ -520,3 +520,11 @@ X P_AMOUNT (montant) | Y P_COMMENT | Z "PNB + MEE" | AA "OPEX" | AB "pre taxe in
 - Source réelle de la clé = **(D_RU, D_OA, D_FA)** → cible **(ENTITE, PMA, CENTRE DE COÛT)**.
   (Le « CC_source » évoqué à l'étape 8 était imprécis : côté source c'est **FA** ; le **CC** est la **cible**,
   choisie par le CDG à l'aide de la table FA→CC.)
+
+### Confirmations utilisateur (à figer)
+- ✅ **`D_FA` est conservé** (correction de l'étape 1 validée).
+- ✅ **Filtre OBLIGATOIRE : `D_OA` non vide** (exclure les OA vides) — reconfirmé.
+- ✅ **Les 3 colonnes `Z` (PNB + MEE), `AA` (OPEX), `AB` (pre taxe incompe) = ajouts de CONTRÔLE
+  de l'utilisateur.** La **vraie extraction Magnitude s'arrête juste avant** : colonnes **A → Y**
+  (`D_CA` … `P_COMMENT`). ⇒ Le moteur **ne doit PAS dépendre** de Z/AA/AB (elles peuvent être
+  absentes en production). Elles servent uniquement à recouper/valider pendant la mise au point.
