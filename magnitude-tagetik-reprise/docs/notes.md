@@ -87,9 +87,9 @@ Parfois **1 pour 1**, souvent des **cas particuliers**. Détail ci-dessous.
   - `IND_00_070008` = compte de **P&L** qui est la **somme** des deux.
   - `IND_00_070087` et `IND_26_060074` sont présentés comme des « **dont** » mais
     constituent en réalité le **détail complet** (leur somme = le total).
-- ⇒ La donnée GR6000/GR6100 alimente à la fois le **total** (`IND_00_070008`) et
-  le **détail** (`IND_00_070087` + `IND_26_060074`). *(à confirmer : la mécanique
-  exacte d'alimentation total vs détail dans l'output).*
+- ⇒ **CONFIRMÉ** : l'output Tagetik doit **alimenter les DEUX** pour ce cas précis :
+  le **total** (`IND_00_070008`) **ET** le **détail** (`IND_00_070087` + `IND_26_060074`).
+  Donc une même donnée source génère **plusieurs lignes** dans l'output.
 
 ### Cas 2 — GR2000 : nœud à NE PAS prendre (prendre le détail)
 - `GR2000` = **Salaires variables (incl. charges sociales)** → **ne pas prendre**
