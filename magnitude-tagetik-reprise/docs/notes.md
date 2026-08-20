@@ -482,3 +482,41 @@ correspondance ligne à ligne : c'est un **jeu de règles** avec des **caractèr
 - Page « Mode d'emploi » (3 étapes).
 - **Contrôles automatiques** avec voyants (totaux OK ✅ / lignes non mappées ⚠️ / équilibre EUR via rate).
 - Signaler que la 1ʳᵉ actualisation prend quelques secondes (volume ~100 Mo).
+
+---
+
+## Étape 10 — Schéma réel de la source + axe FA→CC (fichier `CCEX`)
+
+### 🔎 Schéma réel de « Liasse brute Q1 » (28 colonnes)
+Les noms réels des colonnes source sont **préfixés `D_`** (l'étape 1 les nommait en raccourci) :
+`A D_CA | B D_DP (période) | C D_OA (OA) | D **D_FA (Fonction)** | E D_VI | F D_TA | G D_PE |
+H D_RU (RU) | I D_ORU | J D_AC (compte) | K D_FL (flux) | L D_AU | M D_T1 | N D_T2 |
+O D_CU (devise) | P D_TO | Q D_GO | R D_LE | S D_NU | T D_DEST | U D_AREA | V D_MU | W D_PMU |
+X P_AMOUNT (montant) | Y P_COMMENT | Z "PNB + MEE" | AA "OPEX" | AB "pre taxe incompe"`.
+- **Les 3 dernières colonnes ajoutées par l'utilisateur** = **Z** « PNB + MEE », **AA** « OPEX »,
+  **AB** « pre taxe incompe » (les « 3 dernières colonnes » mentionnées à l'étape 1).
+
+### ⚠️ CORRECTION étape 1 : garder AUSSI `D_FA`
+- La liste des colonnes à conserver devient : **`D_DP`, `D_OA`, `D_FA`, `D_RU`, `D_AC`, `D_FL`,
+  `D_CU`, `P_AMOUNT`** (8 colonnes — `D_FA` avait été oublié, il est indispensable pour le Cost Center).
+- Mapping des noms : `D_OA`=OA, `D_RU`=RU, `D_FA`=FA, `D_AC`=compte, `D_FL`=flux, `D_CU`=devise, `D_DP`=période.
+
+### Fichier `CCEX` (`travail/Tagetik_CC_par_FA_CCEX.xlsx`) — CC groupés par FA
+- Format rapport : **flag C** (`1`=CC feuille, `0`=FA node). Les **CC (`CC_…`)** sont les **enfants**
+  de leur **FA (`FA00x`)**. **1 FA → N CC** (le CC est plus fin que le FA).
+- Extrait → `docs/mapping_FA_to_CC.csv` : **62 liens**, **18 FA** (ex. FA015 Communication → 12 CC,
+  FA025 Finance Services → 10 CC ; certains FA → 1 seul CC = déterministe).
+
+### 🎯 Décision : CCEX = TABLE D'AIDE AU CHOIX (on ne choisit pas le CC nous-mêmes)
+- ⛔ **On NE fait PAS le choix du CC automatiquement** — jugé **impossible** de façon fiable.
+- ✅ On **transforme CCEX en table de mapping d'aide** : pour chaque **FA**, proposer la
+  **liste des CC candidats** ; le **CDG choisit** le CC (liste déroulante, aide visuelle).
+- Cas confirmé : **un même OA peut être détaillé sur deux CC** ⇒ le CC dépend aussi de l'**OA**,
+  pas seulement du FA → d'où l'aide au choix (et le mécanisme de règles RU×OA×FA de l'étape 8).
+- Quand un **FA n'a qu'un seul CC**, la proposition est **évidente** (pré-remplissable), mais reste
+  **modifiable** (principe « tout éditable »).
+
+### Reconciliation de la clé du mapping intelligent (étape 8)
+- Source réelle de la clé = **(D_RU, D_OA, D_FA)** → cible **(ENTITE, PMA, CENTRE DE COÛT)**.
+  (Le « CC_source » évoqué à l'étape 8 était imprécis : côté source c'est **FA** ; le **CC** est la **cible**,
+  choisie par le CDG à l'aide de la table FA→CC.)

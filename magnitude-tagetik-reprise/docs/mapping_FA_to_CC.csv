@@ -1,0 +1,63 @@
+FA,FA_libelle,CC,CC_libelle
+FA001,Présidency & Executive Management,CC_03004,GDPR
+FA001,Présidency & Executive Management,CC_00001,General Management
+FA001,Présidency & Executive Management,CC_00003,Tax
+FA001,Présidency & Executive Management,CC_20501,Strategy & Corporate Development
+FA001,Présidency & Executive Management,CC_03003,OPC - Operational Permanent Control
+FA001,Présidency & Executive Management,CC_00004,Business Continuity Plan
+FA002,Risk Management,CC_83003,Risk Management
+FA005,Human Resources,CC_10002,HR Direction
+FA005,Human Resources,CC_10003,Employment & Follow Up HR
+FA005,Human Resources,CC_10004,Management control and Staff administration
+FA005,Human Resources,CC_10007,Training Cluster
+FA005,Human Resources,CC_10008,Social management control
+FA005,Human Resources,CC_12001,HR Business & Functions
+FA010,Transformation,CC_99503,Transformation
+FA011,Brand & Marketing,CC_30201,Communication Marketing
+FA011,Brand & Marketing,CC_82001,Marketing Digital
+FA011,Brand & Marketing,CC_82002,Marketing France
+FA011,Brand & Marketing,CC_82003,Marketing International // Créer CC pour Noisy-le-Grand (PM)
+FA012,Client Solutions,CC_81002,Coverage User
+FA015,Communication,CC_30002,Communication Corporate
+FA015,Communication,CC_30003,Communication Events
+FA015,Communication,CC_30004,Communication Information
+FA015,Communication,CC_30005,Internal Communication
+FA015,Communication,CC_30006,Communication Brand-Publishing-Advertising
+FA015,Communication,CC_30007,Communication Press
+FA015,Communication,CC_30008,Communication Studio
+FA015,Communication,CC_30009,Communication Conferences
+FA015,Communication,CC_30101,Communication Business
+FA015,Communication,CC_30102,Communication -  Residencial Property Dev
+FA015,Communication,CC_30103,Communication -  Office Property Dev
+FA015,Communication,CC_84001,CSR
+FA020,Market Research,CC_06001,Study and research France
+FA020,Market Research,CC_06101,International Study and research
+FA020,Market Research,CC_85001,Innovation
+FA025,Finance Services,CC_20004,Finance Promotion
+FA025,Finance Services,CC_87015,Finance – Other
+FA025,Finance Services,CC_03001,Finance Permanent Control
+FA025,Finance Services,CC_20001,Accounting Direction
+FA025,Finance Services,CC_20002,General Accounting
+FA025,Finance Services,CC_20401,Performance Management Team
+FA025,Finance Services,CC_20005,Treasury
+FA025,Finance Services,CC_20201,Accounting Business
+FA025,Finance Services,CC_20301,Consolidation
+FA025,Finance Services,CC_20003,Suppliers Accounting
+FA030,Legal & Tax Services,CC_50001,Juridique International
+FA030,Legal & Tax Services,CC_50002,Legal
+FA030,Legal & Tax Services,CC_50101,Legal - Business
+FA035,IT,CC_40001,IT management
+FA035,IT,CC_40101,IT management Business
+FA035,IT,CC_40201,Business Analyst IT
+FA040,Logistics,CC_55100,Advisory - KYC
+FA040,Logistics,CC_80413,Costs corporate Tourist Residences
+FA040,Logistics,CC_70101,Workplace environment Team - Business
+FA040,Logistics,CC_70001,Workplace environment Team
+FA041,Procurement ,CC_60001,Procurement - Corporate
+FA044,Operational Risk & Control (08/2014),CC_03002,ORC - Operational Risk and Control
+FA045,Organization ,CC_04001,Organisaton
+FA046,Internal Audit,CC_06201,Data scientist & Analytics office
+FA050,Financial Security (until 06/2015 : Compliance),CC_02002,Financial Security
+FA050,Financial Security (until 06/2015 : Compliance),CC_02004,Compliance_Global FS
+FA051,Regulatory & Compliance Services,CC_02001,Compliance RCS
+FA051,Regulatory & Compliance Services,CC_02003,Compliance_Global RCS
