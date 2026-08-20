@@ -1,0 +1,357 @@
+code,libelle,niveau_indent,type
+EG_2607,NEUVILLE REY LORAS,3,feuille
+EG_2609,NOISY LE GRAND - LOUIS LUMIERE,3,feuille
+EG_2610,EZE - IMPASSE DES ECOLES,3,feuille
+EG_2611,MERIGNAC PERLERIE,3,feuille
+EG_2612,NOISY LE GRAND - MALNOUE,3,feuille
+EG_2613,AIX EN PROVENCE - OAP REMPELIN,3,feuille
+EG_2614,AIX EN PCE - VALCROS,3,feuille
+EG_2615,IVRY - TRUILLOT LOT 11,3,feuille
+EG_2618,RCM - ST JOSEPH ACC,3,feuille
+EG_2619,DRAGUIGNAN - AUPS,3,feuille
+EG_2624,CACHAN ECOQUARTIER,3,feuille
+EG_395,IAtis Real - EUR - Non Ventilé,3,feuille
+EG_T_05972,SAINT OUEN V2 V3,3,feuille
+EG_T_05985,PESSAC JEAN JAURES,3,feuille
+EG_T_06128,PESSAC PONTET,3,feuille
+EG_T_06731,LA CIOTAT - KHAAN,3,feuille
+EG_T_06919,SAINT OUEN – DOCKS S6,3,feuille
+EG_T_07211,CHENNEVIERES-MOULIN,3,feuille
+EG_T_07364,SCV DRANCY,3,feuille
+EG_T_07488,BGL CBK 3,3,feuille
+EG_T_07547,VENCE – CHE DE LA SINE,3,feuille
+EG_T_07596,CLICHY RUE POYER,3,feuille
+EG_T_07603,ROSNY COTEAU BEAUCLAIRE,3,feuille
+EG_T_07651,BORDEAUX CRACOVIE,3,feuille
+EG_T_07674,CAMPANER - ACC,3,feuille
+EG_T_07684,SCV LA TESTE RUE DES MARAICHERS,3,feuille
+EG_T_07725,VITROLLES - MAS CHANTBERROL,3,feuille
+EG_T_07807,PELISSANNE – CONSTANT DIAZ BRS,3,feuille
+EG_T_07918,DOUSSARD_IMP DES OUVAS,3,feuille
+EG_T_07927,PUTEAUX AVANT SCENE et SAMSIC ACCESSION,3,feuille
+EG_T_08030,MARSEILLE 13 - SERPAT TP,3,feuille
+EG_T_08053,SCV SEVRES RUE TROYON,3,feuille
+EG_T_08060,SCV AMBILLY ETOILE,3,feuille
+EG_T_08075,SCV CHATILLON GINKGO,3,feuille
+EG_T_08078,AURA FIT-OUT WORK,3,feuille
+EG_T_08098,OULLINS – LA SAULAIE,3,feuille
+EG_T_08118,ECHO FIT-OUT WORK,3,feuille
+EG_T_08122,LUMNIA FIT-OUT WORK,3,feuille
+EG_T_08168,AIX PAGNOL LOGEMENTS,3,feuille
+EG_T_08169,DIJON - EPCAPA MARGUERITE,3,feuille
+EG_T_08189,THONON VALLEES,3,feuille
+EG_T_08212,COGOLIN - BASTIDE OCCASO,3,feuille
+EG_T_08242,MARSEILLE 10 - BASTIDE LOMBARD,3,feuille
+EG_T_08332,SCCV DENIS 4 BRESSON 2 PANTIN,3,feuille
+EG_T_08350,SCV SANGUINET LILLOT,3,feuille
+EG_T_08362,SCV BORMES,3,feuille
+EG_T_08369,SCV LA COURONNE,3,feuille
+EG_T_99999,SCV Divers IG,3,feuille
+EJ_35482,SNC PERIGARES,3,feuille
+EJ_35538,BOULOGNE LOGEMENT,3,feuille
+EJ_35556,SNC GARIBALDI 19 A ISSY L,3,feuille
+EJ_35560,LE PARC DE PASSY,3,feuille
+EJ_35572,RESIDENCE DU VAL D'EUROPE,3,feuille
+EJ_35575,STUDIO DE JOINVILLE,3,feuille
+EJ_35576,SARL AMENAGEMENT GARIBALD,3,feuille
+EJ_35582,AVENUE JOYEUSE JOINVILLE,3,feuille
+EJ_35913,AZUREA,3,feuille
+EJ_35992,SCI GARIBALDI 10 A ISSY L,3,feuille
+EJ_36008,VEM GREENPARC,3,feuille
+EJ_36040,Société Auxiliaire de Construction Immobilière,3,feuille
+EJ_40501,PARIS NEUILLY LEVALLOIS,3,feuille
+EJ_40503,PARIS VILLIERS,3,feuille
+EJ_41002,Le Bourget Commandant Rolland Aménagement,3,feuille
+EJ_41004,VIALA FINLAY,3,feuille
+EJ_41009,LE CARRE SAINT GINIEZ,3,feuille
+EJ_41281,MANDELIEU RIVIERA PARK,3,feuille
+EJ_41427,SNC SINVIM MEDITERRANEE,3,feuille
+EJ_41437,ROUGET DE L'ISLE,3,feuille
+EJ_42981,LE PARC DES CAPITOULS,3,feuille
+EJ_43017,PARTICIPAT VIALA FINLAY,3,feuille
+EJ_43052,LES ALLEES ST LEGER,3,feuille
+EJ_43077,SCI Villa des Suisses à Nanterre,3,feuille
+EJ_46235,SCI VAL DE GORBIO,3,feuille
+EJ_56778,SAS Clichy Tabarly,3,feuille
+EJ_56827,SNC ROUTE BLANCHE A GARDA,3,feuille
+EJ_56916,CLAUDE BERNARD A PARIS 19,3,feuille
+EJ_56926,SNC VILLA CAP SUD A ANTIB,3,feuille
+EJ_56928,SNC CHATILLON PARC,3,feuille
+EJ_56929,SNC NICE PARK,3,feuille
+EJ_56933,SCI FORT D'ISSY CAP SUD,3,feuille
+EJ_57020,SCI 6 RUE DU VILLARD DE L,3,feuille
+EJ_57021,SCI Rueil Deville Monier,3,feuille
+EJ_57041,SNC PARIS INDOCHINE,3,feuille
+EJ_57043,SNC L'OREE DU BOIS,3,feuille
+EJ_57046,SCI ADONIS,3,feuille
+EJ_57047,SAS CLOS DES FLEURS,3,feuille
+EJ_57048,SCI La Bataille,3,feuille
+EJ_57051,SNC ISSY SEINE,3,feuille
+EJ_57052,SNC Les Oliviers à Juan Les Pins,3,feuille
+EJ_57055,PARC VALERIEN PERRIN,3,feuille
+EJ_57056,CELESTINS A OULLINS 69,3,feuille
+EJ_57059,SCI LES SOURCES DE MOUXY,3,feuille
+EJ_57069,SCI AZALEE,3,feuille
+EJ_57070,SNC 15 RUE DE GERLAND A L,3,feuille
+EJ_57071,SNC LES TERRASSES DE SAIN,3,feuille
+EJ_57075,SNC LES JARDINS D'IRIS,3,feuille
+EJ_57084,SNC AVENUE DU CORAIL 1300,3,feuille
+EJ_57085,MARSEILLE M3 NOAILLES BUR,3,feuille
+EJ_57087,CHEMIN DE ROUMAGOUA,3,feuille
+EJ_57093,SNC RUE FRANCOIS MAURIAC,3,feuille
+EJ_57095,CHEMIN DE LA PARADE,3,feuille
+EJ_57293,SCI des Coteaux,3,feuille
+EJ_57299,SCCV CENON JEAN JAURES,3,feuille
+EJ_57301,SNC LES RESIDENCES,3,feuille
+EJ_57303,SCI Bobigny Zac Hôtel De Ville,3,feuille
+EJ_57453,SNC 4 RUE DES ROUTOIRS A,3,feuille
+EJ_57456,SNC Rueil Paul Heroult,3,feuille
+EJ_57741,MANOIRS DE FONTANIERES,3,feuille
+EJ_57757,SNC LEVALLOIS COLLANGE,3,feuille
+EJ_57762,SNC RUE DE ROCHEPLEINE A,3,feuille
+EJ_57765,CONSULS DE MER,3,feuille
+EJ_57787,CHEMIN DU BOIS D'ARTAS,3,feuille
+EJ_57833,SCI Le TRIANGLE d'OR,3,feuille
+EJ_57922,SNC Reuil Les Fontaines,3,feuille
+EJ_57934,SNC VLB LA BERMONE,3,feuille
+EJ_58182,SNC LA BOUCLE DE FONTENAY,3,feuille
+EJ_58184,SCI Bobigny Ecocité,3,feuille
+EJ_58465,SNC COTTAGE PARC A VIF 38,3,feuille
+EJ_58466,SNC GREEN DOMAINE A CANNE,3,feuille
+EJ_58572,SNC LOGEMENTS JOLIETTE 13,3,feuille
+EJ_58573,SNC TRAVERSE POMEGUES - 1,3,feuille
+EJ_58615,SNC 42 Rue du Docteur Francois Morucci à Marseille,3,feuille
+EJ_58617,SNC ECOWEST A LEVALLOIS,3,feuille
+EJ_62290,SNC AFFINITY A LYON 2,3,feuille
+EJ_63256,SCCV Ausone Ilot 1.4,3,feuille
+EJ_63257,SNC 65 CHEMIN DE LA GRAVE,3,feuille
+EJ_63258,SNC ILOT 3C - 13002 MARSE,3,feuille
+EJ_63259,SNC RESIDENCE ASNIERES PA,3,feuille
+EJ_63577,SNC T. HONORE-NOGENT SUR,3,feuille
+EJ_63579,SNC ELANCOURT RESIDENTIEL,3,feuille
+EJ_63582,SERENITY A FERNEY VOLTAIR,3,feuille
+EJ_63584,SNC Saint-Denis Montjoie,3,feuille
+EJ_63585,SNC NANTERRE NEO CITY,3,feuille
+EJ_63586,SNC REPUBLIQUE MAISONS-AL,3,feuille
+EJ_63782,SNC SAINT OUEN LES DOCKS,3,feuille
+EJ_63783,Ecocampus Seine,3,feuille
+EJ_63784,SNC Route De Chateau Gombert à Marseille,3,feuille
+EJ_63787,SCCV Quai Deschamps Empreinte,3,feuille
+EJ_64237,SNC BD BOUYALA D'ARNAUD,3,feuille
+EJ_64238,SNC CAGNES BEAL,3,feuille
+EJ_64239,SNC DES VIGNEAUX A CUGES,3,feuille
+EJ_64240,SNC GRAPHIS A VILLEURBANN,3,feuille
+EJ_64241,SNC RUEIL ROCHEBRUNE,3,feuille
+EJ_64242,SNC SAINT OUEN ROSIERS,3,feuille
+EJ_64243,SNC SOCITY A LYON 7,3,feuille
+EJ_64300,SCCV Horloge Vaillant A1,3,feuille
+EJ_64305,SNC SANNOIS DAMIETTE,3,feuille
+EJ_64306,161 Avenue Thiers,3,feuille
+EJ_65171,Levallois Danton SAS,3,feuille
+EJ_65172,SCCV Noisy l'Ourcq,3,feuille
+EJ_65173,SNC 50 avenue DES CAILLOLS (13012 Marseille),3,feuille
+EJ_65174,SNC Avenue Jean LEPINE à Bron 69,3,feuille
+EJ_65175,SNC Marseille 3C Nord Bureaux,3,feuille
+EJ_65176,SNC NOVATIO A VENISSIEUX,3,feuille
+EJ_65177,SNC PARIS TERNES VILLIERS,3,feuille
+EJ_65178,SNC Rueil La Rotonde,3,feuille
+EJ_65189,MENTON - HAUT CAREI,3,feuille
+EJ_65190,SNC Metal 57,3,feuille
+EJ_65191,SNC Bordeaux Tribequa,3,feuille
+EJ_65194,SNC NOISY VIA VERDE,3,feuille
+EJ_65308,SNC VILLENEUVE LOUBET,3,feuille
+EJ_65310,SNC VILLA OPALESCENCE,3,feuille
+EJ_65311,SNC SAINT-DENIS CURVE,3,feuille
+EJ_65312,SNC SAINT OUEN DHALENNE,3,feuille
+EJ_65313,SCCV SAINT OUEN V1,3,feuille
+EJ_65315,SNC NICE CONNEXIO,3,feuille
+EJ_65316,SNC MIROIRS CB20,3,feuille
+EJ_65322,SNC le C½ur du Village à Irigny,3,feuille
+EJ_65330,SNC NICE 49 VICTORIA,3,feuille
+EJ_65331,SNC EPURE PESSAC CENTRE VILLE,3,feuille
+EJ_65332,SNC NOISY MAILLE HORIZON,3,feuille
+EJ_65334,SNC PORTE DE SAINT-OUEN,3,feuille
+EJ_65574,SCCV Saint Ouen V2 V3,3,feuille
+EJ_65575,Clamart Panorama SAS,3,feuille
+EJ_65627,SNC Antibes Marenda Lacan,3,feuille
+EJ_65628,Courbevoie Paul Bert SAS,3,feuille
+EJ_65629,SNC VELIZY ENVOL,3,feuille
+EJ_65630,SCCV Chatillon Brossolette,3,feuille
+EJ_65908,SNC Les Mathurins à Bagneux,3,feuille
+EJ_65909,SNC l'Argentik à Lyon 8,3,feuille
+EJ_65910,SNC CLICHY PASSAGE GAMBET,3,feuille
+EJ_65911,SNC LA BLANCHISSERIE DU CANNET,3,feuille
+EJ_65912,SNC CHEMIN DU LANCIER A M,3,feuille
+EJ_65913,SNC Rue Genestelles - Istres,3,feuille
+EJ_65915,SCCV Courbevoie Minimes,3,feuille
+EJ_65926,SCCV Boulogne Pierre Grenier,3,feuille
+EJ_65973,SNC Opération Roosevelt,3,feuille
+EJ_66112,SCCV SAINT OUEN PICASSO,3,feuille
+EJ_66229,SNC LEVALLOIS PARC,3,feuille
+EJ_66230,SNC MERIGNAC 242 MARNE,3,feuille
+EJ_66231,SNC NICE THEURIET,3,feuille
+EJ_66232,SNC COLOMBES GAGARINE,3,feuille
+EJ_66281,SNC Saint Cyr Charles Renard,3,feuille
+EJ_66282,Saint Ouen Village,3,feuille
+EJ_66283,SNC Romainville Gagarine,3,feuille
+EJ_66284,SNC Bordeaux Brazza D3,3,feuille
+EJ_66285,SNC Villeneuve Loubet Les Voiles De La Bermone,3,feuille
+EJ_66286,SNC RUE LAVISON-LUYNES,3,feuille
+EJ_66287,SNC CHEMIN DU LAUTIN A CAGNES,3,feuille
+EJ_66497,SCCV NOISY LE SEC LEO LAGRANGE,3,feuille
+EJ_66498,SNC Paris 17 and Co,3,feuille
+EJ_66549,SNC Clamart Lot K,3,feuille
+EJ_66550,SNC LIVRY GARGAN - AVENUE JEAN ZAY,3,feuille
+EJ_66551,SNC Vertuo à Villefranche 69,3,feuille
+EJ_66708,SNC Antibes Plateaux Fleuris,3,feuille
+EJ_66709,SAS Clamart Secteur Gare,3,feuille
+EJ_66710,SCCV Boulogne D5,3,feuille
+EJ_66711,SNC SQUARE MISTRAL A VILLEURBANNE 69,3,feuille
+EJ_66712,S.A.S. Village Delage,3,feuille
+EJ_66959,SCCV Asnières Bergson,3,feuille
+EJ_67001,SCCV GRASSE VICTOR HUGO,3,feuille
+EJ_67002,SCCV Garniere 13360 Roquevaire,3,feuille
+EJ_67003,SNC Antibes Château Salé,3,feuille
+EJ_67004,SNC 28 Chemin Colline Saint Joseph 13009 Marseille,3,feuille
+EJ_67005,SNC Rue Scheiner 13013 Marseille,3,feuille
+EJ_67011,SNC TRAVERSE DES MOLIERES,3,feuille
+EJ_67132,SCCV Astre,3,feuille
+EJ_67171,SCCV Villeneuve Collines,3,feuille
+EJ_67172,SNC BD BARNIERE MARSEILLE,3,feuille
+EJ_67173,SNC CHEMIN DE LA SOUDE MA,3,feuille
+EJ_67174,SNC Le Roosevelt à Bron 69,3,feuille
+EJ_67175,SNC Nice Ilots du Littoral,3,feuille
+EJ_67176,SNC PLAINE DES DES - AIX EN PROVENCE,3,feuille
+EJ_67209,SNC Chelles Castermant,3,feuille
+EJ_67210,SNC SYMBIOSE A FRANCHEVILLE 69,3,feuille
+EJ_67211,SCCV Saint Ouen Montmartre,3,feuille
+EJ_67215,SCCV Canopea a Lyon 7,3,feuille
+EJ_67217,SCCV Gennevilliers Gardens,3,feuille
+EJ_67223,SNC Bordeaux Estuaire,3,feuille
+EJ_67554,SNC BD BARA MARSEILLE 13,3,feuille
+EJ_67555,SNC route de Valcros-Aix en Provence,3,feuille
+EJ_67556,SNC TRAVERSE LE MEE - MAR,3,feuille
+EJ_67557,SNC Zenity A Villeurbanne 69,3,feuille
+EJ_67558,SNC Inspiration A Rillieux-La-Pape 69,3,feuille
+EJ_67559,SNC Marseille 49-53 Boulevard des Dames,3,feuille
+EJ_67563,Clamart Panorama 2,3,feuille
+EJ_67564,SCVV Puteaux 46 Arago,3,feuille
+EJ_67565,SCCV Rueil Louis Bleriot,3,feuille
+EJ_67566,SAS Clichy Fonciere,3,feuille
+EJ_67573,SNC PIERRE SEMARD A NICE,3,feuille
+EJ_67574,SCCV Nanterre Hanriot,3,feuille
+EJ_67830,SNC Torcy Arche Guedon,3,feuille
+EJ_67831,SNC Eloge à Villeurbanne 69,3,feuille
+EJ_67832,SNC Saint Raphael Baudino,3,feuille
+EJ_67833,SNC Maisons-Laffitte Digue,3,feuille
+EJ_67834,SCCV 12-14 Fructidor,3,feuille
+EJ_67835,SCCV Rue D'Alsace à Decines 69,3,feuille
+EJ_67837,SAS Begles Capelle,3,feuille
+EJ_67842,SNC Rue Marot-Gerland à Lyon 7,3,feuille
+EJ_67844,SCI New Cap West,3,feuille
+EJ_68060,SAS Maisons Alfort Cadiot,3,feuille
+EJ_68088,SCCV Saint-Ouen Dieumegard,3,feuille
+EJ_68138,SAS Lille Metropolitan Square,3,feuille
+EJ_68158,SCCV CHATILLON PERROTIN,3,feuille
+EJ_68161,SCCV Cormeilles Seine,3,feuille
+EJ_68167,SCCV Neuilly-Plaisance Foch,3,feuille
+EJ_68168,SNC Villeneuve Loubet Bel Air Adrymour,3,feuille
+EJ_68169,SNC Les Pavillons De Flore A Corbas 69,3,feuille
+EJ_68170,SNC Cazemajou 03 - Marseille 15,3,feuille
+EJ_68171,SNC Fraternite A Ambilly 74,3,feuille
+EJ_68190,SCCV Clichy Logements,3,feuille
+EJ_68191,SCCV Levallois G Pompidou 20,3,feuille
+EJ_68399,SAS Perou Villeurbanne,3,feuille
+EJ_68400,SCCV Lille Communaute,3,feuille
+EJ_68401,SCCV Lille Ballon,3,feuille
+EJ_68445,SNC Le Blanc Mesnil Floquet,3,feuille
+EJ_68446,SNC AIX VIERGE NOIRE,3,feuille
+EJ_68467,SNC Cinetik A Lyon 8,3,feuille
+EJ_68468,SCCV Sartrouville Zacharie,3,feuille
+EJ_68469,SCCV Levallois 29 Pvc,3,feuille
+EJ_68478,SCCV Bagneux Veil,3,feuille
+EJ_68505,SNC LORMONT GUYON,3,feuille
+EJ_68506,SNC Aubervilliers Victor,3,feuille
+EJ_68508,SCCV Passoir,3,feuille
+EJ_68544,SAS Franconville Fossati,3,feuille
+EJ_68637,SCCV Paris Victoria,3,feuille
+EJ_68648,SNC Bordeaux Grand Parc,3,feuille
+EJ_68744,SCCV Aubagne Camp Major,3,feuille
+EJ_68745,SNC CHARLES MOULET A MARTIGUES,3,feuille
+EJ_68756,SNC Courbevoie Abreuvoir,3,feuille
+EJ_68871,SAS Puteaux Dion Bouton,3,feuille
+EJ_68872,SNC Lumiflore à Saint-Genis 69,3,feuille
+EJ_68964,SNC Cogolin Radasse,3,feuille
+EJ_68966,SNC Le Blanc Mesnil Parc,3,feuille
+EJ_69200,SNC Levallois Baudin Résidentiel,3,feuille
+EJ_69420,SNC Nouvel R A Rillieux 69,3,feuille
+EJ_69421,SNC Square Du Pilat A La Mulatiere 69,3,feuille
+EJ_69592,Puteaux Jean Moulin,3,feuille
+EJ_69722,Bordeaux Bastide Niel,3,feuille
+EJ_69723,Choisy Louis Luc B1,3,feuille
+EJ_70064,SCCV CHOISY LOUIS LUC MOD,3,feuille
+EJ_70079,SNC Avenue Des Olives 13013,3,feuille
+EJ_70080,SNC Clichy Sellier,3,feuille
+EJ_70081,SNC Resonnances A Lyon 7,3,feuille
+EJ_70082,SNC Route De Saint Priest A Mions 69,3,feuille
+EJ_70083,SNC Paris 12 - Les Messageries,3,feuille
+EJ_70724,SCCV DENIS 4 BRESSON 2,3,feuille
+EJ_70725,SNC HORIZON DOUSSARD 74,3,feuille
+EJ_70726,SNC AXE VALLEE THONON 74,3,feuille
+EG_2604,SCV,3,feuille
+EG_21700,BNPP Real Estate France,3,feuille
+EJ_21665,BNPP Real Estate Financial Partner,3,feuille
+EJ_21710,BNPP Real Estate Property Management France SAS,3,feuille
+EJ_21712,BNPP Immobilier Promotion,3,feuille
+EJ_21722,BNPP Real Estate Conseil Habitation & Hospitality,3,feuille
+EJ_21732,BNPP Real Estate Consult France,3,feuille
+EJ_21890,BNPP Real Estate Advisory France,3,feuille
+EJ_40530,BNPP Immobilier Résidences Services,3,feuille
+EJ_40881,Auguste Thouard Expertise,3,feuille
+EJ_41015,GIE BNPP Real Estate,3,feuille
+EJ_42446,Partner's & Services,3,feuille
+EJ_66206,BNPP Real Estate Singapore Pte Ltd,3,feuille
+EJ_67012,Nanterre Arboretum,3,feuille
+EJ_21700,BNPP Real Estate,2,node/subtotal
+EG_390,BNP Paribas Real Estate - EUR - Non Ventilé,3,feuille
+EJ_36028,BNP Paribas Real Estate Valuation France S.A.S.,3,feuille
+UG_390,BNP Paribas Real Estate France - EUR,2,node/subtotal
+EJ_21898,BNPP Real Estate Advisory & Property Management UK Ltd,3,feuille
+EJ_21900,BNPP Real Estate Facilities Management Ltd,3,feuille
+EJ_56785,BNPP Real Estate Property Development UK Ltd,3,feuille
+EJ_63264,REPD Parker Ltd,3,feuille
+EJ_63267,Parker Tower Ltd,3,feuille
+EG_245,BNP Paribas Real Estate - GBP,3,feuille
+EJ_21902,BNPP Real Estate Holding GmbH,3,feuille
+EJ_21904,BNPP Real Estate GmbH,3,feuille
+EJ_21905,BNPP Real Estate Property Management GmbH,3,feuille
+EJ_21906,BNPP Real Estate Consult GmbH,3,feuille
+EJ_65631,BNPP Real Estate Property Development & Services GmbH,3,feuille
+UG_399,Real Estate - Germany,3,feuille
+EJ_21908,BNPP Real Estate Belgium SA,3,feuille
+EG_18,Real Estate - Belgium,3,feuille
+EJ_21913,BNPP Real Estate Spain SA,3,feuille
+EJ_66723,Cariboo Development SL,3,feuille
+EJ_67018,Wapiti Development SL,3,feuille
+EG_391,Real Estate - Spain,3,feuille
+EJ_66208,BNPP Real Estate Portugal Unipersonal LDA,3,feuille
+EJ_68173,Exeo Aura & Echo Offices Lda,3,feuille
+EG_392,Real Estate - Portugal,3,feuille
+EJ_56392,BNPP Real Estate Poland SP ZOO,3,feuille
+EG_393,Real Estate - Poland,3,feuille
+EJ_58073,BNPP Real Estate Advisory Netherlands BV,3,feuille
+EG_394,Real Estate - Netherlands,3,feuille
+EJ_42444,BNPP Real Estate Advisory & Property Management Ireland Ltd,3,feuille
+EG_396,Real Estate - Ireland,3,feuille
+EJ_40711,BNPP Real Estate Advisory Italy SPA,3,feuille
+EJ_42089,BNPP Real Estate Property Developpement Italy SPA,3,feuille
+EJ_42445,BNPP Real Estate Property Management Italy SRL,3,feuille
+EJ_46520,BNPP Real Estate Italy SRL,3,feuille
+EJ_56692,Sviluppo Residenziale Italia SRL,3,feuille
+EJ_65323,Horti Milano SRL,3,feuille
+UG_397,Real Estate - Italy,3,feuille
+EJ_21912,BNPP Real Estate Advisory & Property Management Luxembourg SA,3,feuille
+UG_398,Real Estate - Luxembourg,3,feuille
+EGMET_12,Métropole Immobilier - Services Immobiliers,3,feuille
+EG_169,Services Immobiliers - EUR - Non Ventilée,3,feuille
+UG_39,Real Estate Services scope of responsibility,1,node/subtotal

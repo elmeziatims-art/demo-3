@@ -1,0 +1,52 @@
+code,libelle,niveau_indent,type
+PMA_8017,S_Office Property & Facility Management,3,feuille
+PMA_8027,S_Residential Development & Planning,3,feuille
+PMA_8030,S_REOS Portfolio Management,3,feuille
+PMA_8049,S_Rating & Lease Advisory,3,feuille
+PMA_8051,S_Development Land & Strategy,3,feuille
+PMA_8018,S_Office Property Management - International,3,feuille
+PMA_8019,S_PDI,3,feuille
+PMA_8025,S_Space consulting & Space Planning,3,feuille
+PMA_8042,A_Real Estate Property Management,3,feuille
+PMA_1617,A_Real Estate Property Management,2,node/subtotal
+PMA_8013,S_Residential Property Development,3,feuille
+PMA_1290,A_Real Estate Residential France,3,feuille
+PMA_8015,S_Office Property Developement,3,feuille
+PMA_8016,S_International Office Property Developement,3,feuille
+PMA_1618,A_Real Estate Commercial Property Development,3,feuille
+PMA_8000,A_Services Immobiliers Promotion,2,node/subtotal
+PMA_8037,S_Letting & Sales,3,feuille
+PMA_1619,Letting & Sales,3,feuille
+PMA_8041,S_Investment,3,feuille
+PMA_8035,Investment,3,feuille
+PMA_8023,S_Consulting & Corporate Real Estate,3,feuille
+PMA_8050,S_Residential Valuation,3,feuille
+PMA_8047,S_Traker,3,feuille
+PMA_8026,S_CONSULTING - Debt Advisor,3,feuille
+PMA_8024,S_Rural Consultancy,3,feuille
+PMA_8004,Consulting,3,feuille
+PMA_8040,S_Valuation,3,feuille
+PMA_8008,Valuation,3,feuille
+PMA_8038,S_Coordination Advisory,3,feuille
+PMA_8005,Coordination Advisory,3,feuille
+PMA_8014,S_Residencial Property Sales,3,feuille
+PMA_8028,S_Residential Retail Sales/ Residential Agency,3,feuille
+PMA_8006,Residential,3,feuille
+PMA_8001,A_Services Immobiliers Advisory,2,node/subtotal
+PMA_8011,S_Student Residences,3,feuille
+PMA_8044,RE Student Residences,3,feuille
+PMA_8012,S_Tourist Residences,3,feuille
+PMA_8045,RTA,3,feuille
+PMA_8002,A_Services Immobiliers Residence Services,2,node/subtotal
+PMA_8033,S_Holding,3,feuille
+PMA_8034,S_Holding International,3,feuille
+PMA_8046,Holding,3,feuille
+PMA_8020,S_IM International,3,feuille
+PMA_8021,S_Investment Management,3,feuille
+PMA_8022,S_Investment Services,3,feuille
+PMA_8043,A_Real Estate Investment Management,3,feuille
+PMA_8003,A_Services Holding,2,node/subtotal
+PMA_1030,A_Structural Real Estate Services,3,feuille
+PMA_1089,A_Real Estate Services ALMT,3,feuille
+PMA_1291,A_Real Estate Others,3,feuille
+02_12430000,Real Estate,2,node/subtotal

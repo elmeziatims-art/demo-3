@@ -213,3 +213,55 @@ Le fichier ne contient **pas que le P&L**. Extraction complète → `docs/tageti
   `IND_00_060074` = « Social Charges » (préfixe `00` vs `26`). → **à revérifier ensemble**.
 - Certains libellés diffèrent de la doc « 3.1 Indicators » (contextes distincts) → **à valider**
   au moment de figer la table de mapping.
+
+---
+
+## Étape 5 — Hiérarchies Entités & PMA (`Entites_PMA_hierarchie.xlsx`)
+
+Fichier : `travail/Entites_PMA_hierarchie.xlsx` (fourni le 2026-08-20), 2 onglets, format rapport.
+Ce sont les **listes de référence Tagetik** des cibles pour nos mappings **RU→Entité** et **OA→PMA**.
+Extraits → `docs/hierarchie_pma.csv` et `docs/hierarchie_entites.csv`.
+
+### Onglet 1 — PMA (50 codes `PMA_xxxx`)
+- Équivalent Tagetik de l'**OA** (Operational Activity) Magnitude.
+- Libellés préfixés **`S_`** (activité détaillée/sous-niveau) et **`A_`** (regroupement/agrégat),
+  ex. `PMA_8000` « A_Services Immobiliers Promotion », `PMA_8015` « S_Office Property Developement ».
+
+### Onglet 2 — Entités (356 codes, plusieurs préfixes)
+- Équivalent Tagetik de la **RU** (entité) Magnitude. Répartition des préfixes :
+  - **`EJ_`** (291) = **entités juridiques** → le gros du volume (niveau le plus fin).
+  - **`EG_`** (59) = **entités de gestion/groupe** (ex. `EG_21700` « BNPP Real Estate France »,
+    `EG_18` « Real Estate - Belgium »).
+  - **`UG_`** (5) et **`EGMET`** (1) = autres regroupements.
+
+### Structure hiérarchique (CE N'EST PAS UN LISTING PLAT)
+- La hiérarchie est encodée par l'**indentation du libellé** (colonne D, via le style de cellule),
+  **pas** par l'outline Excel (outline level = 0) ni par le flag col E (=0 partout ici).
+- **Niveau = indentation** ; les **nodes/subtotals** sont les lignes **moins indentées**, placées
+  **APRÈS** leurs enfants (layout « subtotal sous les enfants »). Feuilles = indentation max (3).
+
+#### Onglet PMA — 45 feuilles (indent 3) + 6 nodes (indent 2)
+Nodes (agrégats « A_ ») :
+- `02_12430000` « Real Estate » (racine)
+- `PMA_1617` A_Real Estate Property Management
+- `PMA_8000` A_Services Immobiliers Promotion
+- `PMA_8001` A_Services Immobiliers Advisory
+- `PMA_8002` A_Services Immobiliers Residence Services
+- `PMA_8003` A_Services Holding
+→ Les 45 PMA « S_… » (feuilles) se regroupent sous ces agrégats.
+
+#### Onglet Entités — 353 feuilles (indent 3) + 3 nodes
+- `UG_39` (lvl1) « Real Estate Services scope of responsibility » (racine)
+- `UG_390` (lvl2) « BNP Paribas Real Estate France - EUR »
+- `EJ_21700` (lvl2) « BNPP Real Estate »
+→ Les 353 entités feuilles (préfixes `EG_`, `EG_T_`, `EJ_`…) se rattachent à ces nodes.
+
+#### Détail complet → CSV
+`docs/hierarchie_pma.csv` et `docs/hierarchie_entites.csv` : colonnes
+`code, libelle, niveau_indent, type (feuille|node/subtotal)`.
+
+### Usage projet
+- **Référentiel des cibles valides** pour construire les tables de correspondance
+  **RU (Magnitude) → Entité** et **OA (Magnitude) → PMA**, qui sont **non 1-pour-1**
+  (mapping à définir avec l'utilisateur — prochaine discussion).
+- La hiérarchie servira aussi aux **contrôles** (rattacher une feuille au bon agrégat).
