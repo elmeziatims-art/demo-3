@@ -457,3 +457,28 @@ correspondance ligne à ligne : c'est un **jeu de règles** avec des **caractèr
   volumes (extraction ~100 Mo, table de fait 31k+ lignes) : pas de limite mémoire du 32 bits.
 - **Techno moteur : Power Query (langage M), SANS VBA / macro.** Actualisation par
   **Données → Actualiser tout**.
+
+---
+
+## Étape 9 — Ergonomie & public cible
+
+### Séparation des rôles
+- **Construire le moteur** = technique, fait **une seule fois** (nous). Les utilisateurs n'y touchent pas.
+- **Utiliser le moteur** = **transparent** : coller l'extraction → Actualiser/Générer → lire l'output.
+  Aucune manipulation de Power Query, aucune formule.
+
+### Décisions
+- **Habillage ergonomique (bouton unique vs Actualiser tout natif) : à décider PLUS TARD**
+  (on construit le moteur d'abord, on choisit l'UX à la fin).
+- **Saisie du mapping = par les Contrôleurs de Gestion (CDG)** — public **métier, non technique**.
+  ⇒ Concevoir les onglets de mapping avec **garde-fous** :
+  - **listes déroulantes** des cibles valides (Entités/PMA/CC/Indicateurs issus des référentiels),
+  - **validation de données** (pas de saisie libre erronée),
+  - **rouge = à valider** (propositions provisoires),
+  - repères visuels d'origine (auto / à saisir / modifié).
+
+### À prévoir pour l'usage transparent (quand on fera l'UX)
+- Zone d'entrée claire « Collez ici l'extraction Magnitude ».
+- Page « Mode d'emploi » (3 étapes).
+- **Contrôles automatiques** avec voyants (totaux OK ✅ / lignes non mappées ⚠️ / équilibre EUR via rate).
+- Signaler que la 1ʳᵉ actualisation prend quelques secondes (volume ~100 Mo).
