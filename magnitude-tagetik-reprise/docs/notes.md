@@ -345,3 +345,50 @@ Correspondances **RU × OA → EJ** reconstruites depuis le jeu de données rée
     sans jamais empêcher la modification.
   - Le moteur (output Tagetik) doit **toujours lire la valeur de la table de mapping**
     (la version en vigueur, éventuellement modifiée), **jamais** une valeur figée en dur.
+
+---
+
+## Étape 7 — Schéma cible DÉFINITIF : table de fait Tagetik (`Tagetik_table_de_fait_EX4.xlsx`)
+
+Fichier : `travail/Tagetik_table_de_fait_EX4.xlsx` — **extraction de la table de fait Tagetik**,
+1 onglet `Sheet0`, **31 649 lignes**. C'est le **format d'import à plat** = ce que l'output du
+moteur doit produire (question « rapport vs à plat » de l'étape 4 → **tranchée : à plat**).
+
+### Colonnes (24) = dimensions × (code + description) + montant + origine
+| Col | Dimension | Type | Valeur / source |
+|-----|-----------|------|-----------------|
+| A/B | **Scenario** | 🔒 constant | `2026AC` (Actuals 2026) |
+| C/D | **Period** | 🔒 constant | `03` (March) — vient de `D_DP` |
+| E/F | **Entity** | 🔗 mapping | 35 val. (`EJ_`/`EG_`/`EGMET_`) ← **RU** |
+| G/H | **Indicator** | 🔗 mapping | 162 val. (`IND_`) ← **D_AC** (comptes) |
+| I/J | **Counterparty** | 🔒 constant | `NA` |
+| K/L | **PMA** | 🔗 mapping | 31 val. (dont `NA`) ← **OA** |
+| M/N | **Product** | 🔒 constant | `NA` |
+| O/P | **Vision** | 🔒 constant | `VIS_00_000001` (JV 100%) |
+| Q/R | **Cost Center** | 🔗 mapping | 206 val. (`CC_`) ← **FA (Fonction)** |
+| S/T | **Category** | ❓ à clarifier | 36 val. (`CTG…`) — voir ci-dessous |
+| U/V | **Entity currency** | 🔗 donnée | 4 val. `EUR/GBP/PLN/SGD` ← **D_CU** |
+| W | **Entity currency amount** | 💶 mesure | montant **en devise entité** (← `P_AMOUNT`) |
+| X | **Origin** | 🔒 constant | `QDL` |
+
+### Enseignements clés
+- **6 dimensions constantes** pour cette reprise (Scenario, Period, Counterparty, Product,
+  Vision, Origin) → à figer dans le moteur (paramètres du run).
+- **Les 3 axes mappés se confirment** : `Entity ← RU`, `PMA ← OA`, `Cost Center ← FA`.
+- **Le montant (W) est en DEVISE ENTITÉ** (pas toujours EUR : GBP/PLN/SGD présents)
+  → ⚠️ d'où l'onglet **`rate`** pour convertir en EUR au moment du **contrôle** (étape 1 bis).
+- **Nouvelle dimension `Category` (`CTG…`, col S)** : 36 valeurs, liée à la **cartographie/origine**
+  du montant (ex. `CTG260084` « Amounts of Rotule IN imputed by Synthesis RE », `CTG260085`
+  « Cartographie (dans PnL) », `CTG260034` « source DEF, isolé en LOC »).
+  ❓ **À clarifier avec l'utilisateur** : comment déterminer la Category dans la reprise
+  (constante ? déduite du compte/flux ? table dédiée ?).
+
+### Impact conception moteur
+- L'onglet **output** = ces 24 colonnes (ou au moins les codes A,C,E,G,I,K,M,O,Q,S,U,W,X requis
+  à l'import + descriptions optionnelles).
+- Chaque ligne source filtrée (étape 1) génère 1..N lignes output (cf. cas comptes 1→N)
+  en résolvant : Entity/PMA/Cost Center via la **table de mapping (RU,OA,FA)**, Indicator via
+  la **table comptes (D_AC)**, et en injectant les **constantes**.
+
+### Question ouverte ajoutée
+- **Category (`CTG…`)** : règle de détermination à définir.
