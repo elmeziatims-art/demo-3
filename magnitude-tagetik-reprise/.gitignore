@@ -1,0 +1,5 @@
+entrees/*.xlsx
+entrees/*.csv
+sorties/*.xlsx
+~$*
+*.tmp
