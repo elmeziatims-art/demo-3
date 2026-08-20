@@ -64,3 +64,10 @@ Ne conserver **que les colonnes utiles** et appliquer les filtres suivants :
 ### Points de vigilance signalés (à traiter ensuite)
 - **Entités (RU) et PMA (OA) : PAS du 1 pour 1** → mapping à définir (prochaine discussion).
 - **Comptes (D_AC) : quelques sujets** à traiter aussi.
+
+## Étape 1 bis — Onglet « rate » (taux de change)
+
+- Il existe aussi un onglet **`rate`** (taux de change) dans le fichier source.
+- Usage : servira à **contrôler la donnée en euro** dans un **deuxième temps**
+  (conversion / réconciliation devise → EUR pour vérification).
+- Pas utilisé tout de suite ; à garder de côté pour l'étape de contrôle.
