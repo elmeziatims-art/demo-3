@@ -69,6 +69,12 @@ RU×OA Mappable · RU×OA Non mappable.
 Totaux par bloc P&L (PNB+MEE / OPEX / Pré-tax) ; liste des lignes **non mappées** ⚠️ ;
 équilibre **EUR** (via `rate`) ; nb de lignes en entrée vs sortie.
 
+### ÉTAT 1 – Restitution Magnitude (façon « Réalisé Vs Estimé Valeurs »)
+Vue P&L en **EUR** construite sur la donnée Magnitude (blocs PNB+MEE / OPEX / Pré-tax) → réconciliation.
+
+### ÉTAT 2 – Restitution SolaRE (PMA × Entités)
+Vue **EUR**, PMA en tête + entités dessous, **hiérarchie complète** (nœuds agrégés PMA/entités, repli/dépli).
+
 ### ⑫ SORTIE – Table de fait Tagetik (24 colonnes)
 `Scenario | Scenario-Desc | Period | Period-Desc | Entity | Entity-Desc | Indicator | Indicator-Desc |
 Counterparty(NA) | Counterparty-Desc | PMA | PMA-Desc | Product(NA) | Product-Desc | Vision | Vision-Desc |

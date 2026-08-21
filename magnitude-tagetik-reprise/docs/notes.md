@@ -847,3 +847,34 @@ Colonnes : `RU | OA | FA | Mode (Montant | %) | Valeur | Commentaire`.
 ### Lien avec un point ouvert
 - Recoupe la question « **périmètre IM repris ou non** » (étape 6, G-FRMP OA060 non mappable) :
   l'onglet Exclusions permet justement de **sortir tout ou partie de l'IM/REIM** proprement.
+
+---
+
+## Étape 22 — Deux ÉTATS de restitution en fin de classeur
+
+En plus de la **table de fait** (⑫, format d'import brut), **deux onglets « état »** de lecture/contrôle,
+générés automatiquement (Power Query + TCD).
+
+### État 1 — Restitution façon Magnitude (« Réalisé Vs Estimé (Valeurs) »)
+- **But** : montrer « ce que ça devait donner dans Magnitude » → **réconciliation** avec le reporting existant.
+- Source : **donnée Magnitude** (structure P&L : blocs `PNB+MEE / OPEX / Pré-tax`, comptes, RU/OA).
+- Devise : **EUR** (via `rate`) pour coller à la conso Magnitude (`CC=EUR`).
+- Rendu proche de l'onglet Valeurs (lignes P&L + montants).
+
+### État 2 — Restitution SolaRE / Tagetik (PMA × Entités)
+- Source : **output mappé** (Tagetik).
+- **Devise : EUR** (via `rate`) — lisibilité + comparaison avec l'état Magnitude.
+- **Hiérarchie COMPLÈTE** (décidé) : nœuds agrégés affichés — PMA agrégats `A_…`, entités `UG_…`/`EG_…` —
+  avec **repli/dépli multi-niveaux** (nœuds issus des référentiels hiérarchie PMA / Entités).
+- Présentation : chaque **PMA** en tête, ses **entités en dessous**, sous-totaux par nœud.
+  ```
+  ▸ PMA_8021 Investment Management ....... 1 234
+       EJ_58476 BNPP REIM Germany ........   800
+       EJ_21901 BNPP REIM UK ............    434
+  ```
+
+### Notes de conception
+- Les deux états sont en **EUR** → base commune pour se réconcilier.
+- État 1 = vue « avant » (Magnitude) ; État 2 = vue « après » (SolaRE) → l'écart entre les deux =
+  contrôle de la reprise.
+- Réalisables en **TCD (tableau croisé dynamique)** sur les données PQ, ou en requêtes de regroupement.
