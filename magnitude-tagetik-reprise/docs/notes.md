@@ -628,3 +628,40 @@ ces lignes (`GT-BCESTE`, `GT-TUT`, `G-CENTRAL`, holding, `OA010O`) **n'ont pas d
 propre RU→EJ** et relèvent de **mailles techniques / décisions CDG** (cf. étape 6, cas Non mappable).
 ⇒ À traiter comme **cas à part** dans le mapping (maille de centralisation, pas une EJ société) ;
 ne pas chercher à les réconcilier au niveau EJ classique.
+
+---
+
+## Étape 13 — Charges sociales (GR2100) : saisie utilisateur & calcul
+
+### Décision : taux saisi PAR RU
+- Onglet dédié **« PARAM – Taux charges sociales / RU »** : les CDG saisissent **un taux par RU**.
+  - Colonnes : `RU (liste déroulante du référentiel) | Taux charges soc. | Commentaire`.
+  - Une seule cellule à remplir par RU ; le reste est calculé par le moteur.
+
+### Ordre de calcul (validé)
+1. **Déduire d'abord** de `GR2100` les sous-lignes `GR2101` et `GR2102` :
+   `base_salaire_pur = GR2100 − GR2101 − GR2102`
+2. **Puis** ventiler la base via le taux du RU :
+   - `salaire_fixe_hors_charges = base_salaire_pur / (1 + taux_RU)`  *(convention à confirmer)*
+   - `charges_sociales = base_salaire_pur − salaire_fixe_hors_charges`
+
+### Cibles Tagetik (lignes générées)
+- `salaire_fixe_hors_charges` → **`IND_00_060020`** (Fixed remuneration)
+- `charges_sociales` → **`IND_00_060074`** (Social Charges)
+- `GR2101` (Indemnités de départ) → **son propre IND**, **sans charges**
+- `GR2102` (Engagements sociaux) → **son propre IND**, **sans charges**
+
+### GR2101 / GR2102 portent-ils le même taux ? → NON (par défaut)
+- **GR2101 Indemnités de départ** : indemnités de rupture, **largement exonérées** de charges
+  sociales (limites légales FR) → pas le taux paie ordinaire.
+- **GR2102 Engagements sociaux** : **provisions** (type IAS 19) → pas de charges sociales de la
+  période au taux paie.
+- ⇒ C'est **pour ça** qu'on les **déduit avant** d'appliquer le taux. Le taux ne s'applique qu'à
+  la **base salaire pur**.
+- ⚠️ **À confirmer par les CDG** selon la convention de conso (que GR2100 n'embarque des charges
+  que sur le salaire pur). Possibilité de rendre le traitement de 2101/2102 **paramétrable** si besoin.
+
+### Points ouverts
+- **Convention du taux** : `/(1+t)` (taux sur brut — défaut proposé) **vs** part du total (`× t`). À trancher.
+- Confirmer mapping IND dédiés de `GR2101` et `GR2102`.
+- Gestion des cas où le taux RU n'est pas saisi (valeur par défaut ? ligne signalée en contrôle ?).
