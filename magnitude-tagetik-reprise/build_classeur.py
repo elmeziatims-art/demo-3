@@ -235,27 +235,65 @@ ws=sheet("MAP - Dimensions",ACC)
 title_block(ws,"MAP — Dimensions (RU × OA × FA → Entité · PMA · CC)  —  DERNIER MOT","Pré-rempli avec tout ce qu'on sait : combos Mappable (RU×OA→EJ) + défaut par RU. Case vide = tout. « Le plus spécifique gagne » + Priorité. PMA/CC vides ⇒ pris des tables OA→PMA / FA→CC ; renseignés ici ⇒ forcés.")
 dh=["RU","OA","FA","ENTITE","PMA","Cost_Center","Priorite","Source","Commentaire"]
 hrow(ws,dh,4)
-# 1) combos Mappable (specifiques RU x OA)
-hm,mrows=rd("mapping_RUxOA_mappable.csv")  # RU,Pays,OA,PMA,Activité,EJ cible,Niveau,Pourquoi,Vol
-# 2) defaut par RU (generique)
+# 0) propositions expertes commentées (G-DE par OA, G-ASIEPF, G-MEPF, G-SGP…)
+_,prows=rd("mapping_dim_propositions.csv")
+# 1) combos Mappable (spécifiques RU x OA)  RU,Pays,OA,PMA,Activité,EJ cible,Niveau,Pourquoi,Vol
+hm,mrows=rd("mapping_RUxOA_mappable.csv")
+# 2) défaut par RU (générique)
 _,drows=rd("mapping_dim_defaut_RU_entite.csv")
 rr=5
-for m in mrows:
-    ru,pays,oa,pma,act,ej=m[0],m[1],m[2],m[3],m[4],m[5]
-    if ej in ("","NOT USED"): pma_out=""
-    vals=[ru,oa,"",ej,(pma if pma not in("","NOT USED") else ""),"","","Mappable",act]
+def putrow(vals,blue=False):
+    global rr
     for j,v in enumerate(vals,1):
-        c=ws.cell(row=rr,column=j,value=v); c.font=font(9); c.border=border; c.alignment=left
+        c=ws.cell(row=rr,column=j,value=v); c.font=font(9,color=("1F5C8B" if blue else NAVY)); c.border=border; c.alignment=left
     ws.cell(row=rr,column=4).fill=fill(YELLOW); rr+=1
+for p in prows:
+    putrow(p, blue=True)
+for m in mrows:
+    ru,oa,pma,ej,niv,pour=m[0],m[2],m[3],m[5],m[6],m[7]
+    com=(niv+" — obs. données (à valider)") if niv else "Mappable — à valider"
+    putrow([ru,oa,"",ej,(pma if pma not in("","NOT USED") else ""),"","","Mappable",com])
 for row in drows:
     ru,oa,fa,ent,lib,src=row
-    vals=[ru,oa,fa,ent,"","","","défaut 1re EJ",lib]
-    for j,v in enumerate(vals,1):
-        c=ws.cell(row=rr,column=j,value=v); c.font=font(9); c.border=border; c.alignment=left
-    ws.cell(row=rr,column=4).fill=fill(YELLOW); rr+=1
-ndim=len(mrows)+len(drows)
+    putrow([ru,oa,fa,ent,"","","","défaut 1re EJ","Défaut RU (1re EJ) — à affiner si besoin"])
+ndim=len(prows)+len(mrows)+len(drows)
 widths(ws,{"A":12,"B":10,"C":10,"D":14,"E":12,"F":14,"G":9,"H":16,"I":34})
 add_table(ws,"tblDim",4,len(dh),ndim)
+# --- Panneau d'exemple "Priorité" à droite (colonnes K..O)
+soft=fill("E2EFE9")
+def pk(cell,val,fnt,f=None,al=None):
+    c=ws[cell]; c.value=val; c.font=fnt
+    if f: c.fill=f
+    if al: c.alignment=al
+    return c
+ws.merge_cells("K4:P4"); pk("K4","  Comment lire ce tableau",font(11,True,WHITE),f=fill(ACC),al=Alignment(vertical="center"))
+for cc in "LMNOP": ws[f"{cc}4"].fill=fill(ACC)
+ws.row_dimensions[4].height=20
+ex=[
+ ("K6","1. La règle qui MATCHE la plus SPÉCIFIQUE gagne (le moins de cases vides).",font(9,True,NAVY)),
+ ("K7","2. Une case VIDE = « toutes les valeurs » (joker).",font(9,color=NAVY)),
+ ("K8","3. Priorité départage 2 règles de MÊME spécificité : le plus GRAND gagne. Vide = 0.",font(9,color=NAVY)),
+]
+for cell,val,fnt in ex:
+    r_=int(cell[1:]); ws.merge_cells(f"K{r_}:P{r_}"); pk(cell,val,fnt,al=Alignment(wrap_text=True,vertical="center")); ws.row_dimensions[r_].height=16
+# mini table d'exemple
+hr=10
+for j,htxt in enumerate(["Règle","RU","OA","FA","→ ENTITE","Priorité"]):
+    c=ws.cell(row=hr,column=11+j,value=htxt); c.font=font(8,True,WHITE); c.fill=fill(NAVY); c.alignment=center; c.border=border
+exrows=[
+ ("A (générique)","G-UK","","","EJ_21898",""),
+ ("B (spécifique)","G-UK","OA060","","EJ_21901",""),
+ ("C (prioritaire)","G-UK","OA060","","EJ_45220","10"),
+]
+for i,row in enumerate(exrows,1):
+    for j,v in enumerate(row):
+        c=ws.cell(row=hr+i,column=11+j,value=v); c.font=font(8); c.border=border; c.alignment=center
+for cc in range(11,17): ws.cell(row=hr+3,column=cc).fill=soft
+pk("K14","Ligne de données (G-UK, OA060) :",font(9,True,NAVY)); ws.merge_cells("K14:P14")
+pk("K15","• A matche (spécificité 4) ; B et C matchent (spécificité 6).",font(9,color=NAVY)); ws.merge_cells("K15:P15")
+pk("K16","• B et C ex æquo → Priorité tranche → C (10) gagne → EJ_45220.",font(9,True,"1F5C8B")); ws.merge_cells("K16:P16")
+pk("K18","Ces 3 lignes sont un EXEMPLE — pas dans le moteur (hors tableau tblDim).",font(8,it=True,color=GREY)); ws.merge_cells("K18:P18")
+widths(ws,{"K":16,"L":10,"M":10,"N":8,"O":12,"P":10})
 
 # ---------- MAP - Comptes P&L
 ws=sheet("MAP - Comptes P&L",ACC)
