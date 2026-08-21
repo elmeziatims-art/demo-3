@@ -810,3 +810,39 @@ zones France/Pays, constantes) doivent **laisser la main aux CDG pour modifier**
 - Restent de vraies constantes : `Vision = VIS_00_000001`, `Origin = QDL`, `Counterparty = NA`,
   `Product = NA`.
 - (Suffixe `AC` = Actuals — à reconfirmer si autre scénario un jour, ex. estimé/budget.)
+
+---
+
+## Étape 21 — Onglet « Exclusions / Ajustements » (sortir un périmètre estimé, ex. REIM)
+
+### Besoin
+- L'équipe doit **exclure un périmètre** qu'elle **n'arrive pas à identifier finement** par
+  RU/OA/FA → elle l'**estime**. Cas typique : **une partie de REIM** (activité Investment Management),
+  pas un indicateur précis.
+- Doit porter sur le **financier (F99) ET les ETP (Q99)**.
+
+### Solution : onglet dédié, périmètre en dimensions SOURCE + montant ou %
+Colonnes : `RU | OA | FA | Mode (Montant | %) | Valeur | Commentaire` (chaque critère `*` = tout).
+- Le périmètre se décrit avec les **dimensions source** que l'équipe connaît (surtout **OA** pour une
+  activité comme REIM ; éventuellement RU/FA). Le reste en `*`.
+- **Groupe nommé « REIM »** : comme REIM = un ensemble d'OA (OA060/OA061/OA069…), prévoir un petit
+  référentiel de **groupes nommés d'OA** (éditable) pour écrire « REIM » au lieu de lister les OA.
+- **Mode Montant** = « retire ~X€ du périmètre » ; **Mode %** = « retire X % du périmètre ».
+- Résolution « le plus spécifique gagne » (cohérent avec le mapping).
+
+### Application : AU PRORATA (décidé)
+- Le montant/% est **réparti proportionnellement** sur toutes les lignes source qui matchent le
+  périmètre → chaque ligne est réduite un peu. Garde le détail dimensionnel, output net.
+- **Porte sur F99 ET Q99** (financier + ETP).
+- ✅ **Se fait AVANT le mapping** (confirmé) : retrait **sur la donnée Magnitude filtrée**
+  (dimensions source), en étape `qFiltre → qExclusions → qMapComptes`. Tout ce qui suit
+  (mapping, constantes, sortie) travaille sur le **net**.
+- (La « ligne d'ajustement unique » reste possible en option si un jour besoin de traçabilité en bloc.)
+
+### Traçabilité
+- L'onglet **CONTRÔLES** affiche **combien** a été exclu et **sur quel périmètre** (avant/après),
+  pour que l'estimation reste transparente et auditable.
+
+### Lien avec un point ouvert
+- Recoupe la question « **périmètre IM repris ou non** » (étape 6, G-FRMP OA060 non mappable) :
+  l'onglet Exclusions permet justement de **sortir tout ou partie de l'IM/REIM** proprement.
