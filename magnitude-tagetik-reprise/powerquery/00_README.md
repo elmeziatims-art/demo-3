@@ -1,28 +1,21 @@
 # Moteur Power Query — mode d'emploi
 
-Ces 7 requêtes forment le moteur. À coller dans Excel une par une :
-**Données ▸ Obtenir des données ▸ À partir d'une requête vide ▸ Éditeur avancé**,
-puis coller le contenu du `.pq` et nommer la requête comme le fichier (sans le numéro).
+Les **Tableaux Excel sont déjà créés** dans le classeur (tblEntree, tblRUEJ, tblOAPMA,
+tblFACC, tblDim, tblComptes, tblETP, tblExcl, tblTaux, tblZone, tblRate) — **rien à faire côté Ctrl+T**.
 
-## Prérequis — nommer les plages en Tableaux Excel
-Sélectionner chaque plage puis Insertion ▸ Tableau (Ctrl+T), et la renommer (onglet Création de tableau) :
-
-| Onglet | Nom de tableau |
-|--------|----------------|
-| ① ENTREE | `tblEntree` |
-| MAP - Comptes P&L | `tblComptes` |
-| MAP - ETP (Q99) | `tblETP` |
-| MAP - Dimensions | `tblDim` |
-| MAP - Exclusions | `tblExcl` |
-| MAP - Taux charges soc. | `tblTaux` |
-| MAP - Zone RU | `tblZone` |
-| rate | `tblRate` |
+## Coller les requêtes
+Pour chaque `.pq` : **Données ▸ Obtenir des données ▸ À partir d'une requête vide ▸ Éditeur avancé**,
+coller le contenu, nommer la requête comme le fichier (sans le numéro).
 
 ## Ordre d'enchaînement
 Source → Filtre → Exclusions → MapComptes → MapDimensions → Constantes → Sortie
 Seule **Sortie** est chargée dans une feuille (⑨ SORTIE) ; les autres restent en « connexion seule ».
 
+## Chaîne de mapping
+- `tblRUEJ` (défaut), `tblOAPMA`, `tblFACC` (défaut) alimentent les défauts.
+- **`tblDim` (MAP - Dimensions) a le dernier mot** : Entité toujours prise de tblDim ;
+  PMA/CC pris de tblDim si renseignés, sinon des tables OA→PMA / FA→CC.
+
 ## Note
-Scripts fournis structurés et commentés. Certaines finitions (formats de nombre,
-noms de colonnes exacts après jointure) sont à ajuster une fois dans Excel — le squelette
-logique est complet.
+Scripts structurés et commentés. Quelques finitions (retraitement charges sociales GR2100 en lignes,
+formats) se calent une fois dans Excel — balisées dans le code.
