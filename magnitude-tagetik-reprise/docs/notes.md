@@ -878,3 +878,26 @@ générés automatiquement (Power Query + TCD).
 - État 1 = vue « avant » (Magnitude) ; État 2 = vue « après » (SolaRE) → l'écart entre les deux =
   contrôle de la reprise.
 - Réalisables en **TCD (tableau croisé dynamique)** sur les données PQ, ou en requêtes de regroupement.
+
+---
+
+## Étape 23 — Entité PAR DÉFAUT = 1ʳᵉ EJ du RU (pour sortir le reporting tout de suite)
+
+- Objectif : **voir le reporting complet immédiatement**, sans devoir résoudre le 1→N fin
+  (la partie difficile). On remplit d'abord la **règle générique par RU** (OA/FA vides), on affine après.
+- **Décision** : l'entité par défaut d'un RU = sa **1ʳᵉ EJ** du mapping RU→EJ existant.
+  Pré-généré → `docs/mapping_dim_defaut_RU_entite.csv` (19 RU, colonnes `RU | OA | FA | ENTITE_defaut | …`).
+- Ces lignes deviennent les **règles génériques** de MAP – Dimensions ; les EJ précis (1→N) s'ajoutent
+  **en exceptions** plus tard (OA/FA renseignés). Rien ne bloque la sortie.
+- **Filet** : règle attrape-tout `* * *` + l'onglet CONTRÔLES liste ce qui est tombé sur du « défaut »
+  → on voit exactement ce qu'il reste à affiner.
+
+## Étape 24 — Sélecteur Scenario / Period en sortie (multi-liasses)
+
+- Besoin : pouvoir **importer plusieurs liasses en même temps** (plusieurs `D_DP` → plusieurs
+  Scenario/Period) et **voir/filtrer** par scénario + période.
+- Le moteur accepte **plusieurs périodes** en entrée ; l'output les porte toutes.
+- Les **états de restitution** (États 1 & 2) et la lecture de la sortie ont un **sélecteur
+  Scenario / Period** (segment/slicer) pour n'afficher qu'une liasse à la fois (ou comparer).
+- Scenario/Period restent **déduits de `D_DP`** (étape 20) → le sélecteur liste automatiquement les
+  couples présents dans les données importées.
