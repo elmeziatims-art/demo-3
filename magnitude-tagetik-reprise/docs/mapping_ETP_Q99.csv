@@ -1,3 +1,4 @@
-Code_Magnitude,IND_Tagetik,IND_libelle,Commentaire
-GR051,IND_26_100027,Permanent Contract - FDP,
-GR052,IND_26_100030,Absent Paid - FDP,
+Code_Magnitude,IND_Tagetik,IND_libelle,Statut,Commentaire
+GR050,,,à mapper (ROUGE),Cible inconnue - a saisir par les CDG
+GR051,IND_26_100027,Permanent Contract - FDP,ok,
+GR052,IND_26_100030,Absent Paid - FDP,ok,

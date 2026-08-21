@@ -781,6 +781,7 @@ Fichier : `docs/mapping_ETP_Q99.csv` (à compléter au fil de l'eau).
 ### Premières correspondances (utilisateur)
 | Code Magnitude | IND Tagetik | Libellé |
 |----------------|-------------|---------|
+| `GR050` | *(vide)* 🔴 | **à mapper — cible inconnue** (saisie CDG) |
 | `GR051` | `IND_26_100027` | Permanent Contract - FDP |
 | `GR052` | `IND_26_100030` | Absent Paid - FDP |
 *(FDP = fin de période, à confirmer.)*
