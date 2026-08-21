@@ -658,8 +658,9 @@ ne pas chercher à les réconcilier au niveau EJ classique.
   période au taux paie.
 - ⇒ C'est **pour ça** qu'on les **déduit avant** d'appliquer le taux. Le taux ne s'applique qu'à
   la **base salaire pur**.
-- ⚠️ **À confirmer par les CDG** selon la convention de conso (que GR2100 n'embarque des charges
-  que sur le salaire pur). Possibilité de rendre le traitement de 2101/2102 **paramétrable** si besoin.
+- ✅ **CONFIRMÉ (utilisateur)** : on part du principe que **seul le salaire pur est chargé**.
+  Donc `GR2100` n'embarque des charges **que** sur le salaire pur, et `GR2101`/`GR2102` ne sont
+  **pas** chargés → la déduction préalable est la bonne logique, **sans réserve**.
 
 ### Points ouverts
 - **Convention du taux** : `/(1+t)` (taux sur brut — défaut proposé) **vs** part du total (`× t`). À trancher.
