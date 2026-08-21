@@ -690,3 +690,34 @@ ne pas chercher à les réconcilier au niveau EJ classique.
 - Le moteur : chaque ligne filtrée → Zone via **RU → `ref_RU_pays_zone`** → jointure `(D_AC, Zone)`.
 - **Éditable CDG** : les deux variantes France/Pays et le classement zone des RU restent modifiables
   (référentiel RU→Pays affiché en onglet REF, dérivé de Mappable/Non mappable).
+
+---
+
+## Étape 15 — Table de mapping des comptes RÉCUPÉRÉE (`D_AC_Comptes`)
+
+Extraite du gros fichier (onglet `D_AC_Comptes`) → **`docs/mapping_comptes_D_AC.csv`**. C'est la
+**table de correspondance comptes** de référence (60 comptes).
+
+### Colonnes
+`note_gauche | Code (D_AC) | blk_PNB_MEE | blk_OPEX | blk_PreTax | Libellé | Bloc_PnL | Type
+(Compte fin / Agrégat) | Commentaire | IND_cible | IND_libellé | Commentaire_mapping`.
+
+### Couverture
+- **44 comptes fins**, dont **38 déjà mappés** vers un `IND`.
+- **6 comptes fins SANS IND** (= nos cas ouverts, cohérent) :
+  - `GR2000` (nœud, « à ne pas prendre » → détail GR2001-2010) ;
+  - `GFB110`, `GFB130` (« logique GFB à clarifier » 🔴) ;
+  - `GR5000`, `GR5300`, `GR5400` (propositions 🔴 à valider — cf. étape 3).
+- Confirme les cas : GR6000/GR6100 **mappés 2×** (`IND_00_070008` + détail `IND_00_070087`/
+  `IND_26_060074`), commentaire source « à mapper à la fois vers les indicateurs à gauche + 70008 ».
+
+### Blocs P&L = base des contrôles
+- Les colonnes **`PNB + MEE`, `OPEX`, `Pre taxe income`** (mêmes noms que les 3 colonnes de contrôle
+  ajoutées dans la Liasse) **classent chaque compte dans un bloc P&L** (marque `x`).
+- ⇒ Serviront aux **totaux de contrôle** (recouper l'output par bloc : PNB+MEE / OPEX / Pré-tax).
+- Type `Agrégat` (ex. GS0900, GS0910, PNBSOC) = **reconstitué nativement dans Tagetik** → **non repris**
+  (on ne charge que les **comptes fins**).
+
+### Statut mapping comptes
+- ✅ **Table complète disponible** ; deviendra l'onglet **MAP – Comptes** (éditable, + clé Zone France/Pays
+  de l'étape 14, + retraitement charges sociales de l'étape 13).

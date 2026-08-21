@@ -1,0 +1,56 @@
+note_gauche,Code,blk_PNB_MEE,blk_OPEX,blk_PreTax,Libelle,Bloc_PnL,Type,Commentaire,IND_cible,IND_libelle,Commentaire_mapping
+,GR1000,x,,x,Chiffre d'affaires,Produits,Compte fin,,IND_00_070001,Commissions de gestion,
+,GR1100,x,,x,Autres produits + Autres coûts liés à l'activité,Produits,Compte fin,,IND_26_070011,Autre produit+Autres coûts,
+,GR1200,x,,x,Rétrocessions,Produits,Compte fin,,IND_26_070007,Rétrocessions,
+,GR1300,x,,x,Prestations déléguées,Produits,Compte fin,,IND_26_070013,Sous-traitance,
+,GS0900,,,,Chiffre d'affaires net,Produits,Agrégat,reconstitué nativement dans Tagetik,,,
+Mappé deux fois pour alimenter les dont & Indicaterurs,GR6000,x,,x,Produits financiers,Produits,Compte fin,,IND_00_070008,Marge d'intérêts,
+,GR6100,x,,x,Charges financières,Produits,Compte fin,,IND_00_070008,Marge d'intérêts,
+,GR6000,,,,Produits financiers,Produits,Compte fin,,IND_00_070087,Produits d'intérêts,"Les deux indicateurs encadrés, correspondent à des off which dans SolaRE pour indiqué le détail de marge,c'est à mapper à la fois vers les indicateurs à gauche + 70008 (voir les deux lignes dessus)"
+,GR6100,,,,Charges financières,Produits,Compte fin,,IND_26_060074,Charges d'intérêts,
+,GS0910,,,,Résultat financier,Produits,Agrégat,reconstitué nativement dans Tagetik,,,
+,PNBSOC,,,,Produit Net Bancaire Social,Produits,Agrégat,reconstitué nativement dans Tagetik,,,
+Détaillé : j'ai checké GR2000 = total de ses composantes,GR2000,,,,Salaires variables (incl. Charges sociales),Frais de personnel,Compte fin,Détaillé en GR2001-GR2010 ==> à ne pas prendre,,,
+,GR2001,,x,x,Rém. variable liée au CA,Frais de personnel,Compte fin,Split GR2000,IND_26_060039,Rémunérations variables liées au Chiffre d'Affaires,nous avons le détail des charges sociales de la partie variable mais pas du fixe..
+,GR2002,,x,x,Rém. variable liée à la rentabilité,Frais de personnel,Compte fin,Split GR2000,IND_26_060038,Rémunérations variables liées à la Rentabilité,
+,GR200211,,,,LTIP Chargée,Frais de personnel,Compte fin,"Off which du GR200211 mais déjà chargé, faut-il le prendre? Non",IND_26_060019,LTIS,
+,GR2003,,x,x,Bonus discrétionnaire,Frais de personnel,Compte fin,Split GR2000,IND_26_060006,Provision bonus n,
+,GR2004,,x,x,Prime exceptionnelle,Frais de personnel,Compte fin,Split GR2000,IND_26_060015,Primes Exceptionnnelles,
+,GR2010,,x,x,Part charges sociales sur variable,Frais de personnel,Compte fin,Split GR2000,IND_26_060010,Charges sur Salaire Variable,
+prévoir de déduire les ind de départ & engag. Sociaux,GR2100,,x,x,Salaires fixes (incl. charges soc.),Frais de personnel,Compte fin,,IND_26_060016,Rémunérations fixes,IND_26_060049
+,GR2101,,,,Indemnités de départ,Frais de personnel,Compte fin,,IND_00_060079,Indémnités de départ,IND_26_060048
+FAUT il prévoir une flexibilité pour pouvoir saisir les charges sociales sur cette partie?,GR2102,,,,Engagements sociaux,Frais de personnel,Compte fin,,IND_26_060005,Indemnités de retraite,IND_26_060048
+,GR2200,,x,x,Intéressement + participation,Frais de personnel,Compte fin,,IND_26_060031,Participation,IND_26_060050
+,GR2300,,x,x,Personnel extérieur,Frais de personnel,Compte fin,,IND_00_060080,Personnel intérim,
+,GR2400,,x,x,Formation,Frais de personnel,Compte fin,,IND_00_060225,Formation,
+,GR2500,,x,x,Véhicules,Frais de personnel,Compte fin,,IND_26_060040,Véhicules,différent
+,GR2600,,x,x,Recrutement / Offres d'emploi,Frais de personnel,Compte fin,,IND_00_060279,Recrutement,
+,FDGEST1,,,,Frais de Gestion - Frais de personnel,Frais de personnel,Agrégat,Calculé,,,
+,GR3000,,x,x,Frais de locaux,Frais généraux,Compte fin,,IND_26_060033,Loyers,IND_26_060054
+,GR3100,,x,x,Frais de réception,Frais généraux,Compte fin,,IND_26_060014,Réceptions,différent
+,GR3200,,x,x,Frais de voyages et déplacement,Frais généraux,Compte fin,,IND_26_060037,Frais de déplacements,IND_26_060055
+,GR3300,,x,x,Communication,Frais généraux,Compte fin,,IND_00_060092,Communication,
+,GR3400,,x,x,Informatique,Frais généraux,Compte fin,,IND_26_060001,Amortissements informatiques - Logiciels internes,
+,GR3500,,x,x,Juridique,Frais généraux,Compte fin,,IND_00_060086,Honoraires - légal,
+,GR3600,,x,x,Comptabilité / Finance,Frais généraux,Compte fin,,IND_26_060044,Autres Honoraires - finance,
+,GR3700,,x,x,Conseils / SLA (+/-),Frais généraux,Compte fin,,IND_26_060075,Autres Honoraires - conseil,
+,GR3800,,x,x,"Matériel, fournitures bureau et autres achats",Frais généraux,Compte fin,,IND_26_060043,Fournitures de bureaux,
+,GR3900,,x,x,Poste et Télécommunications,Frais généraux,Compte fin,,IND_00_060101,Coûts de télécommunications,
+,GR4000,,x,x,Assurances,Frais généraux,Compte fin,,IND_00_060119,Assurance,
+,GR4100,,x,x,Impôts et taxes (hors IS),Frais généraux,Compte fin,,IND_00_060116,Autres taxes IFRIC_Direct,
+,GR4200,,x,x,Autres charges,Frais généraux,Compte fin,,IND_00_060090,Autres prestataires de service,
+,GR4300,,x,x,Marketing,Frais généraux,Compte fin,,IND_00_060091,Marketing,
+,GR5100,,x,x,Amortissements sur actifs immobilisés informatiques,Frais généraux,Compte fin,,IND_00_060097,Amortissement matériel informatique,
+,GR5110,,x,x,Amortissements et provisions sur autres actifs immobilisés,Frais généraux,Compte fin,,IND_00_060121,Autres dépréciations,
+,FDGEST2,,,,Frais de Gestion - Autres,Frais généraux,Agrégat,Calculé,,,
+,GFDGHT,,,,Frais de Gestion hors Tutelle,Fonctions/Tutelle,Agrégat,Calculé,,,
+,GFB110,,x,x,Fonctions Groupe - Analytique Carto,Fonctions/Tutelle,Compte fin,⚠️ Logique GFB à clarifier,,,
+,GFB130,,x,x,Comptable Carto - Fonctions Groupe,Fonctions/Tutelle,Compte fin,⚠️ Logique GFB à clarifier,,,
+,GFDGT,,,,Frais de Gestion yc Tutelle,Fonctions/Tutelle,Agrégat,Calculé,,,
+,GRBE,,,,Résultat Brut d'Exploitation,Fonctions/Tutelle,Agrégat,Calculé,,,
+,GR5000,,,x,Provisions clientèle et autres actifs circulants,Résultat,Compte fin,,,,
+,GRE,,,,Résultat d'Exploitation,Résultat,Agrégat,Calculé,,,
+,GR5300,,,x,Plus et moins-values sur cession d'actifs immobilisés,Résultat,Compte fin,,,,
+,GR5400,x,,x,Résultat des Sociétés Mise En Equivalence (MEE),Résultat,Compte fin,⚠️ Dans périmètre mais non visible dans P&L - à vérifier,,,
+,GRNAI,,,,Résultat Net Avant Impôts,Résultat,Agrégat,Calculé - hors ou yc tutelle à clarifier,,,
+,GRNAI2,,,,Résultat Net Avant Impôts 2,Résultat,Agrégat,Calculé - hors ou yc tutelle à clarifier,,,
