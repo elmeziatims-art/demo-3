@@ -749,3 +749,23 @@ colonnes `IND_France, lib_France, IND_Pays, lib_Pays`.
   dessus (étape 13).
 - ⚠️ Le mapping **charges sociales France** doit viser `IND_00_060074` (Social Charges) — vérifier la
   variante **Pays** correspondante (compte de charges sociales « pays ») lors de la construction.
+
+---
+
+## Étape 17 — Charges sociales : % par RU appliqué LIGNE PAR LIGNE (pas par croisement)
+
+### Décision validée (utilisateur)
+- Les CDG saisissent **UN SEUL % par RU** (pas de saisie de montants, pas de saisie par croisement
+  RU×OA×FA). Raison : avec des montants, il faudrait savoir **sur quel OA/FA** imputer les charges ;
+  un **% par RU** évite ça.
+- **Mécanisme : calcul ligne par ligne.** Chaque ligne source `GR2100` **conserve ses coordonnées**
+  `D_RU / D_OA / D_FA`. On applique le **% du RU de la ligne** à son montant → génère, **sur les
+  mêmes OA/FA/RU**, deux lignes : `salaire_hors_charges` (IND fixe) + `charges_sociales` (IND charges).
+- ⇒ Les charges **restent naturellement** sur l'OA/FA de la ligne d'origine ; **aucune décision de
+  ventilation** à prendre. Le taux par RU se propage automatiquement à toutes ses lignes.
+
+### Convention du taux (défaut retenu, sauf avis contraire)
+- Le % saisi = **taux « charges sur salaire brut/hors charges »** (convention paie) :
+  `salaire_hors = base / (1 + t)` ; `charges = base − salaire_hors`
+  (base = `GR2100 − GR2101 − GR2102` de la ligne). Ex. t=45% sur base 145 → 100 + 45.
+- ⏳ À confirmer par l'utilisateur si un jour ils pensent « part du total » (`charges = base × t`).
