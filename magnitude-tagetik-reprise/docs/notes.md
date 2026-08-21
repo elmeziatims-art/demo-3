@@ -769,3 +769,31 @@ colonnes `IND_France, lib_France, IND_Pays, lib_Pays`.
   `salaire_hors = base / (1 + t)` ; `charges = base − salaire_hors`
   (base = `GR2100 − GR2101 − GR2102` de la ligne). Ex. t=45% sur base 145 → 100 + 45.
 - ⏳ À confirmer par l'utilisateur si un jour ils pensent « part du total » (`charges = base × t`).
+
+---
+
+## Étape 18 — Mapping ETP (flux `Q99`) : table dédiée
+
+Les **ETP** (flux `Q99`) ne sont **pas** dans la table P&L `D_AC_Comptes` → **table de mapping ETP
+séparée** (`Code Magnitude → IND` headcount, section POST-P&L `IND_7xxx` / `IND_26_10xxxx`).
+Fichier : `docs/mapping_ETP_Q99.csv` (à compléter au fil de l'eau).
+
+### Premières correspondances (utilisateur)
+| Code Magnitude | IND Tagetik | Libellé |
+|----------------|-------------|---------|
+| `GR051` | `IND_26_100027` | Permanent Contract - FDP |
+| `GR052` | `IND_26_100030` | Absent Paid - FDP |
+*(FDP = fin de période, à confirmer.)*
+
+- Deviendra l'onglet **MAP – ETP** (ou une section de MAP – Comptes réservée au flux `Q99`).
+- Les lignes `D_FL = Q99` sont routées vers CE mapping ; les `F99` vers le mapping comptes P&L.
+
+## Étape 19 — Principe transverse : TOUT est éditable par les CDG
+
+⭐ Consigne renforcée : **toutes les tables** (comptes P&L, ETP, RU×OA×FA→dim, FA→CC, taux charges,
+zones France/Pays, constantes) doivent **laisser la main aux CDG pour modifier**.
+- Aucune correspondance figée en dur dans les requêtes Power Query : le moteur lit **toujours** les
+  onglets MAP/PARAM en vigueur.
+- Y compris les mappings « déterministes » et ceux qu'on a pré-remplis depuis les fichiers sources.
+- Garde-fous conservés (listes déroulantes, validation, rouge = à valider) mais **jamais de blocage**
+  de la modification.
