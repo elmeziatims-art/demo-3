@@ -821,14 +821,15 @@ zones France/Pays, constantes) doivent **laisser la main aux CDG pour modifier**
   pas un indicateur précis.
 - Doit porter sur le **financier (F99) ET les ETP (Q99)**.
 
-### Solution : onglet dédié, périmètre en dimensions SOURCE + montant ou %
-Colonnes : `RU | OA | FA | Mode (Montant | %) | Valeur | Commentaire` (chaque critère `*` = tout).
-- Le périmètre se décrit avec les **dimensions source** que l'équipe connaît (surtout **OA** pour une
-  activité comme REIM ; éventuellement RU/FA). Le reste en `*`.
-- **Groupe nommé « REIM »** : comme REIM = un ensemble d'OA (OA060/OA061/OA069…), prévoir un petit
-  référentiel de **groupes nommés d'OA** (éditable) pour écrire « REIM » au lieu de lister les OA.
-- **Mode Montant** = « retire ~X€ du périmètre » ; **Mode %** = « retire X % du périmètre ».
-- Résolution « le plus spécifique gagne » (cohérent avec le mapping).
+### Solution : onglet dédié — retirer X% ou X€ d'un RU × OA × FA (VIDE = tout)
+Colonnes : `RU | OA | FA | Mode (Montant | %) | Valeur | Commentaire`.
+- **Mécanisme GÉNÉRIQUE** : « retire X % (ou X€) d'un `RU × OA × FA` ».
+- ⭐ **Une case laissée VIDE = toutes les valeurs** de cette dimension (équivaut à `*`).
+  Ex. `RU=G-REIMLUX`, OA vide, FA vide, **30 %** → retire 30 % de TOUT ce RU (toutes OA/FA).
+  Ex. RU vide, `OA=OA060`, FA vide, **200k€** → retire 200k sur cet OA, tous RU/FA.
+- **REIM = juste un exemple** ; le périmètre n'est pas figé sur une activité, c'est le triplet RU/OA/FA.
+- (Groupe nommé « REIM » = simple **confort optionnel** pour désigner un lot d'OA, non requis.)
+- **Mode Montant** = « retire ~X€ » ; **Mode %** = « retire X % ». « Le plus spécifique gagne » si recouvrement.
 
 ### Application : AU PRORATA (décidé)
 - Le montant/% est **réparti proportionnellement** sur toutes les lignes source qui matchent le

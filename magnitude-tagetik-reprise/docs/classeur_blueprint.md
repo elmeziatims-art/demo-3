@@ -33,9 +33,9 @@ Zone « collez ici ». Colonnes source A→Y (`D_CA … P_COMMENT`). Les 3 colon
 Filtres : `D_FL ∈ {F99, Q99}` · `D_OA` non vide · `D_AC` = comptes fins (exclut nœuds/agrégats).
 
 ### MAP – Exclusions / Ajustements (éditable)
-`RU | OA | FA | Mode (Montant|%) | Valeur | Commentaire` (critères `*` = tout ; groupe nommé « REIM »).
-**Appliqué AVANT le mapping**, au prorata sur les lignes source du périmètre, sur **F99 ET Q99**.
-Retire un périmètre estimé (ex. une partie de REIM) directement sur la donnée Magnitude filtrée.
+`RU | OA | FA | Mode (Montant|%) | Valeur | Commentaire`. Mécanisme générique : retirer X% ou X€ d'un
+`RU × OA × FA`, **case vide = toutes les valeurs** de la dimension. **Appliqué AVANT le mapping**,
+au prorata sur les lignes source du périmètre, sur **F99 ET Q99**. (REIM = simple exemple.)
 
 ### ③ MAP – Comptes P&L
 `Code | Libellé | Bloc_PnL | Type | blk_PNB_MEE | blk_OPEX | blk_PreTax | IND_France | IND_Pays | Statut | Commentaire`
