@@ -137,6 +137,7 @@ index=[
  ("REF - RUxOA NonMappable","ref","8 combinaisons bloquées"),
  ("rate","edit","Taux de change → EUR (mars 03)"),
  ("CONTROLES","auto","Voyants de cohérence"),
+ ("À MAPPER (auto)","saisie","Détection auto des RU/OA/FA non mappés (rouge)"),
  ("ETAT - Restitution Magnitude","auto","État P&L façon Magnitude, en EUR"),
  ("ETAT - Restitution SolaRE","auto","État PMA × Entités, en EUR"),
  ("⑨ SORTIE - Table de fait","auto","Output Tagetik (24 colonnes, à plat)"),
@@ -229,21 +230,32 @@ dvx2.add(f"E5:E{rr}")
 widths(ws,{"A":10,"B":34,"C":12,"D":40,"E":9})
 add_table(ws,"tblFACC",4,5,len(facc))
 
-# ---------- MAP - Dimensions (PRE-REMPLI, DERNIER MOT)
+# ---------- MAP - Dimensions (PRE-REMPLI LARGEMENT, DERNIER MOT)
 ws=sheet("MAP - Dimensions",ACC)
-title_block(ws,"MAP — Dimensions (RU × OA × FA → Entité · PMA · CC)  —  DERNIER MOT","Pré-rempli avec ce qu'on sait (Entité = EJ défaut du RU). Case vide = tout. « Le plus spécifique gagne » + Priorité. PMA/CC vides ⇒ pris des tables OA→PMA / FA→CC ; renseignés ici ⇒ forcés.")
+title_block(ws,"MAP — Dimensions (RU × OA × FA → Entité · PMA · CC)  —  DERNIER MOT","Pré-rempli avec tout ce qu'on sait : combos Mappable (RU×OA→EJ) + défaut par RU. Case vide = tout. « Le plus spécifique gagne » + Priorité. PMA/CC vides ⇒ pris des tables OA→PMA / FA→CC ; renseignés ici ⇒ forcés.")
 dh=["RU","OA","FA","ENTITE","PMA","Cost_Center","Priorite","Source","Commentaire"]
 hrow(ws,dh,4)
-_,drows=rd("mapping_dim_defaut_RU_entite.csv"); rr=5
-for row in drows:
-    ru,oa,fa,ent,lib,src=row
-    vals=[ru,oa,fa,ent,"","","",src,lib]
+# 1) combos Mappable (specifiques RU x OA)
+hm,mrows=rd("mapping_RUxOA_mappable.csv")  # RU,Pays,OA,PMA,Activité,EJ cible,Niveau,Pourquoi,Vol
+# 2) defaut par RU (generique)
+_,drows=rd("mapping_dim_defaut_RU_entite.csv")
+rr=5
+for m in mrows:
+    ru,pays,oa,pma,act,ej=m[0],m[1],m[2],m[3],m[4],m[5]
+    if ej in ("","NOT USED"): pma_out=""
+    vals=[ru,oa,"",ej,(pma if pma not in("","NOT USED") else ""),"","","Mappable",act]
     for j,v in enumerate(vals,1):
         c=ws.cell(row=rr,column=j,value=v); c.font=font(9); c.border=border; c.alignment=left
-    ws.cell(row=rr,column=4).fill=fill(YELLOW)
-    rr+=1
+    ws.cell(row=rr,column=4).fill=fill(YELLOW); rr+=1
+for row in drows:
+    ru,oa,fa,ent,lib,src=row
+    vals=[ru,oa,fa,ent,"","","","défaut 1re EJ",lib]
+    for j,v in enumerate(vals,1):
+        c=ws.cell(row=rr,column=j,value=v); c.font=font(9); c.border=border; c.alignment=left
+    ws.cell(row=rr,column=4).fill=fill(YELLOW); rr+=1
+ndim=len(mrows)+len(drows)
 widths(ws,{"A":12,"B":10,"C":10,"D":14,"E":12,"F":14,"G":9,"H":16,"I":34})
-add_table(ws,"tblDim",4,len(dh),len(drows))
+add_table(ws,"tblDim",4,len(dh),ndim)
 
 # ---------- MAP - Comptes P&L
 ws=sheet("MAP - Comptes P&L",ACC)
@@ -334,16 +346,17 @@ ref_sheet("REF - Hier PMA","hierarchie_pma.csv",wm={"A":14,"B":44,"C":14,"D":16}
 ref_sheet("REF - RUxOA Mappable","mapping_RUxOA_mappable.csv",wm={"A":12,"B":14,"C":8,"D":10,"E":36,"F":22,"G":22,"H":40,"I":10})
 ref_sheet("REF - RUxOA NonMappable","mapping_RUxOA_non_mappable.csv",wm={"A":12,"B":12,"C":8,"D":30,"E":26,"F":26,"G":50,"H":50,"I":8})
 
-# ---------- rate (reel)
+# ---------- rate (par Scenario x Period x Devise)
 ws=sheet("rate",ACC)
-title_block(ws,"rate — Taux de change (période 03) → EUR","Taux finaux réels (mars 2026). Montant_EUR = montant × « Taux vers EUR ».")
-h,rrows=rd("_rate_03.csv"); hrow(ws,["Devise","Taux final 03","Taux vers EUR","Note"],4); rr=5
+title_block(ws,"rate — Taux de change par Scénario × Période × Devise → EUR","Taux réels (12 périodes). Montant_EUR = montant × « Taux vers EUR », joint sur Scénario+Période+Devise.")
+h,rrows=rd("_rate_all.csv"); hrow(ws,["Scenario","Period","Devise","Taux vers EUR"],4); rr=5
 for row in rrows:
     ws.cell(row=rr,column=1,value=row[0]).font=font(9); ws.cell(row=rr,column=1).border=border
-    c2=ws.cell(row=rr,column=2,value=float(row[1])); c2.number_format="0.000000"; c2.border=border
-    c3=ws.cell(row=rr,column=3,value=float(row[2])); c3.number_format="0.000000"; c3.border=border; c3.fill=fill(YELLOW)
-    ws.cell(row=rr,column=4).border=border; rr+=1
-widths(ws,{"A":10,"B":14,"C":14,"D":36})
+    ws.cell(row=rr,column=2,value=row[1]).font=font(9); ws.cell(row=rr,column=2).border=border
+    ws.cell(row=rr,column=3,value=row[2]).font=font(9); ws.cell(row=rr,column=3).border=border
+    c4=ws.cell(row=rr,column=4,value=float(row[3])); c4.number_format="0.000000"; c4.border=border; c4.fill=fill(YELLOW)
+    rr+=1
+widths(ws,{"A":12,"B":10,"C":10,"D":16})
 add_table(ws,"tblRate",4,4,len(rrows))
 
 # ---------- CONTROLES
@@ -357,6 +370,13 @@ for lab,v in [("Lignes en entrée","(PQ)"),("Lignes en sortie","(PQ)"),
     ws.cell(row=rr,column=1,value=lab).font=font(10,True); ws.cell(row=rr,column=1).border=border
     ws.cell(row=rr,column=2,value=v).font=font(10,color=GREY); ws.cell(row=rr,column=2).border=border; rr+=1
 widths(ws,{"A":40,"B":30})
+
+# ---------- A MAPPER (auto - detection)
+ws=sheet("À MAPPER (auto)",AMBER)
+title_block(ws,"À MAPPER — détection automatique","Généré par Power Query à chaque Actualisation : liste les RU / OA / FA présents dans les données mais ABSENTS des tables de mapping. En rouge = à traiter. Ajoutez-les dans les onglets MAP correspondants.",AMBER)
+hrow(ws,["Type (RU/OA/FA)","Code manquant","Vu dans les données (nb lignes)","Action"],4)
+ws["A6"]="(Se remplit tout seul après « Actualiser tout » — voir powerquery/08_AMapper.pq.)"; ws["A6"].font=font(9,it=True,color=GREY)
+widths(ws,{"A":16,"B":18,"C":26,"D":40})
 
 # ---------- ETATS
 for nm,desc in [("ETAT - Restitution Magnitude","Vue P&L façon « Réalisé vs Estimé », en EUR. Segments Scénario/Période. TCD à brancher sur la sortie."),

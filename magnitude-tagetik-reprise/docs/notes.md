@@ -901,3 +901,29 @@ générés automatiquement (Power Query + TCD).
   Scenario / Period** (segment/slicer) pour n'afficher qu'une liasse à la fois (ou comparer).
 - Scenario/Period restent **déduits de `D_DP`** (étape 20) → le sélecteur liste automatiquement les
   couples présents dans les données importées.
+
+---
+
+## Étape 25 — rate par Scénario/Période, pré-remplissage Dimensions, Priorité, détection auto
+
+### rate par Scénario × Période × Devise
+- L'onglet `rate` est désormais clé **Scénario + Période + Devise → Taux vers EUR** (164 lignes, 12 périodes).
+- La conversion EUR (`Constantes.pq`) joint sur ces 3 clés → correct même avec **plusieurs liasses**.
+
+### MAP - Dimensions pré-rempli plus largement
+- Pré-rempli avec **tout ce qu'on sait** : les **90 combos Mappable** (RU×OA→EJ spécifiques) **+** les
+  **défauts par RU** (générique, OA vide → 1re EJ). Les combos Mappable sont plus spécifiques → gagnent.
+
+### Colonne « Priorité » — définition
+- Nombre qui **départage deux règles de MÊME spécificité** (même nombre de cases remplies).
+- **Plus grand = gagne.** Sert p. ex. à forcer une exception transverse par-dessus une autre.
+- Vide = 0. Dans 99% des cas inutile (la spécificité suffit) ; c'est un **filet** pour arbitrer.
+
+### Détection automatique des non-mappés (sans VBA)
+- Onglet **« À MAPPER (auto) »** + requête `powerquery/08_AMapper.pq`.
+- À chaque **Actualiser**, liste les **RU / OA / FA** présents dans les données mais **absents** des
+  tables (tblRUEJ / tblOAPMA / tblFACC), avec le nb de lignes. En rouge = à traiter.
+- ⚠️ Ne réécrit PAS tout seul dans les onglets MAP (Power Query ne peut pas s'auto-écrire) : il
+  **affiche la liste**, le CDG copie/ajoute dans les MAP. C'est le **« bouton » = Actualiser** (100% sans VBA).
+- Option (si un jour souhaité) : un **vrai bouton VBA** qui recopie ces manquants en bas des tables MAP
+  en rouge → possible mais nécessite un classeur **.xlsm** (macro). À éviter tant qu'on veut « sans VBA ».
