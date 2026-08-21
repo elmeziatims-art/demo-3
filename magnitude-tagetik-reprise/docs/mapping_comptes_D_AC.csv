@@ -54,3 +54,4 @@ GR5300,Plus et moins-values sur cession d'actifs immobilisés,Résultat,Compte f
 GR5400,Résultat des Sociétés Mise En Equivalence (MEE),Résultat,Compte fin,x,,x,,,,,⚠️ Dans périmètre mais non visible dans P&L - à vérifier
 GRNAI,Résultat Net Avant Impôts,Résultat,Agrégat,,,,,,,,Calculé - hors ou yc tutelle à clarifier
 GRNAI2,Résultat Net Avant Impôts 2,Résultat,Agrégat,,,,,,,,Calculé - hors ou yc tutelle à clarifier
+GR21CS,Charges sociales (calculé GR2100),Frais de personnel,Compte fin,,x,,IND_00_060074,Social Charges,IND_26_060048,Avantages sociaux - pays,Genere par l'etape ChargesSociales. Variante Pays a confirmer.

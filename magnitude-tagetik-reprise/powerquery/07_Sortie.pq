@@ -8,7 +8,7 @@ let
     wPT   = Table.AddColumn(wOPEX, "Pré-tax", each try (if [c]{0}[blk_PreTax] = "x" then "X" else "") otherwise "", type text),
     Sel = Table.SelectColumns(wPT, {
         "Scenario","Period","Entity","Indicator","Counterparty","PMA","Product",
-        "CostCenter","EntityCurrency","P_AMOUNT","Bloc P&L","PNB+MEE","OPEX","Pré-tax"}),
+        "CostCenter","EntityCurrency","P_AMOUNT","Montant_EUR","Bloc P&L","PNB+MEE","OPEX","Pré-tax"}),
     Stat = Table.AddColumn(Sel, "Statut", each
         if [Entity] = null or [Entity] = ""
         or [Indicator] = null or [Indicator] = ""
@@ -17,6 +17,7 @@ let
     Ren = Table.RenameColumns(Stat, {
         {"CostCenter","Cost Center"},
         {"EntityCurrency","Entity currency"},
-        {"P_AMOUNT","Entity currency amount"}})
+        {"P_AMOUNT","Entity currency amount"},
+        {"Montant_EUR","Montant EUR"}})
 in
     Ren
