@@ -51,25 +51,118 @@ def add_table(ws,name,first_row,ncols,nrows):
     t.tableStyleInfo=TableStyleInfo(name="TableStyleLight9",showRowStripes=True)
     ws.add_table(t)
 
-# ---------- 0. Accueil
+# ---------- 0. Accueil (soigné)
 ws=sheet("0. Accueil",ACC)
-ws["B2"]="Reprise Magnitude  →  Tagetik (SolaRE)"; ws["B2"].font=font(18,True,ACC)
-ws["B3"]="Moteur Excel / Power Query — sans VBA. Tableaux déjà créés (aucun Ctrl+T à faire)."; ws["B3"].font=font(10,False,GREY,it=True)
+ws.sheet_view.showGridLines=False
+widths(ws,{"A":2.5,"B":22,"C":26,"D":30,"E":34,"F":16,"G":2.5})
+def merge(rng): ws.merge_cells(rng)
+def put(cell,val,fnt,al=None,f=None):
+    c=ws[cell]; c.value=val; c.font=fnt
+    if al: c.alignment=al
+    if f: c.fill=f
+    return c
+band=fill(ACC); soft=fill("E2EFE9"); navyfill=fill(NAVY)
+
+# --- Bandeau titre
+for col in "BCDEF":
+    ws[f"{col}2"].fill=band; ws[f"{col}3"].fill=band
+merge("B2:F2"); merge("B3:F3")
+ws["B2"]="  Reprise Magnitude  →  Tagetik (SolaRE)"; ws["B2"].font=font(20,True,WHITE); ws["B2"].fill=band; ws["B2"].alignment=Alignment(vertical="center")
+ws["B3"]="  Moteur de reprise d'historique — Excel / Power Query, sans VBA"; ws["B3"].font=font(10,False,"D9EFE7",it=True); ws["B3"].fill=band; ws["B3"].alignment=Alignment(vertical="center")
+ws.row_dimensions[2].height=32; ws.row_dimensions[3].height=20; ws.row_dimensions[4].height=8
+
+# --- Pitch
 r=6
-ws[f"B{r}"]="Mode d'emploi"; ws[f"B{r}"].font=font(12,True,NAVY); r+=1
-for n,t,d in [("1","Coller","Collez votre extraction Magnitude (A→Y) dans « ① ENTREE » (un échantillon est déjà là)."),
-              ("2","Actualiser","Données ▸ Actualiser tout."),
-              ("3","Lire","Récupérez « ⑨ SORTIE » + les 2 états de restitution.")]:
-    ws[f"B{r}"]=n; ws[f"B{r}"].font=font(14,True,WHITE); ws[f"B{r}"].fill=fill(ACC); ws[f"B{r}"].alignment=center
-    ws[f"C{r}"]=t; ws[f"C{r}"].font=font(11,True,NAVY)
-    ws[f"D{r}"]=d; ws[f"D{r}"].font=font(10); ws[f"D{r}"].alignment=left; ws.row_dimensions[r].height=26; r+=1
+merge(f"B{r}:F{r}")
+put(f"B{r}","À quoi sert ce classeur",font(12,True,ACC))
+r+=1; merge(f"B{r}:F{r+1}")
+put(f"B{r}","On colle l'extraction Magnitude dans « ① ENTREE », on actualise, et on récupère l'output "
+             "Tagetik dans « ⑨ SORTIE » + deux états de restitution. Entre les deux, des tables de mapping "
+             "que les contrôleurs de gestion gardent la main de modifier.",
+    font(10,color=NAVY),al=Alignment(wrap_text=True,vertical="top"))
+ws.row_dimensions[r].height=16; ws.row_dimensions[r+1].height=16
+
+# --- 3 étapes (cartes)
+r+=3
+merge(f"B{r}:F{r}"); put(f"B{r}","Mode d'emploi — 3 étapes",font(12,True,ACC)); r+=1
+steps=[("1","Coller","Collez votre extraction Magnitude (colonnes A→Y) dans « ① ENTREE ». Un échantillon de 1 500 lignes est déjà en place."),
+       ("2","Actualiser","Données  ▸  Actualiser tout. Le moteur Power Query recalcule toute la chaîne."),
+       ("3","Lire","Récupérez « ⑨ SORTIE — Table de fait » et les 2 états de restitution (Magnitude & SolaRE).")]
+for n,t,d in steps:
+    put(f"B{r}",n,font(18,True,WHITE),al=center,f=band)
+    put(f"C{r}",t,font(11,True,NAVY),al=Alignment(vertical="center"))
+    merge(f"D{r}:F{r}")
+    put(f"D{r}",d,font(9,color=NAVY),al=Alignment(wrap_text=True,vertical="center"))
+    ws.row_dimensions[r].height=34; r+=1
+
+# --- Chaîne de mapping
 r+=1
-ws[f"B{r}"]="Chaîne de mapping"; ws[f"B{r}"].font=font(12,True,NAVY); r+=1
-for d in ["RU → EJ  (+ défaut) ,   OA → PMA ,   FA → CC  (+ défaut)   alimentent…",
-          "…MAP - Dimensions  →  qui a TOUJOURS le dernier mot sur l'output.",
-          "Rouge = à valider / à saisir.   Toutes les tables sont modifiables."]:
-    ws[f"B{r}"]=d; ws[f"B{r}"].font=font(10,color=NAVY); r+=1
-widths(ws,{"A":2,"B":22,"C":24,"D":86})
+merge(f"B{r}:F{r}"); put(f"B{r}","La chaîne de mapping",font(12,True,ACC)); r+=1
+merge(f"B{r}:F{r}")
+put(f"B{r}","  RU → EJ  (+ défaut)     •     OA → PMA     •     FA → CC  (+ défaut)",font(10,True,NAVY),al=Alignment(vertical="center"),f=soft)
+ws.row_dimensions[r].height=22; r+=1
+merge(f"B{r}:F{r}")
+put(f"B{r}","  ↓  alimentent les valeurs par défaut",font(9,it=True,color=GREY)); r+=1
+merge(f"B{r}:F{r}")
+put(f"B{r}","  MAP - Dimensions   →   a TOUJOURS le dernier mot sur l'output",font(10,True,WHITE),al=Alignment(vertical="center"),f=band)
+ws.row_dimensions[r].height=22; r+=2
+
+# --- Sommaire cliquable
+merge(f"B{r}:F{r}"); put(f"B{r}","Sommaire des onglets",font(12,True,ACC)); r+=1
+# entête
+for col,txt in [("B","Onglet"),("C","Type"),("D","Rôle")]:
+    pass
+hdrrow=r
+put(f"B{r}","Onglet",font(9,True,WHITE),al=left,f=navyfill)
+merge(f"C{r}:C{r}"); put(f"C{r}","Type",font(9,True,WHITE),al=left,f=navyfill)
+merge(f"D{r}:F{r}"); put(f"D{r}","Rôle",font(9,True,WHITE),al=left,f=navyfill)
+for col in "EF": ws[f"{col}{r}"].fill=navyfill
+r+=1
+TYPES={"saisie":(AMBER,"Saisie"),"edit":(ACC,"Éditable"),"ref":(VIOLET,"Référence"),"auto":(BLUE,"Auto")}
+index=[
+ ("1. ① ENTREE - Magnitude","saisie","Coller l'extraction Magnitude (A→Y)"),
+ ("MAP - RU vers EJ","edit","RU → EJ (1→N) + colonne Défaut"),
+ ("MAP - OA vers PMA","edit","OA → PMA (NOT USED en rouge)"),
+ ("MAP - FA vers CC","edit","FA → Cost Center + colonne Défaut"),
+ ("MAP - Dimensions","edit","Décision finale RU×OA×FA → Entité·PMA·CC (dernier mot)"),
+ ("MAP - Comptes P&L","edit","D_AC → Indicateur (France / Pays)"),
+ ("MAP - ETP (Q99)","edit","Comptes ETP → indicateurs headcount"),
+ ("MAP - Exclusions","edit","Retirer % / € d'un RU×OA×FA (avant mapping)"),
+ ("MAP - Taux charges soc.","edit","Un % de charges sociales par RU"),
+ ("MAP - Zone RU","edit","RU → zone France / Pays"),
+ ("REF - Indicateurs","ref","736 indicateurs Tagetik (hiérarchie)"),
+ ("REF - Hier Entites","ref","Hiérarchie des entités"),
+ ("REF - Hier PMA","ref","Hiérarchie des PMA"),
+ ("REF - RUxOA Mappable","ref","90 combinaisons RU×OA résolues"),
+ ("REF - RUxOA NonMappable","ref","8 combinaisons bloquées"),
+ ("rate","edit","Taux de change → EUR (mars 03)"),
+ ("CONTROLES","auto","Voyants de cohérence"),
+ ("ETAT - Restitution Magnitude","auto","État P&L façon Magnitude, en EUR"),
+ ("ETAT - Restitution SolaRE","auto","État PMA × Entités, en EUR"),
+ ("⑨ SORTIE - Table de fait","auto","Output Tagetik (24 colonnes, à plat)"),
+]
+for name,typ,role in index:
+    col_,lab=TYPES[typ]
+    lc=ws[f"B{r}"]; lc.value=name; lc.font=Font(name=F,size=9,color="0563C1",underline="single")
+    lc.hyperlink=f"#'{name}'!A1"; lc.alignment=left; lc.border=border
+    tcell=ws[f"C{r}"]; tcell.value=lab; tcell.font=font(8,True,WHITE); tcell.fill=fill(col_); tcell.alignment=center; tcell.border=border
+    merge(f"D{r}:F{r}")
+    rc=ws[f"D{r}"]; rc.value=role; rc.font=font(9,color=NAVY); rc.alignment=left; rc.border=border
+    for col in "EF": ws[f"{col}{r}"].border=border
+    r+=1
+
+# --- Règles d'or
+r+=1
+merge(f"B{r}:F{r}"); put(f"B{r}","Règles d'or",font(12,True,ACC)); r+=1
+for txt,col in [("Toutes les tables de mapping sont modifiables — rien n'est figé en dur.",NAVY),
+                ("Rouge = à valider / à saisir par les contrôleurs de gestion.",REDTXT),
+                ("Les Tableaux Excel sont déjà créés : aucun Ctrl+T à faire.",NAVY),
+                ("Le moteur Power Query se trouve dans le dossier « powerquery/ » (à coller une fois).",GREY)]:
+    merge(f"B{r}:F{r}"); put(f"B{r}","•  "+txt,font(10,color=col)); r+=1
+
+# --- Pied
+r+=1; merge(f"B{r}:F{r}")
+put(f"B{r}","Environnement : Excel 365 · 64 bits · Windows      |      Reprise 2026.03 (Actuals)",font(8,color=GREY,it=True))
 
 # ---------- 1. ENTREE (+ echantillon)
 ws=sheet("1. ① ENTREE - Magnitude",AMBER)
