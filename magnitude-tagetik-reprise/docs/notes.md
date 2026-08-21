@@ -721,3 +721,31 @@ Extraite du gros fichier (onglet `D_AC_Comptes`) → **`docs/mapping_comptes_D_A
 ### Statut mapping comptes
 - ✅ **Table complète disponible** ; deviendra l'onglet **MAP – Comptes** (éditable, + clé Zone France/Pays
   de l'étape 14, + retraitement charges sociales de l'étape 13).
+
+---
+
+## Étape 16 — Indicateurs PAYS présents dans la table comptes (colonnes L/M)
+
+⚠️ **Correction d'extraction** : dans `D_AC_Comptes`, la variante **Pays** est portée par les
+colonnes **L (IND Pays)** et **M (libellé Pays « - pays »)** — l'en-tête disait « Commentaire »,
+mais en pratique L/M = **2ᵉ mapping (Pays)**. CSV `docs/mapping_comptes_D_AC.csv` corrigé :
+colonnes `IND_France, lib_France, IND_Pays, lib_Pays`.
+
+### Les 6 comptes à double mapping France ≠ Pays
+| Compte | IND **France** | IND **Pays** | Libellé |
+|--------|----------------|--------------|---------|
+| `GR2100` | `IND_26_060016` | `IND_26_060049` | Salaires fixes |
+| `GR2101` | `IND_00_060079` | `IND_26_060048` | Indemnités de départ |
+| `GR2102` | `IND_26_060005` | `IND_26_060048` | Engagements sociaux |
+| `GR2200` | `IND_26_060031` | `IND_26_060050` | Intéressement + participation |
+| `GR3000` | `IND_26_060033` | `IND_26_060054` | Frais de locaux |
+| `GR3200` | `IND_26_060037` | `IND_26_060055` | Frais de voyages et déplacement |
+- `GR3100` (Réceptions) : Pays noté **« différent »** (non précisé) → à compléter (rouge).
+
+### Conséquences
+- La clé **`(D_AC, Zone)`** de l'étape 14 lit directement : `Zone=France` → col `IND_France`,
+  `Zone=Pays` → col `IND_Pays`. Les comptes sans variante Pays utilisent `IND_France` pour les deux.
+- **Point ouvert résolu** : GR2101/GR2102 ont bien leurs **IND dédiés** (ci-dessus) — pas de charges
+  dessus (étape 13).
+- ⚠️ Le mapping **charges sociales France** doit viser `IND_00_060074` (Social Charges) — vérifier la
+  variante **Pays** correspondante (compte de charges sociales « pays ») lors de la construction.
