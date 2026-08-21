@@ -11,3 +11,6 @@ G-DE,OA021,,EJ_21904,PMA_8040,,,Proposition,"G-DE Valuation -> BNPP RE GmbH. A v
 G-MEPF,,,EJ_41015,PMA_8033,CC_80301,,Proposition,"G-MEPF = Gulf: PAS d'EJ propre -> pivot GIE BNPP RE (EJ_41015) x Holding, distingue par Cost Center CC_80301 (Gulf). Cf. donnee Tagetik. A valider."
 G-ASIEPF,,,EJ_41015,PMA_8033,CC_90001,,Proposition,"Plateforme Asie/ME: PAS d'EJ propre -> pivot GIE (EJ_41015) x Holding, Cost Center CC_90001 (Plateform Asia/ME). A valider."
 G-SGP,,,EJ_41015,PMA_8033,,,Proposition,"G-SGP Singapour: probablement PAS d'EJ propre -> pivot GIE (EJ_41015) x Holding, distingue par Cost Center (Hong-Kong=CC_86027; CC Singapour a confirmer). A valider."
+G-CENTRAL,,,EG_21700,PMA_8033,,,Proposition,"Central France: pas de RU->EJ propre -> pivot BNPP RE France (EG_21700) x Holding. A valider."
+GT-BCESTE,,,EG_21700,PMA_8033,,,Proposition,"Maille technique (centralisation carto): pas une EJ -> pivot EG_21700 provisoire. Cible reelle a confirmer (UG_OUT/tutelle) ou EXCLURE."
+GT-TUT,,,EG_21700,PMA_8033,,,Proposition,"Maille tutelle (refacturation fonctions Groupe): pas une EJ -> pivot EG_21700 provisoire. A confirmer ou EXCLURE."
