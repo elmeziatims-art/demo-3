@@ -666,3 +666,27 @@ ne pas chercher à les réconcilier au niveau EJ classique.
 - **Convention du taux** : `/(1+t)` (taux sur brut — défaut proposé) **vs** part du total (`× t`). À trancher.
 - Confirmer mapping IND dédiés de `GR2101` et `GR2102`.
 - Gestion des cas où le taux RU n'est pas saisi (valeur par défaut ? ligne signalée en contrôle ?).
+
+---
+
+## Étape 14 — Indicateurs France vs Pays (cas 4 comptes) : mécanisme
+
+### La zone France/Pays vient des onglets Mappable / Non mappable (déjà existants)
+- Ces onglets portent une **colonne `Pays`** par **RU** (déjà renseignée). Pas besoin d'inventer un flag.
+- **Zone du mapping comptes** déduite : **`France` si `Pays = France`, sinon `Pays`** (hors France).
+- Référentiel généré → `docs/ref_RU_pays_zone.csv` (27 RU).
+  - **RU France** : `G-FRMP`, `G-FRAR`, `G-HDBNPPI`.
+  - **RU Pays (hors France)** : tous les autres (Allemagne, Italie, UK, Espagne, Luxembourg,
+    Pays-Bas, Irlande, Pologne, Belgique, Portugal, Singapour, Plateformes, Transversal…).
+- Granularité `Pays` fine disponible (15 valeurs) si un jour le mapping doit varier pays par pays ;
+  pour le cas 4 actuel, distinction **binaire France / Pays** suffit.
+
+### Mécanisme dans MAP – Comptes : clé (D_AC, Zone)
+- Table **`(D_AC, Zone) → IND`** :
+  - comptes **identiques partout** → 1 ligne `Zone = Tous` (ou vide) ;
+  - comptes **France/Pays différents** (ex. `GR3000`, `GR3200`, + les cas signalés) → **2 lignes**
+    (une `France`, une `Pays`).
+- **Jointure exacte à 2 clés** (pas de wildcard), avec **repli sur `Tous`** si pas de variante zone.
+- Le moteur : chaque ligne filtrée → Zone via **RU → `ref_RU_pays_zone`** → jointure `(D_AC, Zone)`.
+- **Éditable CDG** : les deux variantes France/Pays et le classement zone des RU restent modifiables
+  (référentiel RU→Pays affiché en onglet REF, dérivé de Mappable/Non mappable).
