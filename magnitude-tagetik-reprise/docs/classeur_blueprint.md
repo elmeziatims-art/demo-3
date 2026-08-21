@@ -51,8 +51,10 @@ Jokers `*` autorisés ; résolution « la plus spécifique gagne » (+ Priorité
 `RU | Pays | Zone (France/Pays)` — dérivé de Mappable/Non mappable, éditable.
 
 ### ⑧ PARAM – Constantes
-`Scenario=2026AC | Period=03 | Vision=VIS_00_000001 | Origin=QDL | Counterparty=NA | Product=NA`
-(Période/scénario paramétrables pour les reprises futures.)
+- **Scenario & Period DÉDUITS de `D_DP`** (colonnes calculées, pas figées) :
+  `D_DP = 2026.03` → **Scenario = `2026AC`** (année + `AC`), **Period = `03`** (le mois).
+  ⇒ Le moteur est **indépendant de la période** : il s'adapte à toute valeur de `D_DP`.
+- Vraies constantes : `Vision=VIS_00_000001 | Origin=QDL | Counterparty=NA | Product=NA`.
 
 ### ⑨ REF – … (lecture seule, alimentent les listes déroulantes)
 Indicateurs Tagetik · Hiérarchie Entités · Hiérarchie PMA · FA→CC · OA→PMA · RU→EJ ·

@@ -798,3 +798,15 @@ zones France/Pays, constantes) doivent **laisser la main aux CDG pour modifier**
 - Y compris les mappings « déterministes » et ceux qu'on a pré-remplis depuis les fichiers sources.
 - Garde-fous conservés (listes déroulantes, validation, rouge = à valider) mais **jamais de blocage**
   de la modification.
+
+---
+
+## Étape 20 — Scenario & Period DÉDUITS de D_DP (pas des constantes)
+
+- `Scenario` et `Period` ne sont **pas** des constantes figées : ils se **déduisent de `D_DP`** :
+  - `D_DP = 2026.03` → **Scenario = `2026AC`** (année `2026` + suffixe `AC` = Actuals),
+    **Period = `03`** (partie mois après le point).
+- ⇒ Colonnes **calculées** dans le moteur → **indépendant de la période** (marche pour tout `D_DP`).
+- Restent de vraies constantes : `Vision = VIS_00_000001`, `Origin = QDL`, `Counterparty = NA`,
+  `Product = NA`.
+- (Suffixe `AC` = Actuals — à reconfirmer si autre scénario un jour, ex. estimé/budget.)
