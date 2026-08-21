@@ -927,3 +927,19 @@ générés automatiquement (Power Query + TCD).
   **affiche la liste**, le CDG copie/ajoute dans les MAP. C'est le **« bouton » = Actualiser** (100% sans VBA).
 - Option (si un jour souhaité) : un **vrai bouton VBA** qui recopie ces manquants en bas des tables MAP
   en rouge → possible mais nécessite un classeur **.xlsm** (macro). À éviter tant qu'on veut « sans VBA ».
+
+---
+
+## Étape 26 — Plateformes Asie/Gulf/Singapour : pivot EJ_41015 + Cost Center (pas d'EJ distincte)
+
+Correction utilisateur : Singapour/Asie/Gulf ne sont **PAS mappés vers des entités distinctes**.
+Ils vont sur le **pivot holding `EJ_41015` (GIE BNPP RE) × `PMA_8033` (Holding)** et se **distinguent
+par le Cost Center** :
+- `CC_80301` = **Gulf**  → **G-MEPF**
+- `CC_90001` = **Plateform Asia / ME**  → **G-ASIEPF**
+- `CC_86027` = **Hong-Kong Rep Office**
+- (Singapour `G-SGP` : même pivot EJ_41015, CC à confirmer.)
+
+⇒ Propositions dans MAP - Dimensions mises à jour (`docs/mapping_dim_propositions.csv`), avec
+Priorité 5 pour que la proposition plateforme **batte le défaut EJ** (ex. G-SGP défaut EJ_66206).
+Confirme la logique « certains RU portés par l'axe Centre de coût » (étape 6).
