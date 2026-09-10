@@ -14,6 +14,7 @@ Each verdict below is annotated with the evidence it rests on:
     python3 tools/screen_neomind.py neomind.xlsx neomind_screened.xlsx
 """
 
+import collections
 import sys
 
 sys.path.insert(0, __file__.rsplit('/', 1)[0])
@@ -116,7 +117,12 @@ mark('DOUTE', "Périmètre géographique à confirmer : faisceau d'indices hors 
               "(raison sociale, absence de rattachement INPI, localisation du contact) [F][C]",
      18, 30, 53, 106, 123, 127, 141, 146, 157)
 mark('DOUTE', "Société non identifiée à l'INPI : ni CA ni taille vérifiables, "
-              "à qualifier avant tout contact [F]", 6, 37, 56, 80)
+              "à qualifier avant tout contact [F]", 37, 56)
+mark('', "Bailleur social des Hauts-de-France, 270 salariés, 20 000 logements : "
+         "entité française, périmètre multi-entités [W]", 80)
+mark('FAUX', "Plateforme de mise en relation avec des consultants indépendants et de "
+             "management de transition (10-19 pers.) : concurrent sur le conseil "
+             "financier, pas un acheteur d'EPM [W]", 29)
 mark('DOUTE', "Holding ou entité de tête peu peuplée : requalifier sur le CA consolidé "
               "avant de conclure [F][C]", 86, 152)
 mark('DOUTE', "Intitulé « Finance Transformation » dans une société de 20-49 personnes : "
@@ -131,7 +137,62 @@ mark('DOUTE', "Rattachement INPI faible ou entité intermédiaire : confirmer qu
 mark('DOUTE', "CA non déclaré et non estimé : à qualifier [F]",
      12, 33, 39, 66, 72, 76, 78, 83, 85, 91, 103, 125, 126, 133, 137, 140, 153, 154)
 
-HEADERS = ['Verdict Neomind', 'Motif', 'Action']
+
+# ---------------------------------------------------------------- pays
+# Le fichier ne porte aucun champ pays, et LinkedIn est inaccessible depuis ce
+# poste : le pays retenu est celui de la SOCIETE, jamais deduit du nom de la
+# personne - un DAF francais peut porter n'importe quel nom.
+#   row -> (pays, comment on le sait)
+PAYS = {
+    # verifie sur source publique, septembre 2026
+    6:   ('Luxembourg', "vérifié — siège 48 rue de Bragance, L-1255 Luxembourg"),
+    21:  ('Maroc', "vérifié — AXESS PHARMA, zone industrielle de Berrechid"),
+    30:  ('Maroc', "vérifié — Câble d'Or, Meknès (distribution de matériel électrique)"),
+    116: ('Maroc', "vérifié — holding marocaine ex-FinanceCom (famille Benjelloun) ; "
+                   "le SIREN français retenu n'est qu'une SCI parisienne"),
+    127: ('Maroc', "vérifié — Casablanca, bd Abdelhadi Boutaleb"),
+    129: ('Maroc', "vérifié — Rabat, Hay Riad (conditionnement agricole)"),
+    146: ('Maroc', "vérifié — Tanger, Z.I. Gzenaya (plasturgie)"),
+    157: ('Maroc', "vérifié — Casablanca, route de Zenata (agroalimentaire)"),
+    80:  ('France', "vérifié — Habilians, bailleur social à Villeneuve-d'Ascq "
+                    "(fusion Habitat du Nord / Logis Métropole), 270 salariés"),
+    101: ('France', "vérifié — Marbour, Le Port (La Réunion), ~300 M€, 900 collaborateurs"),
+    29:  ('France', "vérifié — EOD SAS, Paris 9e"),
+    # ecrit noir sur blanc dans l'intitule du poste
+    41:  ('Congo', "indiqué dans l'intitulé du poste"),
+    113: ('Sénégal', "indiqué dans l'intitulé du poste"),
+    # forte presomption, a confirmer
+    16:  ('Brésil', "à confirmer — Atacadão est l'enseigne de gros de Carrefour au Brésil"),
+    17:  ('Maroc', "à confirmer — site aéronautique de Casablanca"),
+    18:  ('Maroc', "à confirmer — aucune entité française identifiable"),
+    22:  ('Maroc', "à confirmer — groupe agricole basé à Agadir"),
+    53:  ('Portugal / Maroc', "à confirmer — poste « Country Finance Director », "
+                              "pas d'entité française claire"),
+    106: ('Maroc', "à confirmer — aucune entité française identifiable"),
+    108: ('Suisse / Hongrie', "à confirmer — MET Group est un négociant en énergie suisse"),
+    109: ('Turquie', "à confirmer — entité de 3-5 personnes"),
+    123: ('Suisse / Italie', "à confirmer"),
+    # non resolu
+    27:  ('Indéterminé', "société non identifiée"),
+    37:  ('Indéterminé', "société non identifiée"),
+    56:  ('Indéterminé', "société non identifiée"),
+    133: ('Indéterminé', "société non identifiée"),
+    141: ('Indéterminé', "société non identifiée"),
+}
+
+
+def pays_de(row, siren, ca):
+    """Pays retenu et son niveau de preuve."""
+    if row in PAYS:
+        return PAYS[row]
+    if siren and ca:
+        return ('France', "entité française au registre, chiffre d'affaires déclaré")
+    if siren:
+        return ('France', "entité française au registre, CA non déclaré")
+    return ('Indéterminé', "aucun rattachement au registre français")
+
+
+HEADERS = ['Verdict Neomind', 'Motif', 'Action', 'Pays (société)', 'Comment on le sait']
 ACTIONS = {'FAUX': 'Retirer', 'DOUTE': 'Vérifier avant contact',
            'GARDER': 'Conserver - corriger l enrichissement', '': 'Contacter'}
 
@@ -155,11 +216,12 @@ def main(src, dst):
         '': st.xf(font=st.font('Calibri', 11, rgb='FF262626'), halign='left', wrap=True),
     }
 
-    for col, text in zip((15, 16, 17), HEADERS):
+    for col, text in zip((15, 16, 17, 18, 19), HEADERS):
         sheet.set_style(1, col, head)
         sheet.set_text(1, col, sst.add(text))
 
     counts = {'FAUX': 0, 'DOUTE': 0, 'GARDER': 0, '': 0}
+    geo = collections.Counter()
     already = 0
     for row in range(2, 168):
         verdict, motif = V.get(row, ('', ''))
@@ -171,7 +233,17 @@ def main(src, dst):
                 and sheet.rows[row].cells[1].inner == '<v>1</v>':
             already += 1
             action = 'Déjà coché par vous - le crible ICP ne le retire pas'
-        for col, text in zip((15, 16, 17), (verdict, motif, action)):
+        pays, preuve = pays_de(row, sheet.has_cell(row, 11), sheet.has_cell(row, 9))
+        if pays not in ('France', 'Indéterminé') and verdict != 'FAUX':
+            verdict, style = 'FAUX', body['FAUX']
+            counts['FAUX'] += 1
+            counts[V.get(row, ('', ''))[0]] -= 1
+            action = ACTIONS['FAUX']
+        if pays not in ('France', 'Indéterminé'):
+            motif = f"Hors périmètre France — {pays}. " + (motif or '')
+        geo[pays] += 1
+        for col, text in zip((15, 16, 17, 18, 19),
+                             (verdict, motif, action, pays, preuve)):
             sheet.set_style(row, col, style)
             if text:
                 sheet.set_text(row, col, sst.add(text))
@@ -183,7 +255,9 @@ def main(src, dst):
     sheet.column_width(15, 15, 16)
     sheet.column_width(16, 16, 90)
     sheet.column_width(17, 17, 30)
-    sheet.head = sheet.head.replace('$A$1:$N$167', '$A$1:$Q$167')
+    sheet.column_width(18, 18, 18)
+    sheet.column_width(19, 19, 64)
+    sheet.head = sheet.head.replace('$A$1:$N$167', '$A$1:$S$167')
 
     wb.put(part, sheet.serialize())
     wb.put('xl/styles.xml', st.serialize())
@@ -193,6 +267,9 @@ def main(src, dst):
     for k in ('FAUX', 'DOUTE', 'GARDER', ''):
         print(f'  {k or "OK":<7} {counts[k]:>4}')
     print(f'  déjà cochées hors crible : {already}')
+    print('  pays :')
+    for k, v in geo.most_common():
+        print(f'     {k:<20} {v:>4}')
 
 
 if __name__ == '__main__':
