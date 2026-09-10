@@ -39,7 +39,17 @@ RIVAL = re.compile(
     r'tagetik|anaplan|onestream|jedox|insightsoftware|board international|amelkis|'
     r'cegid|lucanet|sigma conso|morgan philips|robert half|hays|michael page|fed finance|'
     r'conseil|consulting|consultants|advisory|audit|expertise.comptable|cabinet|'
-    r'recrutement|int[ée]rim)\b', re.I)
+    r'recrutement|int[ée]rim|adapt1solution|advolis|orfis|alarys|asterigo|bartle|'
+    r'julhiet|magellan|vertone|exelia|nexia|fidal|aca nexia|square management|'
+    r'colombus|onepoint|inetum|devoteam|umanis|synapse|axys|adn|converteo|'
+    r'headlink|meltone|abylsen|nexworld|akoya|aequitas|weave|beijaflore|beyond horizons|new finance|^board$|d&ü)\b', re.I)
+
+# Un intitule de mission plutot que de poste : le contact vend du conseil EPM.
+RIVAL_POS = re.compile(
+    r'\b(consultant|consultante|freelance|ind[ée]pendant|prestataire|delivery|'
+    r'\bamoa\b|assistance [àa] ma[îi]trise|management de transition|'
+    r'transition (manager|director|directeur)|associ[ée] fondateur|'
+    r'practice|avant.vente|pre.sales|business developer|partner)\b', re.I)
 MEGA = re.compile(
     r'\b(lvmh|louis vuitton|kering|herm[èe]s|chanel|dior|carrefour|auchan|leclerc|casino|'
     r'veolia|suez|engie|\bedf\b|totalenergies|renault|stellantis|valeo|forvia|faurecia|'
@@ -53,7 +63,11 @@ MEGA = re.compile(
     r'eurofins|vallourec|edenred|veepee|manitou|exclusive networks|ceva logistics|'
     r'africa global logistics|cma cgm|bollor[ée]|\bsaur\b|emeis|invivo|\bsuez\b|'
     r'dsm.firmenich|gsk|pfizer|novartis|bayer|siemens|bosch|foundever|unilabs|'
-    r'showroomprive|ovhcloud)\b', re.I)
+    r'showroomprive|ovhcloud|alstom|arcelormittal|aperam|altarea|kl[ée]pierre|'
+    r'abeille assurances|adisseo|asmodee|agence fran[çc]aise de d[ée]veloppement|'
+    r'\bafd\b|air france|klm|bnp|icade|gecina|unibail|covivio|nexans|imerys|'
+    r'sonepar|rexel|jcdecaux|spie|derichebourg|paprec|tereos|savencia|avril|'
+    r'in vivo|limagrain|fleury|ldc\b|bigard|intermarch[ée]|syst[èe]me u|lidl|aldi)\b', re.I)
 # Marqueurs geographiques explicites dans l'intitule du poste ou le nom de la
 # societe. Seule preuve de pays disponible : le fichier n'a pas de champ pays et
 # LinkedIn est inaccessible. Jamais deduit du nom de la personne.
@@ -76,6 +90,8 @@ GEO = [
     ('Asie / Pacifique', r"\b(china|chine|shanghai|hong kong|singapore|singapour|japan|japon|"
                          r"india|inde|australia)\b"),
 ]
+GEO.append(('Maroc', r'al omrane|al ajial|adm indicia|label.vie|akwa|ynna|addoha|'
+                     r'holmarcom|\bcih\b|\bbmce\b|wafa\b'))
 GEO = [(name, re.compile(pat, re.I)) for name, pat in GEO]
 
 AFRICA = re.compile(
@@ -104,10 +120,20 @@ def perimetre(company, position):
     return 'France présumée'
 
 
+NONCORP = re.compile(r'^(confidentiel|confidential|freelance|ind[ée]pendant|'
+                     r'auto.?entrepreneur|self.employed|inconnu|n/a|\-)$', re.I)
+EDITEUR = re.compile(r'^(board|anaplan|onestream|tagetik|jedox|lucanet|pigment|'
+                     r'workday|oracle|sap|ibm)$', re.I)
+
+
 def classify(company, position):
     zone = perimetre(company, position)
+    if NONCORP.match(company.strip()) or EDITEUR.match(company.strip()):
+        return 'CONCURRENT', zone
     if zone != 'France présumée':
         return 'HORS FRANCE', zone
+    if RIVAL_POS.search(position):
+        return 'CONCURRENT', zone
     for label, pattern, _ in CLASSES:
         if pattern.search(company):
             return label, zone
